@@ -1,0 +1,76 @@
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+/* Google Web Font */
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Raleway', sans-serif;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.items {
+    width: 250px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #535c68;
+
+    .close-item {
+        text-align: center;
+        background-color: crimson;
+    }
+
+    & li a {
+        display: block;
+        color: #fff;
+        text-transform: capitalize;
+        padding: 10px;
+    }
+    .main-item {
+
+        > a {
+            position: relative;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.158);
+            &:after {
+                content: '\f107';
+                font-family: fontawesome;
+                position: absolute;
+                right: 10px;
+                
+            }
+        }
+
+    }
+    .sub-items {
+        max-height: 0;
+        overflow: hidden;
+        background-color: #626e7e;
+        transition: all .35s;
+        &:target {
+            max-height: 500px;
+        }
+
+        a {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.103);
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}

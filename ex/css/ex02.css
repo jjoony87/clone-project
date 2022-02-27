@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+/* Figma Logo Varibles */
+body {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Figma Logo */
+.figma {
+  width: 200px;
+}
+
+.figma > span {
+  display: block;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 66.66667px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  color: #222;
+  letter-spacing: 3px;
+}
+
+.figma .shape {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.figma .shape span {
+  width: 100px;
+  height: 100px;
+}
+
+.figma .shape span:nth-child(1) {
+  background-color: #f24e1e;
+  border-radius: 50% 0 0 50%;
+}
+
+.figma .shape span:nth-child(2) {
+  background-color: #ff7262;
+  border-radius: 0 50% 50% 0;
+}
+
+.figma .shape span:nth-child(3) {
+  background-color: #a259ff;
+  border-radius: 50% 0 0 50%;
+}
+
+.figma .shape span:nth-child(4) {
+  background-color: #1abcfe;
+  border-radius: 100%;
+}
+
+.figma .shape span:nth-child(5) {
+  background-color: #0acf83;
+  border-radius: 50% 0 50% 50%;
+}
