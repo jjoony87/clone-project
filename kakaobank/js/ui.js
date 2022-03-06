@@ -1,6 +1,7 @@
 
 $(function(){
 
+
     /* var ww = $(window).width();
     $(window).on('resize', function () {
       ww = $(window).width();
@@ -71,7 +72,7 @@ $(function(){
       });
 
       //var bodyScr = $('body').offset();
-      var divEl = $("#scrEvent").offset().top - 100;
+      var divEl = $("#scrEvent").offset().top - 50;
       var bar = $('.moving');
       var barWidth = $('.moving').width();
 

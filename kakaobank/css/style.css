@@ -140,6 +140,7 @@ input[type="text"] {
   position: absolute;
   right: 0;
   top: 0;
+  height: 100%;
   z-index: 30;
 }
 
@@ -152,13 +153,12 @@ input[type="text"] {
 }
 
 #wrap header .header_inner .navWrap .nav > li {
-  height: 100%;
+  align-self: center;
 }
 
 #wrap header .header_inner .navWrap .nav > li a {
   display: block;
   padding: 0 1rem;
-  line-height: 8rem;
   font-size: 1.5rem;
 }
 

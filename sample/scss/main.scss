@@ -1,0 +1,347 @@
+// @import "mixin";
+// @import "variables";
+
+/* Font Set */
+
+@font-face {
+    font-family: "NotoSansKr";
+    font-style: normal;
+    font-weight: 300;
+    src: local(""),
+    url("../font/noto-sans-kr-300.woff2") format("woff2"),
+    url("../font/noto-sans-kr-300.woff") format("woff"),
+    url("../font/noto-sans-kr-300.ttf") format("truetype"),
+    url("../font/noto-sans-kr-300.svg#NotoSansKR") format("svg")
+}
+@font-face {
+    font-family: "NotoSansKr";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""),
+    url("../font/noto-sans-kr-400.woff2") format("woff2"),
+    url("../font/noto-sans-kr-400.woff") format("woff"),
+    url("../font/noto-sans-kr-400.ttf") format("truetype"),
+    url("../font/noto-sans-kr-400.svg#NotoSansKR") format("svg")
+}
+@font-face {
+    font-family: "NotoSansKr";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""),
+    url("../font/noto-sans-kr-700.woff2") format("woff2"),
+    url("../font/noto-sans-kr-700.woff") format("woff"),
+    url("../font/noto-sans-kr-700.ttf") format("truetype"),
+    url("../font/noto-sans-kr-700.svg#NotoSansKR") format("svg")
+}
+
+@mixin default {
+    font-family: 'NotoSansKr', 'Apple SD Gothic Neo', 'sans-serif';
+    font-size: 1.2rem;
+    color: $col_black;
+    margin: 0;
+    padding: 0;
+}
+
+/* ########################################## */
+
+// Mixin
+@mixin flexDefualt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flexJp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ########################################## */
+
+// Variables
+$font-base: 10px;
+$col_white: #fff;
+$col_black: #000;
+
+
+/* ########################################## */
+
+html, body {
+  font-size: 10px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-size: inherit;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+var,
+i {
+  font-style: normal;
+  font-weight: normal;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+hr {
+  overflow: hidden;
+  position: absolute;
+  left: -9999em;
+  top: 0;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+blockquote,
+q {
+  quotes: "" "";
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+sub {
+  line-height: 0;
+  position: relative;
+}
+
+sup {
+  line-height: 0;
+  position: relative;
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  word-break: break-all;
+  &:link,
+  &:visited,
+  &:active {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blind {
+    overflow: hidden!important;
+    position: absolute!important;
+    clip: rect(0 0 0 0)!important;
+    width: 1px!important;
+    height: 1px!important;
+    margin: -1px!important
+}
+
+body {
+    @include default;
+}
+
+#wrap {
+  position: relative;
+  width: 100%;
+  height: 100%
+}
+
+/* Header */
+header {
+  @include flexDefualt;
+  position: fixed;
+  top: -7.3rem;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  transition: .25s ease-out;
+  background-color: rgba(0, 0, 0, .5);
+  .header_inner {
+    
+    width: 100%;
+    //gap: 1.8rem;
+    border: 1px solid #000;
+    > a {
+      position: relative;
+      padding-bottom: 4px;
+      font-size: 1.8rem;
+      color: #fff;
+      &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        transition: all .25s linear;
+        background-color: #fff;
+      }
+      &:hover:after {
+        width: 100%;
+      }
+    }
+  }
+  .line {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 5px;
+    background-color: crimson;
+  }
+  &.active {
+    top: 0;
+  }
+}
+
+/* Main */
+.main {
+  width: 100%;
+  padding: 3rem 2rem;
+  box-sizing: border-box;
+}
+
+/* Contents */
+.contents {
+  padding-top: 6.1rem;
+  box-sizing: border-box;
+
+}
+
+.project {
+    
+  &_list {
+    height: 100%;
+    display: grid;
+    // place-items: center;
+    // align-items: center;
+    // align-content: center;
+    justify-content: center;
+    grid-gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    
+    li {
+      @include flexDefualt;
+      width: 100%;
+      height: 100%;
+      //text-align: center;
+      border: 1px solid #000;
+
+      &.col2 {
+        grid-area: span 2 / span 2;
+      }
+    }
+  }
+}
+
+/* Fix */
+// .fix {
+//   position: fixed;
+//   left: 0;
+//   bottom: 0;
+//   width: 100%;
+//   height: 5px;
+//   z-index: 10;
+//   &_line {
+//     display: block;
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 0;
+//     height: 5px;
+//     background-color: crimson;
+//   }
+
+// }
+
+
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1366px) {
+
+  // .contents {
+
+  // }
+  .project {
+    &_list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1.2rem;
+      
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .project {
+    &_list {
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 1.2rem;
+      li {
+
+        &.col2 {
+          grid-area: span 1 / span 1;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+/* Animation */
+/* @keyframes topHeader {
+  form {
+    top: -100px;
+  }
+  to {
+    top: 0;
+  }  
+} */
