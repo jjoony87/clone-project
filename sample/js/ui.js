@@ -22,7 +22,7 @@ $(function(){
         var mainPercentTxt = Math.floor(mainPercent * 100);
         //var mainRealHeight = mainHeight - $(window).height();
         //var mainScrPercent = winMainScrTop / mainHeight * 100;
-        //console.log(mainPercentTxt);
+        console.log(mainPercentTxt);
         //mainMotion(mainPercentTxt);
     }
 
@@ -35,6 +35,9 @@ $(function(){
             aniText.addClass('active');
         }else if(mainPercentTxt < 10 || mainPercentTxt > 15){
             //console.log('10 보다 작고 & 15 이하일때');
+        }
+        for(var i = 1; i >= 50; i++){
+            console.log('for~');
         }
 
     }
