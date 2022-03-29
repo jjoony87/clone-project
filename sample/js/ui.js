@@ -3,12 +3,14 @@ $(function(){
     var mainBody = $('.main_cont');
     var contents = $('.contents');
     var scrollBody = $('#wrap');
-    var header = $('header');
+    var header = $('.header');
     var projectTop = $('.project').offset().top;
     var gauge = $('.line');
-    var aniText = $('.ani_text');
+    var aniText = $('.ani');
+    var sectionHeight = $('#section2').outerHeight();
 
     //console.log(projectTop);
+    //console.log(sectionHeight);
 
     // cont 거리값 구하기
     function setMainProperty(){
@@ -23,17 +25,21 @@ $(function(){
         //var mainRealHeight = mainHeight - $(window).height();
         //var mainScrPercent = winMainScrTop / mainHeight * 100;
         //console.log(mainPercentTxt);
-        //mainMotion(mainPercentTxt);
+        mainMotion(mainPercentTxt, winMainScrTop);
     }
 
     // cont 모션 적용하기
-    function mainMotion(mainPercentTxt){
-        
-        console.log(mainPercentTxt);
-        if(mainPercentTxt >= 10 && mainPercentTxt <= 15){
-            console.log('aaa');
+    function mainMotion(mainPercentTxt, winMainScrTop){
+        //console.log(winMainScrTop);
+        //console.log(mainPercentTxt);
+    
+
+        if(mainPercentTxt >= 1 && mainPercentTxt <= 10){
+            //console.log('aaa');
             aniText.addClass('active');
-        }else if(mainPercentTxt < 10 || mainPercentTxt > 15){
+            
+        }else if(winMainScrTop <= 10 || winMainScrTop <= 0){
+            aniText.removeClass('active');
             //console.log('10 보다 작고 & 15 이하일때');
         }
 
@@ -48,20 +54,22 @@ $(function(){
         var percentTxt = Math.floor(percentAvg);
         //console.log(percentTxt);
         //console.log(scrRealHeight);
-        headerAct(percentTxt, headerHeight);
+        headerAct(winScrTop, headerHeight);
         fixMotion(percentTxt);
-        console.log(percentTxt);
+        //console.log(percentTxt);
 
     }
-    function headerAct(percentTxt, headerHeight){
-        if(percentTxt == 0 && percentTxt <= 5){
+    function headerAct(winScrTop, headerHeight){
+        if(winScrTop >= 0 && winScrTop <= 5){
+            
             header.removeClass('active');
             // header.css({
             //     top: -headerHeight + 'px'
             // });
-        }else if(percentTxt >= 5 && percentTxt <= 100){
+        }else if(winScrTop >= 5 && winScrTop <= 100){
+            
             header.addClass('active');
-            //console.log(headerHeight);
+            
         }
 
         /* if(percentTxt <= 5){
@@ -71,6 +79,8 @@ $(function(){
         } */
     }
     function fixMotion(percentTxt){
+
+        
         gauge.css({
             width: percentTxt + '%'
         });
@@ -80,6 +90,7 @@ $(function(){
                 width: percentTxt + 1 + '%'
             });
         }
+
     }
 
     // $('.header_inner a').click(function(){

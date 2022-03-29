@@ -207,16 +207,52 @@ header.active {
 }
 
 /* Main */
-.main_txt {
+.main_top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 500px;
+  background-color: #999;
+}
+
+.main_top > span {
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: verdana;
+  font-size: 15rem;
+  font-weight: 700;
+  color: #f5f5f5;
+  transition: all .5s;
+}
+
+.main_top > span.active {
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191, 1px 18px 6px rgba(16, 16, 16, 0.4), 1px 22px 10px rgba(16, 16, 16, 0.2), 1px 25px 35px rgba(16, 16, 16, 0.2), 1px 30px 60px rgba(16, 16, 16, 0.4);
 }
 
 .main_cont {
+  position: relative;
   width: 100%;
   height: 2000px;
   padding: 3rem 2rem;
   border: 2px solid orange;
   box-sizing: border-box;
+}
+
+.main_cont .ms_left,
+.main_cont .ms_right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: rgba(134, 97, 97, 0.5);
+}
+
+.main_cont .ms_left {
+  left: 0;
+}
+
+.main_cont .ms_right {
+  right: 0;
 }
 
 .main_cont .ani_text {
@@ -258,6 +294,17 @@ header.active {
 
 .project_list li.col2 {
   grid-area: span 2 / span 2;
+}
+
+.project_list li > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.project_list li > a:hover {
+  color: red;
+  transform: translate3d(-180deg);
 }
 
 /* Fix */
