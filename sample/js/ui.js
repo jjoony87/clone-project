@@ -53,6 +53,9 @@ $(function(){
         }else{
             imgAni.removeClass('active');
         }
+        for(var i = 1; i >= 50; i++){
+            console.log('for~');
+        }
 
         if(maskRealValue <= 8){
             endingText.addClass('active');
