@@ -162,6 +162,10 @@ body {
   z-index: 10;
 }
 
+:root {
+  --ti-cursor-color: rgb(255, 136, 0);
+}
+
 /* Header */
 .header {
   display: flex;
@@ -230,7 +234,6 @@ body {
 .topBox {
   position: relative;
   height: 500px;
-  background: #fff;
 }
 
 .topBox_intro {
@@ -239,43 +242,32 @@ body {
   width: 380px;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -20%);
-}
-
-.topBox_intro > p {
+  transform: translate(-50%, -55%);
   font-size: 1.4rem;
+  line-height: 2.6rem;
   color: #000;
-  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.topBox_intro > p:nth-child(1) {
-  animation-delay: .5s;
+.topBox_intro .last_txt {
+  position: relative;
+  display: inline-block;
 }
 
-.topBox_intro > p:nth-child(2) {
-  animation-delay: .8s;
+.topBox_intro .last_icon {
+  display: inline-block;
+  padding-left: 3px;
+  font-size: 18px;
+  animation: iconRotate .6s .3s both;
 }
 
-.topBox_intro > p:nth-child(3) {
-  animation-delay: 1.2s;
-}
-
-.topBox_intro > p:nth-child(4) {
-  animation-delay: 1.5s;
-}
-
-.topBox_intro > p + p {
-  margin-top: .8rem;
-}
-
-@keyframes fadeIn {
+@keyframes iconRotate {
   0% {
-    opacity: 0;
-    transform: translateY(80%);
+    transform: rotate(0deg);
+    transform-origin: 50%;
   }
   100% {
-    opacity: 1;
-    transform: translateY(0);
+    transform: rotate(360deg);
+    transform-origin: 50%;
   }
 }
 
@@ -495,7 +487,7 @@ body {
   left: 50%;
   top: 50%;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   font-weight: bold;
   text-align: center;
   color: #fff;
@@ -577,6 +569,7 @@ body {
   padding: .5rem 0;
   font-size: 3rem;
   font-weight: 600;
+  opacity: 0;
 }
 
 .contact .title ~ .title {
@@ -595,8 +588,8 @@ body {
 }
 
 .contact .title.active {
-  animation: titleDown .5s ease both .3s;
-  -webkit-animation: titleDown .5s ease both .3s;
+  animation: titleDown .5s ease both;
+  -webkit-animation: titleDown .5s ease both;
 }
 
 .contact .title.active::after {
@@ -712,7 +705,10 @@ body {
     min-height: 200px;
   }
   .project_list li .list_txt {
-    font-size: 1.4rem;
+    font-size: 2.2rem;
+  }
+  .project_list li.col2 {
+    grid-area: span 1 / span 1;
   }
 }
 
@@ -720,8 +716,6 @@ body {
 @media (max-width: 768px) {
   .topBox_intro {
     width: 90%;
-  }
-  .topBox_intro > p {
     font-size: 1.3rem;
   }
   .main_cont .ending_txt {

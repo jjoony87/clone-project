@@ -1,5 +1,27 @@
 $(function(){
 
+    const typeInstance = new TypeIt('.topBox_intro', {
+        speed: 50,
+        //loop: true,
+        afterComplete:function(instance){
+            instance.destroy();
+        }
+
+    })
+    .type('안녕하세요. 퍼블리셔 박명준 입니다.')
+    .break({ delay: 800 })
+    .type('다수 업종의 경험으로 다양한 업무를 진행하였습니다.')
+    .break({ delay: 800 })
+    .type('맡은 업무에 항상 최선을 다하겠습니다.')
+    .break({ delay: 1000 })
+    .type('감사합니다.', {delay: 700})
+    .delete(6)
+    .type('<span class="last_txt">Thank</span>', {delay: 500})
+    .type('<i class="last_icon xi-emoticon-smiley-o"></i>')
+    .go();
+
+    var typeText = $('.topBox_intro');
+
     var mainBody = $('.main');
     var contents = $('.contents');
     var scrollBody = $('#wrap');
@@ -11,10 +33,12 @@ $(function(){
     var gauge = $('.line');
     var imgAni = $('.img_ani');
     var sectionHeight = $('#section2').outerHeight();
+    var sectionTop = $('#section2').offset().top;
+    var isChk = false;
+    var isTitleChk = false;
 
-    //console.log(contentsTop);
-    //console.log(projectTop);
-    //console.log(sectionHeight);
+    console.log(contactTop);
+
 
     // cont 거리값 구하기
     function setMainProperty(){
@@ -29,6 +53,7 @@ $(function(){
         //var mainPercent = sectionScrTop / mainHeight;
         //var mainPercentTxt = Math.floor(mainPercent * 100);
         //console.log(mainScrPercent);
+        console.log(winMainScrTop);
         mainMotion(mainScrPercent, winMainScrTop);
     }
 
@@ -53,9 +78,9 @@ $(function(){
         }else{
             imgAni.removeClass('active');
         }
-        for(var i = 1; i >= 50; i++){
-            console.log('for~');
-        }
+        // for(var i = 1; i >= 50; i++){
+        //     console.log('for~');
+        // }
 
         if(maskRealValue <= 8){
             endingText.addClass('active');
@@ -83,9 +108,18 @@ $(function(){
     function headerAct(winScrTop, headerHeight){
 
         //console.log(winScrTop);
+        if(winScrTop >= 300 && isChk == false){
+            typeText.addClass('in');
+            isChk = true;
+        }else if(winScrTop <= 299 && isChk == true){
+            typeInstance.reset();
+            typeInstance.go();
+            isChk = false;
+        }
+
         if(winScrTop >= 0 && winScrTop <= 5){
             header.removeClass('active');
-        
+            
         }else if(winScrTop >= 5 && winScrTop <= 100){
             header.addClass('active');
         }
@@ -104,10 +138,14 @@ $(function(){
 
         }
 
-        if(winScrTop >= 5900){
+        if(winScrTop + 120 > contactTop && isTitleChk == false){
             title.addClass('active');
-        }else {
-
+            console.log('진입~');
+            isTitleChk = true;
+        }else if(winScrTop <= sectionTop && isTitleChk == true){
+            console.log('다시 컴백');
+            title.removeClass('active');
+            isTitleChk = false;
         }
     }
 
@@ -134,14 +172,15 @@ $(function(){
         }
     }
     
+    
     function render(){
         headerTop();
         setMainProperty();
     }
+
     $(window).scroll(function(){
         render();
     });
-
 
     $('.header_inner a').click(function(){
         $('html, body').animate({
