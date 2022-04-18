@@ -140,10 +140,10 @@ $(function(){
 
         if(winScrTop + 120 > contactTop && isTitleChk == false){
             title.addClass('active');
-            console.log('진입~');
+            //console.log('진입~');
             isTitleChk = true;
         }else if(winScrTop <= sectionTop && isTitleChk == true){
-            console.log('다시 컴백');
+            //console.log('다시 컴백');
             title.removeClass('active');
             isTitleChk = false;
         }
