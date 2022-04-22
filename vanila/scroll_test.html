@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../test/common.css">
+    <script>
+        
+        window.onload = function(){
+
+            console.log('aa');
+            const bodyHeight = document.querySelector('#wrap').offsetHeight;
+            let sectionThis = document.querySelector('.sectionWrap').children;
+            
+            const sec1 = sectionThis[0].offsetTop;
+            const sec2 = sectionThis[1].offsetTop;
+            const sec3 = sectionThis[2].offsetTop;
+            const sec4 = sectionThis[3].offsetTop;
+            const sec5 = sectionThis[4].offsetTop;
+            const nav = document.querySelector('.nav').offsetHeight;
+            let isCheck = false;
+
+            //console.log(nav);
+
+            // 클래스를 지우기 위해서 바복문으로 실행
+            function removeCheck(){
+                const sectionItem = document.querySelectorAll('.sectionWrap > section');
+                for(i=0; i<sectionItem.length; i++){
+                    sectionItem[i].removeAttribute('class');
+                }
+            }
+
+            function scrollSet(){
+                const winScr = window.pageYOffset;
+                const winHeight = window.innerHeight;
+                const scrRealHeight = bodyHeight - winHeight;
+                //console.log('scroll', winScr);
+                console.log(winScr);
+                
+                if(sec1 <= winScr && sec2 > winScr && isCheck == false){
+                    removeCheck();
+                    sectionThis[0].classList.add('active');
+                    isCheck = true;
+                }else if(sec2 <= winScr && sec3 > winScr && isCheck == true){
+                    removeCheck();
+                    sectionThis[1].classList.add('active');
+                    isCheck = false;
+                }else if(sec3 <= winScr && sec4 > winScr && isCheck == false){
+                    removeCheck();
+                    sectionThis[2].classList.add('active');
+                    isCheck = true;
+                }else if(sec4 <= winScr && sec5 > winScr && isCheck == true){
+                    removeCheck();
+                    sectionThis[3].classList.add('active');
+                    isCheck = false;
+                }else if(sec5 < winScr && isCheck == false){
+                    removeCheck();
+                    sectionThis[4].classList.add('active');
+                    isCheck = true;
+                }else if(nav >= winScr){
+                    removeCheck();
+                }
+            }
+
+            document.addEventListener('scroll', () => {
+                scrollSet();
+            });
+
+            function init(){
+                scrollSet();
+            }
+
+            init();
+            
+        }
+
+    </script>
+    <style>
+        #wrap {background-color: bisque;}
+        .nav {padding: 20px; background: cornflowerblue;}
+        .cont {padding: 50px 30px;}
+        section {padding: 150px 50px; border: 1px solid #000; transition: background .35s linear; background: rgba(255, 156, 64, 0.5);}
+        section.active {background: rgba(255, 156, 64, 1);}
+    </style>
+</head>
+<body>
+    
+
+    <div id="wrap">
+        <div class="nav">menu</div>
+        <div class="sectionWrap">
+            <section class="sec1">111</section>
+            <section class="sec2 aa">222</section>
+            <section class="sec3 aa">333</section>
+            <section class="sec4">444</section>
+            <section class="sec5">555</section>
+        </div>
+        <div class="cont">
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+            asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />asdkqnsdkandskansdkansdknadsknwekqnwdda<br />
+        </div>
+    </div>
+
+</body>
+</html>

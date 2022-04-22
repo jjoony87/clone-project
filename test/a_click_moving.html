@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <title>Document</title>
+    <style>
+        #section {background-color: aqua;}
+        #wrap {padding-bottom: 200px;}
+        a {font-size: 16px; color: #000;}
+        a + a {margin-left: 10px;}
+        .boxs > div {padding: 200px 50px; border: 1px solid #000; box-sizing: border-box; background-color: peachpuff;}
+    </style>
+    <script>
+    window.onload = function(){
+
+        //const thisLink = document.getElementById('section').children;
+        //const thisLink = document.getElementById('section');
+        const thisLink = document.querySelector('#section');
+        let doxs = document.querySelectorAll('.items');
+        
+        //const dox1 = document.querySelector('#box01').offsetTop;
+        //const thisHref = thisLink.href;
+
+        //console.log(dox1);
+
+        thisLink.addEventListener('click', (e) => {
+            let targetEl = e.target;
+            
+            const taegetElHref = targetEl.hash;
+            e.preventDefault();
+
+            if(taegetElHref == undefined){
+                return false; // 링크 영역 제외한 부분 클릭시 이벤트 실행을 안하겠다.
+            }else if(taegetElHref == '#box01'){
+                doxs[0].scrollIntoView({behavior:'smooth'});
+            }
+            else if(taegetElHref == '#box02'){
+                doxs[1].scrollIntoView({behavior:'smooth'});
+            }
+            else if(taegetElHref == '#box03'){
+                doxs[2].scrollIntoView({behavior:'smooth'});
+            }
+            console.log(taegetElHref);
+            
+            //console.log(targetEl);
+        });
+
+
+        
+    }
+
+
+
+
+    // 참고용
+    //btns.forEach((links) => {
+        //     links.addEventListener('click', eventBtn);
+        // });
+
+        //function eventBtn(){
+            
+            //console.log(this);
+            //document.querySelector('.links').classList.add('aaa');
+           // thisBtn.classList.toggle('foo');
+            
+            //console.log(thisBtn);
+            // if(thisBtn.className == 'active'){
+            //     //thisBtn.classList.add('vvv');
+            //     console.log('first');
+            // }else{
+
+            //     console.log('second');
+            // }
+            /* const atv = 'active'
+            if(thisBtn.classList.contains(atv)){
+
+                thisBtn.classList.remove('active');
+            }else{
+                thisBtn.classList.add('active');
+            } */
+
+    
+        //}
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="section">
+            <a href="#box01" class="">link__11</a>
+            <a href="#box02" class="">link__22</a>
+            <a href="#box03" class="">link__33</a>
+        </div>
+
+        <div class="boxs">
+            <div class="items">11</div>
+            <div class="items">22</div>
+            <div class="items">33</div>
+            <div>
+                123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>
+                123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>
+                123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>
+                123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>
+                123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>123123<br/>
+            </div>
+            <div>
+                banner~~~~<br />
+                banner~~~~<br />
+                banner~~~~<br />
+                banner~~~~<br />
+                banner~~~~<br />
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

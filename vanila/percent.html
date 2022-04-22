@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../test/common.css">
+    <script type="text/javascript">
+        window.onload = function(){
+
+            let bar = document.querySelector('.bar');
+            
+            function scrollSet(){
+                const winHeight = window.innerHeight;
+                const winScrTop = window.pageYOffset;
+                const bodyHeight = document.querySelector('.cont').offsetHeight;
+                const txt = document.querySelector('.text');
+                const scrollHeight = bodyHeight - winHeight;
+                const scrollRealHeight = (winScrTop / scrollHeight) * 100;
+                const percent = Math.floor(scrollRealHeight);
+                
+                console.log(percent);
+                render(percent, txt);
+                
+            }
+            function render(percent, txt){
+                bar.style.width = percent + '%';
+                txt.innerText = percent + '%';
+                
+            }
+        
+            function init(){
+                scrollSet();
+            }
+            document.addEventListener('scroll', () => {
+                scrollSet();
+            });
+
+            init();
+            
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="../test/common.css">
+    <style>
+        html, body {height: 100%;}
+        #wrap {position: relative; height: 100vh; background: bisque;}
+        .cont {padding: 300px 50px; background:chocolate;}
+        .scrollBar {position: fixed; width: 90%; height: 50px; left: 50%; top: 20px; transform: translateX(-50%); background: cadetblue;}
+        .scrollBar .bar {position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: block; width: 10%; height: 5px; background: #000;}
+        .text {font-size: 14px; color: #000; font-weight: bold;}
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="scrollBar">
+            <span class="bar"></span>
+            <span class="text">0%</span>
+        </div>
+        <div class="cont">
+            scroll~<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+    </div>
+    
+</body>
+</html>

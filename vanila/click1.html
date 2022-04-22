@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../test/common.css">
+    <script type="text/javascript">
+        window.onload = function(){
+
+            const link = document.querySelectorAll('.list_nav > li');
+
+            function event(idx){
+                
+                link[idx].onclick = function(){
+                    
+                    if(link[idx].getAttribute('class') != 'active'){
+                        for(i=0; i<link.length; i++){
+                            link[i].removeAttribute('class');
+                        }
+                        link[idx].setAttribute('class', 'active');
+                        console.log('aa');
+                    }else if(link[idx].classList.contains('active') == true){
+                        //console.log('true~~');
+                        return false;
+                    }else{
+                        link[idx].removeAttribute('class');
+                        console.log('bb');
+                    }
+
+                }
+            }
+            for(i=0; i < link.length; i++){
+                event(i);
+            }
+
+            //console.log('aa');
+
+        }
+    </script>
+    <style>
+        .list_nav {display: flex;}
+        .list_nav > li {padding: 10px 30px; border: 1px solid #000; background-color: aquamarine;}
+    </style>
+</head>
+<body>
+
+    <div class="list">
+        <ul class="list_nav">
+            <li><a href="#">11</a></li>
+            <li><a href="#">22</a></li>
+            <li><a href="#">33</a></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

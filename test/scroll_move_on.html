@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <title>Document</title>
+    <style>
+        body {margin:0; padding:0;}
+        #section {background: #eee;}
+        #section ~ div {padding: 200px 0; border: 1px solid #000; transition: background .5s linear; background: rgba(241, 241, 241, 0.5);}
+
+        #wrap .on {background: cornflowerblue;}
+    </style>
+    <script>
+    window.onload = function(){
+
+        //let btns = document.querySelectorAll(".links");
+        //let thisBtn = document.querySelector(".links");
+        const all = document.getElementById('section').children;
+        const siblings = t => [...t.parentElement.children].filter(e => e != t);
+        const aLink = document.getElementById('section');
+        const wrapHeight = document.querySelector('#wrap').offsetHeight;
+        const sec1 = document.querySelector('.section1').offsetTop;
+        const sec2 = document.querySelector('.section2').offsetTop;
+        const sec3 = document.querySelector('.section3').offsetTop;
+        const sec4 = document.querySelector('.section4').offsetTop;
+        let isWin = false;
+        console.log(sec1);
+
+        /* 
+            offsetHeight : 영역의 height
+            offsetTop : 영역의 상단 위치 값
+
+        */
+        
+
+        function setScroll(){
+            const winScrTop = window.pageYOffset;
+            const winH = window.innerHeight;
+            const scrollRealHeight = wrapHeight - winH;
+            const scrollPercent = Math.floor((winScrTop / scrollRealHeight) * 100);
+            sectionEvent(winScrTop);
+        }
+        function sectionEvent(winScrTop){
+
+            const sectionBox = document.querySelectorAll('.box');
+
+            if(sec1 <= winScrTop && sec2 > winScrTop && isWin == false){
+                sectionBox[0].classList.add('on');
+                sectionBox[1].classList.remove('on');
+                sectionBox[2].classList.remove('on');
+                isWin = true;
+            }else if(sec2 < winScrTop && sec3 > winScrTop && isWin == true){
+                console.log('move__222');
+                sectionBox[0].classList.remove('on');
+                sectionBox[1].classList.add('on');
+                sectionBox[2].classList.remove('on');
+                isWin = false;
+            }else if(sec3 < winScrTop && sec4 > winScrTop && isWin == false){
+                console.log('move__333');
+                sectionBox[0].classList.remove('on');
+                sectionBox[1].classList.remove('on');
+                sectionBox[2].classList.add('on');
+                isWin = true;
+            }else if(sec1 > winScrTop && isWin == true){
+                console.log('aa');
+                sectionBox[0].classList.remove('on');
+                isWin = false;
+            }
+        }
+       
+        //childNodes : 모든 자식 요소 태그안에 txt 까지 
+        //parentNode : 자식의 부모 요소
+        //parentElement.children : 부모의 자식
+        //Element.prototype.children : 텍스트 불포함
+
+
+        //console.log(siblings(all));
+
+
+        aLink.addEventListener('click', (e) => {
+            //const thisBtn = document.querySelector('.links');
+            const targetEl = e.target;
+            const siblingsEl = siblings(targetEl);  // this 제외한 2
+            const hasClass = targetEl.classList.contains('active');
+
+            if(hasClass){
+                console.log('aa');
+                //console.log(siblingsEl);
+                //siblingsEl.classList.add('aa');
+                //targetEl.classList.remove('on');
+            }else{
+                console.log('bb');
+                //targetEl.classList.add('on');
+
+            }
+
+        });
+
+        function init(){
+            setScroll();
+        }
+        document.addEventListener('scroll', function(){
+            setScroll();
+        });
+
+        init();
+        
+    }
+
+
+
+
+    // 참고용
+    //btns.forEach((links) => {
+        //     links.addEventListener('click', eventBtn);
+        // });
+
+        //function eventBtn(){
+            
+            //console.log(this);
+            //document.querySelector('.links').classList.add('aaa');
+           // thisBtn.classList.toggle('foo');
+            
+            //console.log(thisBtn);
+            // if(thisBtn.className == 'active'){
+            //     //thisBtn.classList.add('vvv');
+            //     console.log('first');
+            // }else{
+
+            //     console.log('second');
+            // }
+            /* const atv = 'active'
+            if(thisBtn.classList.contains(atv)){
+
+                thisBtn.classList.remove('active');
+            }else{
+                thisBtn.classList.add('active');
+            } */
+
+    
+        //}
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+        <div id="section">
+            <a href="#" class="links active">link12</a>
+            <a href="#" class="links">link22</a>
+            <a href="#" class="links">link33</a>
+        </div>
+
+        <div class="box section1">
+            section 01
+            <p>
+                sdkandkqwndknawkdnaksndaknsdka
+            </p>
+        </div>
+        <div class="box section2">
+            section 02
+            <p>
+                sdkandkqwndknawkdnaksndaknsdka
+            </p>
+        </div>
+        <div class="box section3">
+            section 03
+            <p>
+                sdkandkqwndknawkdnaksndaknsdka
+            </p>
+        </div>
+        <div class="box section4">
+            section 04
+            <p>
+                sdkandkqwndknawkdnaksndaknsdka
+            </p>
+        </div>
+        <div class="box section6">
+            section 05
+            <p>
+                sdkandkqwndknawkdnaksndaknsdka
+            </p>
+        </div>
+    </div>
+
+
+</body>
+</html>

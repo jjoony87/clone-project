@@ -3,7 +3,8 @@
 /* Google Web Font */
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -39,7 +40,9 @@ body {
   position: absolute;
   background-color: #fff;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: .23s;
   transition: .23s;
 }
 
@@ -63,3 +66,4 @@ body {
   display: none;
   padding: 10px;
 }
+/*# sourceMappingURL=ex04.css.map */

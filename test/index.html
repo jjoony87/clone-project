@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Document</title>
-
+    
     <style>
         .flexCont {display: flex; gap: 30px;}
         .iframe_item {width: 250px; padding: 100px; border: 1px solid #000; box-sizing: border-box; background-color: gray;}
-        .iframe_item > div {width: 100%; height: 100%;}
+        .iframe_item > div {display: none; width: 100%; height: 100%;}
         .btnWrap > a {display: inline-block;}
         .btnWrap > a + a {margin-left: 10px;}
     </style>
+    
 </head>
 <body>
 
@@ -30,35 +30,73 @@
                 iframe_03
             </div>
         </div>
-        <div class="btnWrap">
-            <a href="#section01">section01</a>
-            <a href="#section02">section02</a>
-            <a href="#section03">section03</a>
+        <div id="vvv" class="btnWrap" class="clickables">
+            <a href="#section01" class="btn">section01</a>
+            <a href="#section02" class="btn">section02</a>
+            <a href="#section03" class="btn">section03</a>
         </div>
+        aaaa
     </div>
 
-    <script>
-        $(function(){
-            $('.iframe_item > div').not('div:first-child').hide();
+    
+    <script type="text/javascript">
+       
+        window.onload = function(){
+
+            // document.querySelectorAll('.clickables a').forEach((button, i, buttons) => {
+            //     button.addEventListener('click', e => {
+            //         buttons.forEach(btn => btn.classList.remove('clicked'));
+            //         e.target.classList.add('clicked');
+            //     });
+            // });
             
-            $('.btnWrap > a').click(function(){
-                
-                //console.log($(this).attr('href'));
-                if (this.hash == "#section01"){
-                    $('#section01').show().siblings().hide();
-                    return false;
-                }else if(this.hash == "#section02"){
-                    $('#section02').show().siblings().hide();
-                    return false;
-                }else if(this.hash == "#section03"){
-                    $('#section03').show().siblings().hide();
-                    return false;
-                }
-                
-            });
+            //const btns = document.getElementsByClassName('btnWrap');
+            //const btns = document.querySelector('.btnWrap');
+            const button = document.getElementById("vvv");
 
-        });
+            btns.addEventListener("click", clickEvent);
+
+
+            function clickEvent(){
+                console.log('aaa');
+            }
+            
+            // btns.addEventListener('click', (e)=>{
+            //     console.log(this);
+            // });
+
+
+            //$('.btnWrap > a').click(function(){
+                //console.log('zzzz');
+                
+                // let btns = document.querySelector('.btnWrap > a');
+                // const iframeChild = document.querySelector('.iframe_item').children;
+
+                // btns.addEventListener('click', click);
+
+                // function click(){
+         
+                //     console.log(this);
+                // }
+                    
+                
+
+                // if (this.hash == "#section01"){
+                //     iframeChild.style.display = 'block';
+                //     console.log(aas);
+
+                //     return false;
+                // }else if(this.hash == "#section02"){
+                //     $('#section02').show().siblings().hide();
+                //     return false;
+                // }else if(this.hash == "#section03"){
+                //     $('#section03').show().siblings().hide();
+                //     return false;
+                // }
+                
+          //  });
+        }
+
     </script>
-
 </body>
 </html>

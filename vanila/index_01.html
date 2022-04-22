@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            const lknkParent = document.getElementById('wrap');
+            const link = document.querySelectorAll('#wrap > a');
+            let length = link.length;
+            const siblings = t => [...t.parentElement.children].filter(e => e != t);
+            //console.log(lknkParent);
+
+            console.log(length);
+            lknkParent.addEventListener('click', (e) => {
+                const targetEl = e.target;
+                const siblingsEl = siblings(targetEl);
+                const hasClass = targetEl.classList.contains('active');
+                const add = Object.assign({}, siblingsEl);
+
+               // console.log();
+
+                if(hasClass == true){
+                   
+                    for(i=0; i < length; i++){
+                        console.log(i);
+                    }
+                    add.setAttribute("class", "ball");
+                    //siblingsEl.classList.add('aaa');
+                }else{
+                    //console.log('x');
+ 
+                }
+                // if(targetEl == hasClass){
+                //     console.log('같다~');
+                // }
+            });
+
+            
+        }
+    </script>
+    <style>
+        #wrap a {color: #000; font-size: 12px; text-decoration: none;}
+        #wrap a + a {margin-left: 10px;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <a href="#" class="active">link01</a>
+        <a href="#">link02</a>
+        <a href="#">link03</a>
+    </div>
+</body>
+</html>

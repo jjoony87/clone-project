@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css">
+    <style type="text/css">
+
+        .list > li > a {font-size: 14px; color: #000;}
+        .list > li.active {background: olivedrab;}
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            let list = document.querySelectorAll('.list > li');
+
+            console.log(list.length);
+            function li_click(idx){
+                list[idx].onclick = function(){
+                    
+                    if(list[idx].getAttribute('class')!='active'){
+                        for(let i=0;i<list.length;i++){
+                            list[i].removeAttribute('class');
+                            //list[i].classList.add('aaa'); 3개 모두 적용
+                        }
+                        list[idx].setAttribute('class', 'active'); // 1개만 클래스 적용
+                    }else{
+                        list[idx].removeAttribute('class');
+                    }
+                };
+            }
+
+            for(let i=0; i<list.length; i++){
+                li_click(i);
+            }
+        };
+    </script>
+    <title>Document</title>
+</head>
+<body>
+
+    <ul class="list">
+        <li><a href="#">first</a></li>
+        <li><a href="#">second</a></li>
+        <li><a href="#">third</a></li>
+    </ul>
+</body>
+</html>

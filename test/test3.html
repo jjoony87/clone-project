@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #sample span{
+            background: yellowgreen;
+            cursor: pointer;
+        }
+
+        #sample span.active{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="sample">
+        <span>월</span>
+        <span>화</span>
+        <span>수</span>
+        <span>목</span>
+        <span>금</span>
+        <span>토</span>
+        <span>일</span>
+      </div>
+
+      <script>
+          var divElement = document.getElementById('sample');
+
+            divElement.addEventListener('click', (e) => {
+            var targetElement = e.target;
+
+            console.log(targetElement);
+            //targetElement.setAttribute('class', 'active');  
+            });
+      </script>
+
+</body>
+</html>

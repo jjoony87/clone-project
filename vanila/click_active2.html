@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../test/common.css">
+    <script type="text/javascript">
+
+        window.onload = function(){
+
+            let link = document.querySelectorAll('.list > li');
+
+            //console.log(idx);
+
+            function event(idx){
+                link[idx].onclick = function(){
+                    
+                    if(link[idx].getAttribute('class')!='active'){
+                        for(let i=0;i<link.length;i++){
+                            link[i].removeAttribute('class');
+                            //link[i].classlink.add('aaa'); 3개 모두 적용
+                        }
+                        //console.log(link[idx]);
+                        link[idx].setAttribute('class', 'active'); // 1개만 클래스 적용
+                    }else if(link[idx].classList.contains('active') == true){
+                        return false; // active class 한번 더 클릭 시 방지
+                    }else{
+                        link[idx].removeAttribute('class');
+                    }
+                };
+            }
+
+            for(let i=0; i<link.length; i++){
+                //console.log(i);
+                event(i);
+            }
+
+        }
+    </script>
+    <style type="text/css">
+        .list {display: flex;}
+        .list > li + li {margin-left: 10px;}
+        .list > li > a {display: inline-block; padding: 0 20px; color: #000; background-color: aqua;}
+    </style>
+</head>
+<body>
+
+    <ul class="list">
+        <li><a href="#none">1</a></li>
+        <li><a href="#none">2</a></li>
+        <li><a href="#none">3</a></li>
+    </ul>
+    
+</body>
+</html>
