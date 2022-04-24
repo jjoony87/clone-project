@@ -611,12 +611,14 @@ body {
   border: 2px solid #000;
   font-size: 35px;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transition: 1s;
 }
 
 .contact_inner .item.front {
   position: absolute;
   transform: rotateY(0deg);
+  background: #fff;
 }
 
 .contact_inner .item.front > span {

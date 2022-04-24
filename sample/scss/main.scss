@@ -665,12 +665,13 @@ body {
       border: 2px solid #000;
       font-size: 35px;
       backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
       transition: 1s;
     }
     .item.front {
       position: absolute;
       transform: rotateY(0deg);
-
+      background: #fff;
       > span {
         position: relative;
         &::after {
