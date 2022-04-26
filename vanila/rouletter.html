@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../test/common.css">
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+
+        html, body {height: 100%; font-family: 'Noto Sans KR', sans-serif;}
+        #wrap {height: 100vh; background:beige;}
+        h1 {font-size: 22px; color: #000;}
+        .rulletBox {position: relative; display: flex; justify-content: center; align-items: center; width: 500px; height: 500px; border: 1px solid coral; background: cadetblue;}
+        .rulletBox .arrow {display: block; position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-top: 30px solid red; border-left: 10px solid transparent; border-right: 10px solid transparent;}
+        .rulletBox .roullet_img {width: 90%; height: 90%; background: url('images/img_roullet.png') no-repeat center center / 100%; transform-origin: center;}
+        .rulletBox .roullet_img.on {
+            animation: play .1s both infinite;
+        }
+        .rulletBox .roullet_btn {display: block; position: absolute; left: 50%; top: 50%; width: 70px; height: 70px; border-radius: 100%; border: 3px solid #000; font-size: 20px; color: #000; transform: translate(-50%, -50%); background: darkgoldenrod; z-index: 10;}
+        
+        @keyframes play {
+            
+            0% {
+                transform: rotate(0deg);
+                transition-timing-function: ease-in-out;
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            //console.log('aa');
+
+            const rullet = document.querySelector('.roullet_img');
+            const btn = document.querySelector('.roullet_btn');
+            const txt = document.querySelector('.text');
+
+            let rulletAll = {
+                random: function(){
+                    let min = Math.ceil(0);
+                    let max = Math.floor(5);
+                    return Math.floor(Math.random() * (max - min)) + min;
+                },
+                start: function(){
+                    rullet.classList.add('on');
+                    btn.innerText = 'stop';
+                },
+                stop: function(){
+                    const deg = [60, 120, 180, 240, 360];
+
+                    rullet.style.transform = 'rotate(' + deg[rulletAll.random()] +'deg)';
+                    rullet.classList.remove('on');
+                    btn.innerText = 'start'
+                }
+
+            }
+            //console.log(rulletAll.random());
+            
+            btn.addEventListener('click', ()=> {
+                if(btn.innerText === 'start'){
+                    console.log('star~~');
+                    rulletAll.start();
+                }else if(btn.innerText === 'stop'){
+                    console.log('stop !!');
+                    rulletAll.stop();
+                }
+                //console.log('aaa');
+            });
+
+        }
+    </script>
+    
+</head>
+<body>
+
+    <div id="wrap">
+        <h1>Rullet Test</h1>
+        <div class="rulletBox">
+            <span class="arrow"></span>
+            <div class="roullet_img"></div>
+            <button class="roullet_btn">start</button>
+        </div>
+
+        <div class="text">111</div>
+    </div>
+
+    
+    
+</body>
+</html>
