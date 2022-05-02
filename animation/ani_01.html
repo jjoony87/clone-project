@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #wrap {height:100vh; background: bisque;}
+        h1 {padding: 30px 0; text-align: center; font-size: 20px; color: #000; font-weight: 500; font-size: 20px; background:cadetblue;}
+        .contWrap {padding: 20px; height: 100%; height:calc(100% - 89px); overflow-y: auto; box-sizing: border-box; background:rgb(165 216 173);}
+        .space {display: flex; justify-content: center; align-items: center; font-size: 30px; color: #000; font-weight: 500; width: 100%; height: 800px;}
+        .col-org {background: coral;}
+        .box {display: flex; gap: 10px; min-height: 500px; overflow: hidden; border: 3px solid #000; font-size: 20px; color: #000; font-weight: 300; background: rgb(212 161 161);}
+        .box .item {flex: 1; transition: transform .35s ease; background: cornflowerblue;}
+        .box .item:first-child {transform: translateX(-100%);}
+        .box .item:last-child {transform: translateX(100%);}
+        .box .item.on {transform: translateX(0);}
+
+    </style>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            
+            const cont = document.querySelector('.contWrap');
+            const items = document.querySelectorAll('.box > div');
+            const heaer = document.querySelector('.title').offsetHeight;
+            const box = document.querySelector('.box').offsetTop;
+            const scrBody = document.querySelector('.scrollBody').offsetTop;
+            const boxTop = box - heaer;
+            let isCheck = false;
+
+            console.log(scrBody);
+
+            function setProperty(){
+                const winScrTop = cont.scrollTop;
+                if(winScrTop > boxTop && isCheck == false){
+                    items.forEach((el) => el.classList.add('on'));
+                    isCheck = true;
+                }else if(winScrTop <= scrBody && isCheck == true){
+                    items.forEach((el) => el.classList.remove('on'));
+                    isCheck = false;
+                }
+                //console.log(winScrTop);
+            }
+            // items.forEach((el) => {
+            //     el.innerText = 'aaa';
+            // });
+            cont.addEventListener('scroll', setProperty);
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+        <h1 class="title">[animation] : scroll Type1</h1>
+
+        <div class="contWrap">
+            <section class="scrollBody">
+                <div class="space col-org">
+                    여백 공간
+                </div>
+                <div class="box">
+                    <div class="item">
+                        Left
+                    </div>
+                    <div class="item">
+                        Right
+                    </div>
+                </div>
+                <div class="space col-org">
+                    여백 공간
+                </div>
+            </section>
+        </div>
+    </div>
+
+    
+</body>
+</html>
