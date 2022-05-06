@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        
+        #wrap {height: 100%; background-color: aqua;}
+        .header {position: sticky; top: 0; padding: 30px 20px; text-align: center; background: teal;}
+        .header > .text {color: #fff;}
+        .header > .bar {display: block; width: 0%; height: 5px; background: #fff;}
+        .scrolling {padding: 0 0 500px; background:wheat;}
+        .scrolling .scrollList > li {padding: 300px 20px; transition: background .35s linear; border: 1px solid #000;}
+        .scrolling .scrollList > li.active {background: sienna;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            
+            const headH = document.querySelector('.header').offsetHeight;
+            const bodyHeight = document.querySelector('#wrap').offsetHeight;
+            const text = document.querySelector('.text');
+            const bar = document.querySelector('.bar');
+            const list = document.querySelectorAll('.scrollList > li');
+            const winH = window.innerHeight;
+            const realScroll = bodyHeight - winH;
+            let isCheck = false;
+            //console.log(bodyHeight);
+
+            function event(){
+                const winScrTop = window.pageYOffset;
+                const percent = Math.floor((winScrTop / realScroll) * 100);
+
+                if(winScrTop > list[0].offsetTop && winScrTop < list[1].offsetTop && isCheck == false){
+                    remove();
+                    list[0].classList.add('active');
+                    isCheck = true;
+                }else if(winScrTop > list[1].offsetTop && winScrTop < list[2].offsetTop && isCheck == true){
+                    remove();
+                    list[1].classList.add('active');
+                    isCheck = false;
+                }else if(winScrTop > list[2].offsetTop && isCheck == false){
+                    remove();
+                    list[2].classList.add('active');
+                    isCheck = true;
+                }else if(winScrTop < headH && isCheck == true){
+                    remove();
+                    isCheck = false;
+                }
+                //console.log(percent);
+                setProperty(percent)
+            }
+            function remove(){
+                list.forEach(el => {el.classList.remove('active')});
+            }
+            function setProperty(percent){
+                text.innerText = percent + '%';
+                bar.style.width = percent + '%';
+            }
+            
+            document.addEventListener('scroll', event);
+
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="header">
+            header~
+            <span class="bar"></span>
+            <span class="text">0%</span>
+        </div>
+        <div class="scrolling">
+            <ul class="scrollList">
+                <li>scroll~<br />scroll~<br />scroll~</li>
+                <li>scroll~<br />scroll~<br />scroll~</li>
+                <li>scroll~<br />scroll~<br />scroll~</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

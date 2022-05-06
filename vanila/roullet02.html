@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        .wrap {height: 100%; overflow: hidden; background-color: antiquewhite;}
+        .cont {position: relative; display: flex; justify-content: center; align-items: center; width: 500px; height: 500px; margin: 50px auto 0; background-color: burlywood;}
+        .cont:after {display: block; content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); z-index: 3; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 35px solid rgb(255, 17, 0);}
+        .roullet_img {width: 90%; height: 90%; transform-origin: center; background: url('images/img_roullet.png') no-repeat 0 0 / 100%;}
+        .roullet_img.active {animation: ani .1s both infinite;}
+        .btn {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: inline-block; width: 70px; height: 70px; border: 3px solid #000; border-radius: 100%; font-size: 18px; color: #000; background-color: aquamarine;}
+
+        @keyframes ani {
+            0% {
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            const roullet = document.querySelector('.roullet_img');
+            const btn = document.querySelector('.btn');
+
+            const obj = {
+                random: function(){
+                    const min = Math.ceil(0);
+                    const max = Math.floor(5);
+                    return Math.floor(Math.random() * (max - min)) + min;
+                },
+                start: function(){
+                    roullet.classList.add('active');
+                    btn.innerText = 'stop';
+                },
+                stop: function(){
+                    const array = [60, 120, 180, 240, 360];
+                    roullet.style.transform = 'rotate(' + array[obj.random()] + 'deg)';
+                    roullet.classList.remove('active');
+                    btn.innerText = 'start';
+                },
+            }
+            function setProperty(){
+                if(btn.innerText === 'start'){
+                    obj.start();
+                }else if(btn.innerText === 'stop'){
+                    obj.stop();
+                }
+            }
+
+            btn.addEventListener('click', setProperty);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="cont">
+            <div class="roullet_img"></div>
+            <button class="btn">start</button>
+        </div>
+    </div>
+    
+</body>
+</html>

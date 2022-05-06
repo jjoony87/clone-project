@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style>
+        /* Google Web Font */
+        @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+        @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+        h1 {font-size: 20px; color: #000; text-align: center; font-weight: bold; font-family: 'Noto Sans KR', sans-serif;}
+        .tabList {display: flex;}
+        .tabList > li {flex: 1; text-align: center; color: #000; border: 1px solid #000; background: steelblue;}
+        .tabList > li a {display: block; padding: 5px 0; font-size: 16px; color: #000; text-align: center;}
+        .tabList > li.active a {background: yellow; transition: all .35s linear;}
+        .boxs {width: 100%; height: 500px;}
+        .boxs .item {display: none; padding: 50px 20px; box-sizing: border-box; background-color: aquamarine;}
+        .boxs .item.on {display: block;}
+    </style>
+    <script>
+        window.onload = function(){
+            
+            const tabList = document.querySelectorAll('.tabList > li');
+            const boxs = document.querySelectorAll('.boxs > .item');
+
+            function event(idx){
+
+                tabList[idx].onclick = function(){
+
+                    if(tabList[idx].getAttribute('class') != 'active'){
+                        tabList.forEach(el => {el.classList.remove('active')});
+                        tabList[idx].classList.add('active');
+                        boxs.forEach(n => {n.classList.remove('on')});
+                        boxs[idx].classList.add('on');
+                    }
+                }
+            }
+            for(let i=0; i<tabList.length; i++){
+                event(i);
+            }
+
+            console.log(tabList.length);
+            //console.log('aa');
+        }
+    </script>
+</head>
+<body>
+    <h1>라이프캔버스</h1>
+    <div class="tabWrap">
+        <ul class="tabList">
+            <li class="active"><a href="#none">1</a></li>
+            <li><a href="#none">2</a></li>
+            <li><a href="#none">3</a></li>
+        </ul>
+    </div>
+    <div class="boxs">
+        <div class="item on">11</div>
+        <div class="item">22</div>
+        <div class="item">33</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #wrap {height: 100%; background: wheat;}
+        .container {padding: 20px 0;}
+        .grid {display: grid; justify-content: center; border-top: 1px solid #000; border-left: 1px solid #000; grid-template-columns: 70px 100px 1fr;}
+        .grid .item {padding: 10px; box-sizing: border-box; border-right: 1px solid #000; border-bottom: 1px solid #000;}
+        .grid .item:nth-child(1) {grid-column: span 2;}
+        /* .grid .item:nth-child(2) {grid-row: span 2;} */
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+        
+            
+            //console.log('aa');
+        }
+    </script>
+</head>
+<body>
+    
+    <div id="wrap">
+        <button class="btnBtm">bottom</button>
+        <div class="container">
+            <div class="grid">
+                <div class="item">11</div>
+                <div class="item">22</div>
+                <div class="item">33</div>
+                <div class="item">44</div>
+                <div class="item">55</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

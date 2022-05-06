@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        #wrap {background: wheat;}
+        .list {display: flex;}
+        .list > li {flex: 1; text-align: center; border: 1px solid #000; transition: background .35s linear; background:violet;}
+        .list > li.active {background: springgreen;}
+        .list > li > a {display: block;}
+        .itemCont {background:turquoise;}
+        .itemCont .item {display: none; padding: 20px; text-align: center; box-sizing: border-box; background-color: turquoise;}
+        .itemCont .item.on {display: block;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            const listAll = document.querySelectorAll('.list > li');
+            const items = document.querySelectorAll('.itemCont > .item');
+        
+            
+            function event(idx){
+
+                listAll[idx].onclick = function(){
+
+                    if(listAll[idx].getAttribute('class') != 'active'){
+                        remove();
+                        listAll[idx].classList.add('active');
+                        items[idx].classList.add('on');
+                    }
+                }
+            }
+            function remove(){
+                listAll.forEach(el => {el.classList.remove('active')});
+                items.forEach(n => {n.classList.remove('on')});
+            }
+
+            for(let i=0; i<listAll.length; i++){
+                event(i);
+            }
+
+            
+            
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="tabCont">
+            <ul class="list">
+                <li class="active"><a href="#none">11</a></li>
+                <li><a href="#none">22</a></li>
+                <li><a href="#none">33</a></li>
+            </ul>
+        </div>
+        <div class="itemCont">
+            <div class="item on">11</div>
+            <div class="item">22</div>
+            <div class="item">33</div>
+        </div>
+    </div>
+</body>
+</html>

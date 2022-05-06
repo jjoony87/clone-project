@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #wrap {display: flex; height: 700px; justify-content: center; align-items: center; background: wheat;}
+        .roulllet {position: relative; padding-top: 20px; width: 500px; height: 500px; background: powderblue;}
+        .roulllet:after {display: inline-block; position: absolute; top: 0; left: 50%; transform: translateX(-50%); content: ''; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 30px solid darkorange;}
+        .roullet_img.active {animation: ani .1s both infinite;}
+        .roullet_img > img {width: 100%; opacity: .3;}
+        .btn {position: absolute; left: 50%; top: 50%; width: 70px; height: 70px; border: 2px solid #000; border-radius: 100%; background: yellowgreen; transform: translate(-50%, -50%); z-index: 10;}
+        
+
+        @keyframes ani {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            const btn = document.querySelector('.btn');
+            const roullet = document.querySelector('.roullet_img');
+
+            
+            let roulletAll = {
+
+                random: function(){
+                    let min = Math.ceil(0);
+                    let max = Math.floor(5);
+                    return Math.floor(Math.random() * (max - min)) + min;
+                },
+                start: function(){
+                    roullet.classList.add('active');
+                    btn.innerText = 'Stop';
+
+                },
+                stop: function(){
+                    const deg = [60, 120, 180, 240, 360];
+                    roullet.classList.remove('active');
+                    btn.innerText = 'Start';
+                    roullet.style.transform = 'rotate(' + deg[roulletAll.random()] + 'deg)';
+
+                },
+
+            }
+            btn.addEventListener('click', () => {
+
+                if(btn.innerText === 'Start'){
+                    roulletAll.start();
+                }else if(btn.innerText === 'Stop'){
+                    roulletAll.stop();
+                }
+                //console.log(roulletAll.random());
+
+            });
+
+            
+        } 
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="roulllet">
+            <div class="roullet_img"><img src="images/img_roullet.png" alt=""></div>
+            <button class="btn">Start</button>
+        </div>
+    </div>
+</body>
+</html>

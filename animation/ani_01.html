@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        .space {padding: 200px 20px; box-sizing: border-box; color: #fff; background: teal;}
+        .graph {height: 500px; background: wheat;}
+        .graph_list {display: flex; width: 100%; height: 300px; background: turquoise;}
+        .graph_list > li {display: flex; align-items: flex-end; position: relative; flex: 1; padding-bottom: 25px; height: 100%; /*height: -webkit-calc(100% - 25px);*/ border: 1px solid #000;}
+        .graph_list > li > span {width: 100%; display: inline-block;}
+        .graph_list > li .item_bar {height: 0%; background:sandybrown;}
+        .graph_list > li.active .item_bar {animation: bar .5s ease-in both;}
+        .graph_list > li .tiem_txt {position: absolute; left: 0; bottom: 0; height: 25px; line-height: 25px; text-align: center; color: #000; background:violet;}
+
+        @keyframes bar {
+            from {
+                height: 0;
+            }
+            to {
+                height: 70%;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            const barList = document.querySelectorAll('.graph_list > li');
+            const barTop = document.querySelector('.graph_list').offsetTop;
+            let isChack = false;
+            console.log(barTop);
+
+            function event(){
+                
+                const winScrTop = window.pageYOffset;
+                
+                if(winScrTop >= barTop && isChack == false){
+                    barList[0].classList.add('active');
+                    setTimeout(function(){
+                        barList[1].classList.add('active');
+                    }, 1000);
+                    setTimeout(function(){
+                        barList[2].classList.add('active');
+                    }, 2000);
+                    isChack = true;
+                }else if(winScrTop < 100 && isChack == true){
+                    removeAll();
+                    isChack = false;
+                }
+
+                console.log(winScrTop);
+            }
+
+            function removeAll(){
+                barList.forEach(el => {el.removeAttribute('class')});
+            }
+
+            document.addEventListener('scroll', event);
+        }
+        
+    </script>
+</head>
+<body>
+    
+    <div class="graph">
+        <div class="space">
+            space~
+        </div>
+        <div>
+            <ul class="graph_list">
+                <li>
+                    <span class="item_bar"></span>
+                    <span class="tiem_txt">text</span>
+                </li>
+                <li>
+                    <span class="item_bar"></span>
+                    <span class="tiem_txt">text</span>
+                </li>
+                <li>
+                    <span class="item_bar"></span>
+                    <span class="tiem_txt">text</span>
+                </li>
+            </ul>
+        </div>
+        <div class="space">
+            space~
+        </div>
+    </div>
+</body>
+</html>

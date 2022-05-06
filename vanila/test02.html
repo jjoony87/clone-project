@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #wrap {position: relative; font-size: 18px; color: #000; text-align: center; font-weight: bold; font-family: 'Noto Sans KR', sans-serif; background: beige;}
+        .top {position:sticky; top: 0;  background: gold;}
+        .top .text {font-size: 14px; color: #999;}
+        .top .bar {display: block; width: 0%; height: 5px; background: #000;}
+        .scrollList > li {padding: 300px 20px; border: 1px solid #000; box-sizing: border-box; transition: background .35s linear; background: darkturquoise;}
+        .scrollList > li.active {background: cornflowerblue;}
+        .foot {padding: 50px 20px; box-sizing: border-box; color: #000;}
+    </style>
+    <script type="text/javascript">
+
+        
+        window.onload = function(){
+            
+            const head = document.querySelector('.head').offsetHeight;
+            const bodyHeight = document.querySelector('#wrap').offsetHeight;
+            const listTop = document.querySelectorAll('.scrollList > li');
+            const txt = document.querySelector('.text');
+            const bar = document.querySelector('.bar');
+            const winH = window.innerHeight;
+            const realScrHeight = bodyHeight - winH;
+            
+            let isCheck = false;
+            
+            console.log(listTop.length);
+
+
+            function scrEvent(){
+
+                const winScrTop = window.pageYOffset;
+                const percent = Math.floor((winScrTop / realScrHeight) * 100);
+                
+                if(winScrTop > listTop[0].offsetTop && winScrTop < listTop[1].offsetTop && isCheck == false){
+                    console.log('aaa');
+                    remove();
+                    listTop[0].classList.add('active');
+                    isCheck = true;
+                }else if(winScrTop > listTop[1].offsetTop && winScrTop < listTop[2].offsetTop && isCheck == true){
+                    console.log('bbb');
+                    remove();
+                    listTop[1].classList.add('active');
+                    isCheck = false;
+                }else if(winScrTop > listTop[2].offsetTop && isCheck == false){
+                    console.log('ccc');
+                    remove();
+                    listTop[2].classList.add('active');
+                    isCheck = true;
+                }else if(winScrTop < head && isCheck == true){
+                    console.log('all~~~');
+                    remove();
+                    isCheck = false;
+                }
+                setPropety(percent);
+                //console.log(percent);
+            }
+
+            function setPropety(percent){
+                bar.style.width = percent + '%';
+                txt.innerText = percent + '%';
+
+            }
+
+            function remove(){
+                listTop.forEach(el => {el.classList.remove('active')});
+            }
+            document.addEventListener('scroll', scrEvent);
+
+        }
+
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+        <header class="head">
+            라이프캔버스
+        </header>
+        <div class="top">
+            <span class="text">0%</span>
+            <span class="bar"></span>
+        </div>
+        <div class="scrolling">
+            <ul class="scrollList">
+                <li>src 01</li>
+                <li>src 02</li>
+                <li>src 03</li>
+            </ul>
+        </div>
+        <div class="foot">footer</div>
+    </div>
+    
+</body>
+</html>
