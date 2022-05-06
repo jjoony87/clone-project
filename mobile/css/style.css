@@ -12,5 +12,13 @@ caption > div,
 legend,
 .hide {overflow: hidden; display:block; position:absolute; border: 0; width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px);}
 
+
 .skip { position: absolute; left: 0; right: 0; top:-100%; transition: all .5s; line-height: 5rem; background: #000; color:#fff; text-align: center; z-index: 100;}
-.skip:focus { top: 0; }
+.skip:focus { top: 0;}
+
+.logout h2 {float: left; font-size: 1.6rem; color: #333;}
+.logout h2 > span {}
+.logout > div {float: right; font-size: 0;}
+.logout > div > img {width: 3rem; border: .2rem solid #fff;}
+.logout > div > img + img {margin-right: -1.2rem;}
+.logout > ul {clear: both;}
