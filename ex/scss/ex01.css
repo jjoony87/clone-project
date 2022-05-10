@@ -1,20 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo&display=swap&subset=korean");
 * {
   font-family: 'Noto Sans KR', sans-serif;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   margin: 0;
   background-color: #222;
@@ -25,12 +18,9 @@ body {
   width: 100px;
   height: 100px;
   background-color: #ff4757;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-box-shadow: 0 -10px 100px #ff4757,  0 -10px 150px #ff4757,  0 -10px 200px #ff4757;
-          box-shadow: 0 -10px 100px #ff4757,  0 -10px 150px #ff4757,  0 -10px 200px #ff4757;
-  -webkit-animation: heart-beat .5s linear infinite;
-          animation: heart-beat .5s linear infinite;
+  transform: rotate(45deg);
+  box-shadow: 0 -10px 100px #ff4757,  0 -10px 150px #ff4757,  0 -10px 200px #ff4757;
+  animation: heart-beat .5s linear infinite;
 }
 
 .heart-beat:before, .heart-beat:after {
@@ -50,33 +40,14 @@ body {
   left: -50%;
 }
 
-@-webkit-keyframes heart-beat {
-  0% {
-    -webkit-transform: rotate(45deg) scale(1);
-            transform: rotate(45deg) scale(1);
-  }
-  50% {
-    -webkit-transform: rotate(45deg) scale(1.05);
-            transform: rotate(45deg) scale(1.05);
-  }
-  100% {
-    -webkit-transform: rotate(45deg) scale(0.95);
-            transform: rotate(45deg) scale(0.95);
-  }
-}
-
 @keyframes heart-beat {
   0% {
-    -webkit-transform: rotate(45deg) scale(1);
-            transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
   }
   50% {
-    -webkit-transform: rotate(45deg) scale(1.05);
-            transform: rotate(45deg) scale(1.05);
+    transform: rotate(45deg) scale(1.05);
   }
   100% {
-    -webkit-transform: rotate(45deg) scale(0.95);
-            transform: rotate(45deg) scale(0.95);
+    transform: rotate(45deg) scale(0.95);
   }
 }
-/*# sourceMappingURL=ex01.css.map */

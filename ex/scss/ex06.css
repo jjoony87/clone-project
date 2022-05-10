@@ -2,22 +2,15 @@
 @import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons+Outlined");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
   margin: 0;
   padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
@@ -26,8 +19,7 @@ body {
   width: 350px;
   padding: 25px;
   border-radius: 10px;
-  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 .login h1 {
@@ -45,15 +37,13 @@ body {
   border: 1px solid #ccc;
   border-radius: 3px;
   outline: none;
-  -webkit-transition: all .35s;
   transition: all .35s;
   padding-left: 35px;
 }
 
 .login input:not([type="submit"]):hover {
   border: 1px solid skyblue;
-  -webkit-box-shadow: 0 0 5px skyblue;
-          box-shadow: 0 0 5px skyblue;
+  box-shadow: 0 0 5px skyblue;
 }
 
 .login input:not([type="submit"])[type="text"] {
@@ -75,11 +65,9 @@ body {
   padding: 12px;
   color: #fff;
   cursor: pointer;
-  -webkit-transition: all .35s;
   transition: all .35s;
 }
 
 .login input[type="submit"]:hover {
   background-color: #000;
 }
-/*# sourceMappingURL=ex06.css.map */

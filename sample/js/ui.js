@@ -37,7 +37,7 @@ $(function(){
     var isChk = false;
     var isTitleChk = false;
 
-    console.log(contactTop);
+    //console.log(contactTop);
 
 
     // cont 거리값 구하기
@@ -53,7 +53,7 @@ $(function(){
         //var mainPercent = sectionScrTop / mainHeight;
         //var mainPercentTxt = Math.floor(mainPercent * 100);
         //console.log(mainScrPercent);
-        console.log(winMainScrTop);
+        //console.log(winMainScrTop);
         mainMotion(mainScrPercent, winMainScrTop);
     }
 

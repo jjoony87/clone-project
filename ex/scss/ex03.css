@@ -3,25 +3,15 @@
 /* Google Web Font */
 @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   font-family: 'Raleway', sans-serif;
   color: #333;
 }
@@ -69,7 +59,6 @@ a {
   max-height: 0;
   overflow: hidden;
   background-color: #626e7e;
-  -webkit-transition: all .35s;
   transition: all .35s;
 }
 
@@ -84,4 +73,3 @@ a {
 .items .sub-items a:last-child {
   border-bottom: none;
 }
-/*# sourceMappingURL=ex03.css.map */
