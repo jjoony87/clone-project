@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        
+        #wrap {background:darksalmon;}
+        .list {display: flex;}
+        .list > a {flex: 1; border: 1px solid #000; outline: none; text-decoration: none; background:darkkhaki;}
+        .itemWrap .item {height: 700px; text-align: center; border: 2px solid #000; font-size: 20px; color: #000;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            let items = document.querySelectorAll('.item');
+            const list = document.querySelector('.list > a');
+            //const btnArr = document.querySelectorAll('.list > a');
+
+            //const now = new Date().getTime();
+
+            //console.log(now);
+
+            // for(let i=0; i<items.length; i++){
+            //     console.log(i);
+                
+            // }
+
+            console.log(items[0].offsetTop);
+
+            list.addEventListener('click', (e) => {
+                //console.log(list[i]);
+                let el = e.target;
+                const elHash = el.hash;
+
+                if(elHash == undefined){
+                    console.log('aa');
+                }else if(elHash == '#box1'){
+                    //items[0].classList.add('aaa');
+                    items[0].scrollIntoView({behavior:'smooth'});
+                    console.log(items[0]);
+                }else if(elHash == '#box2'){
+                    items[1].scrollIntoView({behavior:'smooth'});
+                }else if(elHash == '#box3'){
+                    
+                }
+
+            });
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="list">
+            <a href="#box1" id='box1'>11</a>
+            <a href="#box2" id='box2'>22</a>
+            <a href="#box3" id='box3'>33</a>
+        </div>
+
+        <div class="itemWrap">
+            <div class="item">1 내용</div>
+            <div class="item">2 내용</div>
+            <div class="item">3 내용</div>
+        </div>
+    </div>
+</body>
+</html>

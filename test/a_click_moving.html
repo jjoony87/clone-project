@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="common.css">
     <title>Document</title>
     <style>
-        #section {background-color: aqua;}
+        #section {position: sticky; top: 0; background-color: aqua;}
         #wrap {padding-bottom: 200px;}
         a {font-size: 16px; color: #000;}
         a + a {margin-left: 10px;}
@@ -29,21 +29,24 @@
         thisLink.addEventListener('click', (e) => {
             let targetEl = e.target;
             
-            const taegetElHref = targetEl.hash;
+            const targetElHash = targetEl.hash;
+
+
+            console.log(targetElHash);
             e.preventDefault();
 
-            if(taegetElHref == undefined){
+            if(targetElHash == undefined){
                 return false; // 링크 영역 제외한 부분 클릭시 이벤트 실행을 안하겠다.
-            }else if(taegetElHref == '#box01'){
+            }else if(targetElHash == '#box01'){
                 doxs[0].scrollIntoView({behavior:'smooth'});
             }
-            else if(taegetElHref == '#box02'){
+            else if(targetElHash == '#box02'){
                 doxs[1].scrollIntoView({behavior:'smooth'});
             }
-            else if(taegetElHref == '#box03'){
+            else if(targetElHash == '#box03'){
                 doxs[2].scrollIntoView({behavior:'smooth'});
             }
-            console.log(taegetElHref);
+            //console.log(targetElHash);
             
             //console.log(targetEl);
         });

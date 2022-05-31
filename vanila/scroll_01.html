@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/test/common.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #wrap {background: beige;}
+        .list > li {padding: 200px 0; text-align: center; border: 2px solid #000; background: burlywood;}
+        .btn {display: inline-block; width: 90%; padding: 10px 0; border-radius: 25px; transition: background .35s; font-size: 20px; color: #000; background: cadetblue;}
+        .btn.fixed {position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); background: coral;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            const bodyH = document.querySelector('#wrap').offsetHeight;
+            const winH = window.innerHeight;
+            const btn = document.querySelector('.btn');
+            const btnBtm = btn.offsetHeight + btn.offsetTop;
+            let isCheck = false;
+            
+
+            //console.log(bodyH);
+            console.log(btnBtm);
+            console.log('winHeight', winH);
+
+            function setProperty(){
+                const winScrTop = window.pageYOffset;
+                const winScrBtm = winScrTop + winH;
+
+                if(winScrBtm >= btnBtm && isCheck == false){
+                    btn.classList.add('fixed');
+                    isCheck = true;
+                }else if(winScrBtm < btnBtm && isCheck == true){
+                    btn.classList.remove('fixed');
+                    isCheck = false;
+                }
+
+                console.log(winScrBtm);
+            }
+
+            document.addEventListener('scroll', setProperty);
+
+        }    
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <ul class="list">
+            <li>11</li>
+            <li>22</li>
+            <li>
+                <p>here~</p>
+                <button class="btn">fix</button>
+            </li>
+            <li>44</li>
+            <li>55</li>
+        </ul>
+    </div>
+</body>
+</html>
