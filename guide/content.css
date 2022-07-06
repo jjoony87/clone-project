@@ -1,0 +1,122 @@
+/* Fontawesome 4.7 */
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+html, body {
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+#wrap {
+  height: 100%;
+  background: beige;
+}
+
+.gbWrap {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.gbWrap .gb_lnb {
+  width: 300px;
+  height: 100%;
+  overflow-y: auto;
+  background: wheat;
+  margin: 0;
+  padding: 0;
+}
+
+.gbWrap .gb_cont {
+  flex: 1;
+  background: cadetblue;
+}
+
+.gbWrap .gb_list > li {
+  padding: 0 20px;
+}
+
+.gbWrap .gb_list > li .tit {
+  display: block;
+  padding: 12px 0;
+  line-height: 1;
+  font-size: 20px;
+  color: #000;
+}
+
+.gbWrap .gb_list > li a {
+  display: block;
+  text-decoration: none;
+}
+
+.gbWrap .gb_list_sub > li {
+  padding: 10px 0;
+  border-bottom: 2px solid wheat;
+  transition: border-color .35s linear;
+}
+
+.gbWrap .gb_list_sub > li.active {
+  border-color: #000;
+}
+
+.gbWrap .gb_list_sub > li:first-child {
+  padding: 10px 0;
+}
+
+.gbWrap .gb_list_sub > li a {
+  color: #000;
+}
+
+.gbWrap .gb_view {
+  height: 100%;
+  overflow-y: auto;
+  padding: 30px;
+  box-sizing: border-box;
+  background: chocolate;
+}
+
+.gbWrap .gb_view h2 {
+  font-size: 24px;
+  color: #000;
+}
+
+.gbWrap .gb_view h2 + h2 {
+  margin-top: 20px;
+}
+
+.source {
+  white-space: pre;
+  font-size: 12px;
+  color: orangered;
+  background: tan;
+}
+
+/* view - set */
+.flex {
+  display: flex;
+}
+
+.flex.rate1 .item {
+  flex: 1;
+  border: 1px solid #000;
+}
+
+.preview {
+  padding: 10px;
+  box-sizing: border-box;
+  background: darkseagreen;
+}
+
+.source h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+}
+
+.source .item_left,
+.source .item_right {
+  background: darkkhaki;
+}

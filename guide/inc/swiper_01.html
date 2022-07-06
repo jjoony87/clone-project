@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <title>swiper</title>
+    <link rel="stylesheet" href="/reset.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #swiper_wrap {width: 100%; height: 100%; background: beige;}
+        .swiper-container {height: 100%;}
+        .slide01 {width: 100%; height: 100%; background: orange;}
+        .slide02 {width: 100%; height: 100%; background: lawngreen;}
+        .slide03 {width: 100%; height: 100%; background: olive;}
+        .slide04 {width: 100%; height: 100%; background: aqua;}
+        .slide04 {width: 100%; height: 100%; background: violet;}
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+
+            var swiper = new Swiper('.swiper-container', {
+            speed: 500,
+            direction: 'vertical',
+            mousewheel: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            on: {
+                reachEnd: function () {
+                    swiper.mousewheel.disable();
+                }
+            }
+        });
+        window.addEventListener('wheel', function (event) {
+
+            console.log(event.deltaY);
+            if (event.deltaY < 0) {
+                swiper.mousewheel.enable();
+            }else if(event.deltaY > 0) {
+            }
+        });
+
+        }
+    </script>
+</head>
+<body>
+    <div id="swiper_wrap">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide01">
+                    slide 01
+                </div>
+                <div class="swiper-slide slide02">
+                    slide 02
+                </div>
+                <div class="swiper-slide slide03">
+                    slide 03
+                </div>
+                <div class="swiper-slide slide04">
+                    slide 04
+                </div>
+                <div class="swiper-slide slide05">
+                    slide 05
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</body>
+</html>
+

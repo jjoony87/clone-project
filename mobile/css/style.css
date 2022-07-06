@@ -22,3 +22,16 @@ legend,
 .logout > div > img {width: 3rem; border: .2rem solid #fff;}
 .logout > div > img + img {margin-right: -1.2rem;}
 .logout > ul {clear: both;}
+
+
+.join-list {display: flex;}
+.join-list > li {position: relative; flex: 1; text-align: center;}
+.join-list > li + li:after {position: absolute; left: 0; top: 0; display: inline-block; 
+    content: ''; width: 1px; height: 100%; background-color: #F5F5F5;}
+.join-list > li > a {display: block;}
+.join-list_num {display: flex; justify-content: center; line-height: 1; height: 4rem; vertical-align: top; font-size: 3.5rem; font-weight: 400; color: #000;}
+.join-list_txt {font-size: 1.4rem; color: #999;}
+.thumb-box {position: relative; height: 4rem;}
+.thumb-box .circle {display: inline-block; width: 3.8rem; height: 3.8rem; border-radius: 100%; border: 2px solid #17298B; overflow: hidden;}
+.thumb-box .circle > img {width: 100%;}
+.thumb-box .count {position: absolute; left: 50%; top: 0; display: inline-block; width: 2.5rem; height: 2rem; line-height: 2rem; font-size: 1.1rem; color: #F17785; border: 2px solid #F17785; border-radius: 1.4rem; box-shadow: 0 2px 0 rgba(0, 0, 0, .17); background: #fff;}
