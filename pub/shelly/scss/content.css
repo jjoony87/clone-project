@@ -1,0 +1,235 @@
+@charset "UTF-8";
+/* [import] :: 변수 */
+html, body {
+  height: 100%;
+}
+
+/* [Menu] :: Layout */
+#wrap {
+  width: 100%;
+  height: 100%;
+  background: wheat;
+}
+
+.main_flex {
+  display: flex;
+}
+
+.main_flex .menu,
+.main_flex .main_slide {
+  flex: 1;
+  border: 1px solid #000;
+}
+
+/* [Menu] :: Left */
+.menu {
+  padding-left: 2.1rem;
+}
+
+.menu .user {
+  margin-top: 8.2rem;
+}
+
+.menu .user_info {
+  width: 9.6rem;
+  height: 9.3rem;
+  border-radius: 2.5rem;
+  text-align: center;
+  line-height: 9.3rem;
+  background: #EDF1FA;
+}
+
+.menu .user_name {
+  margin: 1.4rem 0 4rem;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #1A3B34;
+}
+
+.menu .user_list > li {
+  border: 1px solid #000;
+}
+
+.menu .user_list > li + li {
+  margin-top: 3.5rem;
+}
+
+.menu .user_list > li > a {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 2rem;
+  font-size: 1.6rem;
+  color: #899A96;
+}
+
+.menu .user_list > li > a:before {
+  border: 1px solid red;
+  display: inline-block;
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+
+.menu .user_list > li:nth-child(1) > a:before {
+  color: red;
+  background-image: url(../images/ico_menu_1.svg);
+}
+
+.menu .user_list > li:nth-child(2) > a:before {
+  color: red;
+  background-image: url(../images/ico_menu_2.svg);
+}
+
+.menu .user_list > li:nth-child(3) > a:before {
+  color: red;
+  background-image: url(../images/ico_menu_3.svg);
+}
+
+.menu .user_list > li:nth-child(4) > a:before {
+  color: red;
+  background-image: url(../images/ico_menu_4.svg);
+}
+
+.menu .user_list > li:nth-child(5) > a:before {
+  color: red;
+  background-image: url(../images/ico_menu_5.svg);
+}
+
+.menu .user_list > li:nth-child(6) > a:before {
+  color: red;
+  background-image: url(../images/ico_menu_6.svg);
+}
+
+/* [Menu] :: Right */
+.main_slide {
+  position: relative;
+  background: paleturquoise;
+}
+
+.main_slide .ms_item {
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 8.8rem;
+  height: 100%;
+  border: 1px solid red;
+  transform-origin: right bottom;
+}
+
+.main_slide .ms_item:not(:first-child) {
+  width: 9.8rem;
+  transform: rotate(12deg);
+  border-top-left-radius: 4.5rem;
+  background: salmon;
+}
+
+.main_slide .ms_item:first-child {
+  z-index: 3;
+  transform: rotate(10deg);
+}
+
+.main_slide .ms_item:first-child > img {
+  width: 100%;
+}
+
+.main_slide .ms_item:nth-child(2) {
+  z-index: 2;
+  height: 92%;
+}
+
+.main_slide .ms_item:nth-child(3) {
+  z-index: 1;
+  height: 90%;
+}
+
+/* [Animation] :: menu */
+@keyframes ms_first {
+  from {
+    transform: rotate(12deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes ms_slide1 {
+  from {
+    transform: rotate(16deg);
+  }
+  to {
+    transform: rotate(-7deg);
+  }
+}
+
+@keyframes ms_slide2 {
+  from {
+    transform: rotate(16deg);
+  }
+  to {
+    transform: rotate(-15deg);
+  }
+}
+
+@media (max-width: 650px) {
+  .main_slide .ms_item {
+    width: 7rem;
+  }
+  .main_slide .ms_item:not(:first-child) {
+    width: 5rem;
+    transform: rotate(12deg);
+    border-top-left-radius: 4.5rem;
+    background: salmon;
+  }
+  @keyframes ms_first {
+    from {
+      transform: rotate(10deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+  @keyframes ms_slide1 {
+    from {
+      transform: rotate(10deg);
+    }
+    to {
+      transform: rotate(-5deg);
+    }
+  }
+  @keyframes ms_slide2 {
+    from {
+      transform: rotate(10deg);
+    }
+    to {
+      transform: rotate(-8deg);
+    }
+  }
+}
+
+/* Button */
+.btn_next {
+  display: inline-block;
+  min-width: 16rem;
+  height: 5.8rem;
+  line-height: 5.9rem;
+  background: linear-gradient(180deg, #40DF9F 0%, #3ED598 100%);
+  box-shadow: 0px 2px 4px rgba(15, 218, 137, 0.3);
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.btn_next.full {
+  width: 100%;
+}
+
+/* Margin & Padding */
+.mt60 {
+  margin-top: 6rem;
+}

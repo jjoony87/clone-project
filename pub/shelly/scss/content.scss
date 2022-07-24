@@ -1,0 +1,226 @@
+
+
+
+
+/* [import] :: 변수 */
+//$ico-bg-menuList1: '../images/ico_bag.svg';
+
+
+html, body {
+    height: 100%;
+}
+
+
+/* [Menu] :: Layout */
+#wrap {
+    width: 100%;
+    height: 100%;
+    background: wheat;
+    
+}
+
+.main_flex {
+    display: flex;
+    .menu,
+    .main_slide {
+        flex: 1;
+        border: 1px solid #000;
+    }
+    
+}
+
+/* [Menu] :: Left */
+.menu {
+    padding-left: 2.1rem;
+    .user {
+        margin-top: 8.2rem;
+        &_info {
+            width: 9.6rem;
+            height: 9.3rem;
+            border-radius: 2.5rem;
+            text-align: center;
+            line-height: 9.3rem;
+            background: #EDF1FA;   
+        }
+        &_name {
+            margin: 1.4rem 0 4rem;
+            font-weight: 700;
+            font-size: 2.4rem;
+            color: #1A3B34;
+        }
+        &_list {
+            
+            > li {
+                border: 1px solid #000;
+                & + li {
+                    margin-top: 3.5rem;
+                }
+                > a {
+                    display: inline-flex;
+                    align-items: center;
+                    padding-left: 2rem;
+                    font-size: 1.6rem;
+                    color: #899A96;
+                    &:before {
+                        border: 1px solid red;
+                        display: inline-block;
+                        content: '';
+                        width: 2rem;
+                        height: 2rem;
+                        vertical-align: middle;
+                        background-position: left center;
+                        background-repeat: no-repeat;
+                        background-size: 80%;
+                    }
+                }
+
+                @for $i from 1 through 6 {
+
+                    &:nth-child(#{$i}) > a:before {
+                        color: red;
+                        background-image: url(../images/ico_menu_#{$i}.svg);
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+/* [Menu] :: Right */
+
+.main_slide {
+    position: relative;
+    background: paleturquoise;
+
+    .ms_item{
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 8.8rem;
+        height: 100%;
+        border: 1px solid red;
+        transform-origin: right bottom;
+
+        &:not(:first-child){
+            width: 9.8rem;
+            transform: rotate(12deg);
+            border-top-left-radius: 4.5rem;
+            background: salmon;
+        }
+        
+        &:first-child {
+            z-index: 3;
+            transform: rotate(10deg);
+            //animation: ms_first .35s 1s both linear;
+            > img {
+                width: 100%;
+            }
+        }
+        &:nth-child(2) {
+            z-index: 2;
+            height: 92%;
+            //animation: ms_slide1 .35s 1.2s both linear;
+        }
+        &:nth-child(3) {
+            z-index: 1;
+            height: 90%;
+            //animation: ms_slide2 .35s 1.45s both linear;
+        }
+    }
+    
+}
+
+
+/* [Animation] :: menu */
+@keyframes ms_first {
+    from {
+        transform: rotate(12deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+@keyframes ms_slide1 {
+    from {
+        transform: rotate(16deg);
+    }
+    to {
+        transform: rotate(-7deg);
+    }
+}
+@keyframes ms_slide2 {
+    from {
+        transform: rotate(16deg);
+    }
+    to {
+        transform: rotate(-15deg);
+    }
+}
+
+
+@media (max-width:650px) {
+
+    .main_slide {
+        .ms_item {
+            width: 7rem;
+
+            &:not(:first-child){
+                width: 5rem;
+                transform: rotate(12deg);
+                border-top-left-radius: 4.5rem;
+                background: salmon;
+            }
+        }
+    }
+
+
+    @keyframes ms_first {
+        from {
+            transform: rotate(10deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+    @keyframes ms_slide1 {
+        from {
+            transform: rotate(10deg);
+        }
+        to {
+            transform: rotate(-5deg);
+        }
+    }
+    @keyframes ms_slide2 {
+        from {
+            transform: rotate(10deg);
+        }
+        to {
+            transform: rotate(-8deg);
+        }
+    }
+    
+}
+
+
+
+/* Button */
+.btn_next {
+    display: inline-block;
+    min-width: 16rem;
+    height: 5.8rem;
+    line-height: 5.9rem;
+    background: linear-gradient(180deg, #40DF9F 0%, #3ED598 100%);
+    box-shadow: 0px 2px 4px rgba(15, 218, 137, 0.3);
+    border-radius: 1.2rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    &.full {
+        width: 100%;
+    }
+}
+
+/* Margin & Padding */
+.mt60 {margin-top: 6rem;}
