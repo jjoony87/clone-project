@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: wheat;
+        }
+        h2 {
+            margin: 0; padding: 0;
+        }
+        section {
+            height: 100vh;
+            border: 1px solid #000;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <section class="secCont">
+            <h2>section01</h2>
+            <div class="videoBox">
+                <video src=""></video>
+            </div>
+        </section>
+        <section class="secCont">
+            <h2>section02</h2>
+            <div class="videoBox">
+                <video src=""></video>
+            </div>
+        </section>
+        <section class="secCont">
+            <h2>section03</h2>
+            <div class="videoBox">
+                <video src=""></video>
+            </div>
+        </section>
+        <section class="secCont">
+            <h2>section04</h2>
+            <div class="videoBox">
+                <video src=""></video>
+            </div>
+        </section>
+        <section class="secCont">
+            <h2>section05</h2>
+            <div class="videoBox">
+                <video src=""></video>
+            </div>
+        </section>
+    </div>
+
+
+    <script type="text/javascript">
+        
+        window.onload = function(){
+            
+            const sectionList = document.querySelectorAll('#wrap > section');
+            let isCheck = false;
+
+            //console.log(sectionList);
+
+            // window scroll
+            function setScroll(){
+                const winY = window.pageYOffset;
+
+                for(let i=0; i<sectionList.length; i++){
+
+                    console.log(sectionList[i].offsetTop);
+                    
+                    if(winY > sectionList[i].offsetTop & isCheck == isCheck){
+                        console.log('over~');
+                        
+                    }
+
+                }
+        
+            }
+
+
+            
+
+            
+            document.addEventListener('scroll', setScroll);
+            
+
+        }
+    </script>
+</body>
+</html>
