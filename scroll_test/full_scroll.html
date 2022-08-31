@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0;}
+        body {height: 100%; background: #222;}
+        .section_1 {height: 100%;}
+        .swiper-container {height: 100vh;}
+        .slide01 {width: 100%; height: 100vh; background: red;}
+        .slide02 {width: 100%; height: 100vh; background: blue;}
+        .slide03 {width: 100%; height: 100vh; background: yellow;}
+        .slide04 {width: 100%; height: 100vh; background: pink;}
+
+        .mainWrap {width: 100%; padding: 200px 0; overflow: auto; box-sizing: border-box; background: cornflowerblue;}
+        .mainWrap > p {margin-top: 30px;}
+        .dragNo {-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;-khtml-user-select: none;user-select: none;}
+    </style>
+</head>
+<body class="dragNo">
+    
+
+    <div class="section_1">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide slide01">
+            </div>
+            <div class="swiper-slide slide02">
+            </div>
+            <div class="swiper-slide slide03">
+            </div>
+            <div class="swiper-slide slide04">
+            </div>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+      <div class="mainWrap">
+
+            <p style="font-size: 20px; color: #000; text-align: center;">title~~</p>
+            <div style="margin: 100px 0; padding: 0 20px;">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum deleniti saepe exercitationem quis aliquid nihil, odit non sit minus optio nam asperiores dolorem, veniam ipsam a nulla aliquam consequuntur ipsa.
+                <p>test tset test</p>
+                <p>test tset test</p>
+                <p>test tset test</p>
+                <p>test tset test</p>
+                <p>test tset test</p>
+                <p>test tset test</p>
+                <p>test tset test</p>
+                <p>test tset test</p>
+            </div>
+      </div>
+
+
+      <script type="text/javascript">
+        window.onload = function(){
+
+
+
+            var swiper = new Swiper('.swiper-container', {
+                speed: 500,
+                direction: 'vertical',
+                mousewheel: true,
+                pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                touchRatio: 0,//드래그 금지
+                allowTouchMove: false,
+                resistance : false,
+                },
+        
+                //watchOverflow : true,
+                on: {
+
+                    // init: function(){
+                    //     const lastIndex = document.getAnimations('mainWrap');
+                        
+                    // },
+
+                    slideChange: function() {
+                        setTimeout(function () {
+                        swiper.params.touchReleaseOnEdges = false;  
+                        swiper.params.mousewheel.releaseOnEdges = false;
+                        });
+                    },
+                    reachEnd: function() {
+                        setTimeout(function () {
+                            swiper.params.touchReleaseOnEdges = true;
+                            swiper.params.mousewheel.releaseOnEdges = true;
+                        }, 500);
+                        
+                        //test();
+                        //swiper.slideTo(4, 1000, false)
+                    },
+                    reachBeginning: function() {
+                        setTimeout(function () {
+                            swiper.params.touchReleaseOnEdges = true;
+                            swiper.params.mousewheel.releaseOnEdges = true;
+                        }, 500);
+                    }
+                }
+            }); 
+
+
+            // function test() {
+            //     //swiper.slideTo(0, 1000, false)
+            //     swiper.slideTo(lastIndex);
+            // }
+
+            // 휠로 적용시~
+            // window.addEventListener('wheel', function (event) {
+            //     if (event.deltaY < 0) {
+
+            //         console.log('aa');
+            //         //swiper.mousewheel.enable();
+            //     } else if (event.deltaY > 0) {
+            //         console.log('333');
+            //     }
+            // });
+
+            // window.addEventListener('touchmove', function (e) {
+            //     console.log('touchmove', e);
+            // });
+
+            const location = document.querySelector(".mainWrap").offsetTop;
+
+            let start_x, end_x;
+            const moList = document.querySelector(".slide04");
+
+            moList.addEventListener('touchstart', touchStart);
+            moList.addEventListener('touchend', touchEnd);
+
+            
+            function touchStart(e){
+                start_x = event.touches[0].pageX
+            }
+
+            function touchEnd(e){
+                end_x = e.changedTouches[0].pageX;
+
+                if(start_x >= end_x){
+                    console.log('크다~~~');
+                    window.scrollTo({top:location, behavior:'smooth'});
+                }else{
+                    console.log('small~');
+                    window.scrollTo({top:location, behavior:'smooth'});
+                }
+            }
+
+
+        }
+          
+      </script>
+</body>
+</html>
