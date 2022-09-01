@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<title>타이틀</title>
+	<style>
+		.accordion {
+		  margin: 20px 0;           
+		  border-top: 1px solid #e5e5e5;
+		}
+		.accordion_item {
+		  border-bottom: 1px solid #e5e5e5;
+		}                   
+		.accordion_tite {
+		display:block;
+		  padding:10px 0;
+		  cursor: pointer;
+		  font-weight: normal;
+		  color:#333;
+		  font-size:14px;
+		}
+		.accordion_tite::before {
+		  content: '';
+		  display: inline-block;
+		  height: 7px;
+		  width: 7px;
+		  margin:0 10px;                         
+		  vertical-align: middle;
+		  border-right: 1px solid;
+		  border-bottom: 1px solid;
+		  -webkit-transform: rotate(-45deg);
+		  transform: rotate(-45deg);
+		  transition: -webkit-transform 0.2s ease-out;
+		  transition: transform 0.2s ease-out;
+		  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+		}                   
+		.accordion_content {display:none;padding:10px;}                 
+		.accordion_item.active .accordion_tite {color:#ff0021;font-weight:bold;}
+		.accordion_item.active .accordion_tite::before {
+		    -webkit-transform: rotate(45deg);
+		    transform: rotate(45deg);
+		}   
+
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.accordion > .accordion_item.active')
+			    .children('.accordion_content')
+			    .slideDown();
+			$('.accordion > .accordion_item').click(function() {                         
+			    $(this)
+			        .siblings('.accordion_item')
+			        .removeClass('active')
+			        .children('.accordion_content')
+			        .slideUp();                         
+			    $(this)
+			        .toggleClass('active')
+			        .children('.accordion_content')
+			        .slideToggle('ease-out');
+			});
+		});
+
+	</script>
+</head>
+	<body>
+		<ul class="accordion">
+		    <li class="accordion_item active">
+		        <a href="#none" class="accordion_tite">Lorem ipsum</a>
+		        <div class="accordion_content">
+		            Lorem ipsum dolor sit amet, consectetur adipisicing
+		            elit. Placeat, quibusdam! Voluptate nobis, beatae
+		            tempora praesentium, illum quis illo, maiores quod
+		            similique placeat, saepe mollitia dolor officiis
+		            aspernatur deleniti debitis commodi!
+		        </div>
+		    </li>
+		     
+		    <li class="accordion_item">
+		        <a href="#none" class="accordion_tite">Dolor sit amet</a>
+		        <div class="accordion_content">
+		            Lorem ipsum dolor sit amet, consectetur adipisicing
+		            elit. Reprehenderit quos, accusamus! Enim labore totam
+		            dicta quibusdam? Eveniet quis asperiores reprehenderit
+		            eaque atque in iure voluptate, explicabo, placeat, id
+		            earum architecto!
+		        </div>
+		    </li>
+		     
+		    <li class="accordion_item">
+		        <a href="#none" class="accordion_tite">Consectetur adipisicing elit</a>
+		        <div class="accordion_content">
+		            Lorem ipsum dolor sit amet, consectetur adipisicing
+		            elit. Reprehenderit quos, accusamus! Enim labore
+		            totam dicta quibusdam? Eveniet quis asperiores
+		            reprehenderit eaque atque in iure voluptate,
+		            explicabo, placeat, id earum architecto!
+		        </div>
+		    </li>
+		</ul>   
+	</body>
+</html>

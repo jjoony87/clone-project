@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="menu_style.css">
+	<title>타이틀</title>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var burger = $('.menu-trigger');
+ 
+			burger.each(function(index){
+			    var $this = $(this);
+			     
+			    $this.on('click', function(e){
+			        e.preventDefault();
+			        $(this).toggleClass('active-' + (index+1));
+			    })
+			});     
+		});
+	</script>
+
+</head>
+	<body>
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span class="nthtype-04"></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger type7" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger type11" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+		 
+		<a class="menu-trigger type12" href="#">
+		    <span></span>
+		    <span></span>
+		    <span></span>
+		</a>
+	</body>
+</html>

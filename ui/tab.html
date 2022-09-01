@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<style>
+		.tab {margin-bottom:30px}
+		.tab:after {content:''; clear:both; display:block}
+		.tab li {display:block; float:left; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box}
+		.tab li:after {content:''; clear:both; display:block}
+		.tab li a {display:table; width:100%; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box}
+		.tab li a span {display:table-cell; line-height:24px; vertical-align:middle}
+		.tab li a span >  em {display:block; margin:3px 0 0}
+		.tab.col2 li {width:50%}
+		.tab.col3 li {width:33%}
+		.tab.col3 li {width:33%}
+		.tab.col4 li {width:25%}
+		.tab.col5 li {width:20%}
+		.tab.col6 li {width:16.66%}
+		 
+		/* tab_type01 */
+		.tab.tab_type01 {width:100%}
+		.tab.tab_type01 li {position:relative; margin:0; padding:0; text-align:center}
+		.tab.tab_type01 li a {padding:0; height:60px; border:1px solid #ccc; font-family:'NotoSansBold'; font-size:20px; color:#000}
+		.tab.tab_type01 li+li a {border-left:none}
+		.tab.tab_type01 li.on a {background:#ff626f; border:none; color:#000}
+		 
+		.tab_wrap {padding:20px;}
+		.tab_wrap .tab_cont {display:none;text-align:center;color:#000;font-size:16px;}
+		.tab_wrap .tab_cont.on {display:block;}
+	</style>
+	<script>
+		var tabClickUI = function() {
+		    var $this = $(this),
+		        $thisWrap = $this.parent(),
+		        $cont = $thisWrap.closest(".tab_wrap").find("> .tab_cont");
+		 
+		    $thisWrap.siblings().removeClass('on');
+		    $thisWrap.addClass('on');
+		 
+		    if( $cont.length > 1 ){
+		        $cont.removeClass("on");
+		        $cont.eq($thisWrap.index()).addClass("on");
+		 
+		        if($cont.find("select").length){
+		            $("select").selectBox();
+		        }
+		        return false;
+		    }
+		}
+		 
+		$(document).on("click", ".tab li > a", tabClickUI);
+
+	</script>
+</head>
+	<body>
+
+		<div class="tab_wrap">
+		    <ul class="tab tab_type01 col3">
+		        <li class="on"><a href="#none"><span class="tit_line">tab01</span></a></li>
+		        <li><a href="#none"><span class="tit_line">tab02</span></a></li>
+		        <li><a href="#none"><span class="tit_line">tab03</span></a></li>
+		    </ul>
+		    <div class="tab_cont on">
+		        tab01 - content
+		    </div>
+		    <div class="tab_cont">
+		        tab02 - content
+		    </div>
+		    <div class="tab_cont">
+		        tab03 - content
+		    </div>
+		</div>
+			
+	</body>
+</html>

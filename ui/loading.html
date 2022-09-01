@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+	<title>타이틀</title>
+	<style>
+		.loading_content {padding: 15px;overflow: hidden;background-color: #e7e7e7;background-color: rgba(0,0,0,0.06);}
+		.loading_conten:after {content:'';display:block;clear:both;}
+		.loading_content .load-wrapp {float: left;width: 100px;height: 100px;margin: 0 10px 10px 0;padding: 20px 20px 20px;border-radius: 5px;text-align: center;   background-color: #d8d8d8;}
+		.loading_content .load-wrapp p {padding: 0 0 20px;}
+		.loading_content .load-wrapp:last-child {margin-right: 0;}
+		.loading_content .line {display: inline-block;width: 15px;height: 15px;border-radius: 15px;background-color: #4b9cdb;}
+		.loading_content .ring-1 {  width: 10px;height: 10px;   margin: 0 auto;padding: 10px;border: 7px dashed #4b9cdb;border-radius: 100%;}
+		.loading_content .ring-2 {position: relative;width: 45px;height: 45px;margin: 0 auto;border: 4px solid #4b9cdb;border-radius: 100%;}
+		.loading_content .ball-holder {position: absolute;width: 12px;height: 45px;left: 17px;top: 0px; }
+		.loading_content .ball {position: absolute;top: -11px;left: 0;width: 16px;height: 16px;border-radius: 100%;background: #4282B3;}
+		.loading_content .letter-holder {padding: 16px;}
+		.loading_content .letter {float: left;font-size: 14px;  color: #777;}
+		.loading_content .square {width: 12px;height: 12px;border-radius: 4px;background-color: #4b9cdb;}
+		.loading_content .spinner {position: relative;width: 45px;  height: 45px;margin: 0 auto;}
+		.loading_content .bubble-1,
+		.loading_content .bubble-2 {    position: absolute;top: 0;width: 25px;height: 25px; border-radius: 100%;background-color: #4b9cdb;  }
+		.loading_content .bubble-2 {top: auto;bottom: 0;}
+		.loading_content .bar {float: left;width: 15px;height: 6px;border-radius: 2px;background-color: #4b9cdb;}
+		.loading_content .load-1 .line:nth-last-child(1) {animation: loadingA 1.5s 1s infinite;}
+		.loading_content .load-1 .line:nth-last-child(2) {animation: loadingA 1.5s .5s infinite;}
+		.loading_content .load-1 .line:nth-last-child(3) {animation: loadingA 1.5s 0s infinite;}
+		.loading_content .load-2 .line:nth-last-child(1) {animation: loadingB 1.5s 1s infinite;}
+		.loading_content .load-2 .line:nth-last-child(2) {animation: loadingB 1.5s .5s infinite;}
+		.loading_content .load-2 .line:nth-last-child(3) {animation: loadingB 1.5s 0s infinite;}
+		.loading_content .load-3 .line:nth-last-child(1) {animation: loadingC .6s .1s linear infinite;}
+		.loading_content .load-3 .line:nth-last-child(2) {animation: loadingC .6s .2s linear infinite;}
+		.loading_content .load-3 .line:nth-last-child(3) {animation: loadingC .6s .3s linear infinite;}
+		.loading_content .load-4 .ring-1 {animation: loadingD 1.5s .3s cubic-bezier(.17,.37,.43,.67) infinite;}
+		.loading_content .load-5 .ball-holder {animation: loadingE 1.3s linear infinite;}
+		.loading_content .load-6 .letter {animation-name: loadingF;animation-duration: 1.6s;animation-iteration-count: infinite;animation-direction: linear;}
+		.loading_content .l-1 {animation-delay: .48s;}
+		.loading_content .l-2 {animation-delay: .6s;}
+		.loading_content .l-3 {animation-delay: .72s;}
+		.loading_content .l-4 {animation-delay: .84s;}
+		.loading_content .l-5 {animation-delay: .96s;}
+		.loading_content .l-6 {animation-delay: 1.08s;}
+		.loading_content .l-7 {animation-delay: 1.2s;}
+		.loading_content .l-8 {animation-delay: 1.32s;}
+		.loading_content .l-9 {animation-delay: 1.44s;}
+		.loading_content .l-10 {animation-delay: 1.56s;}
+		.loading_content .load-7 .square {animation: loadingG 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
+		.loading_content .load-8 .line {animation: loadingH 1.5s cubic-bezier(.17,.37,.43,.67) infinite;}
+		.loading_content .load-9 .spinner {animation: loadingI 2s linear infinite;}
+		.loading_content .load-9 .bubble-1, .load-9 .bubble-2 {animation: bounce 2s ease-in-out infinite;}
+		.loading_content .load-9 .bubble-2 {animation-delay: -1.0s;}
+		.loading_content .load-10 .bar {animation: loadingJ 2s cubic-bezier(.17,.37,.43,.67) infinite;}
+		@keyframes loadingA {0 {height: 15px;}50% {height: 35px;}100% {height: 15px;}}
+		@keyframes loadingB {0 {width: 15px;}   50% {width: 35px;}  100% {width: 15px;}}
+		@keyframes loadingC {0 {transform: translate(0,0);}50% {transform: translate(0,15px);}100% {transform: translate(0,0);}}
+		@keyframes loadingD {0 {transform: rotate(0deg);}50% {transform: rotate(180deg);}100% {transform: rotate(360deg);}}
+		@keyframes loadingE {0 {transform: rotate(0deg);}   100% {transform: rotate(360deg);}}
+		@keyframes loadingF {   0% {opacity: 0;}    100% {opacity: 1;}}
+		@keyframes loadingG {0% {transform: translate(0,0) rotate(0deg);}50% {transform: translate(70px,0) rotate(360deg);}100% {transform: translate(0,0) rotate(0deg);}}
+		@keyframes loadingH {0% {width: 15px;}50% {width: 35px; padding: 4px;}100% {width: 15px;}   }
+		@keyframes loadingI {100% {transform: rotate(360deg);}}
+		@keyframes bounce  {0%, 100% {transform: scale(0.0);}50% {transform: scale(1.0);}}
+		@keyframes loadingJ {0%,100% {transform: translate(0,0);}50% { transform: translate(80px,0);background-color: #f5634a; width: 25px; }}
+	</style>
+
+</head>
+	<body>
+		<div class="loading_content">                        
+		    <div class="load-wrapp">
+		        <div class="load-1">
+		            <p>Loading 1</p>
+		            <div class="line"></div>
+		            <div class="line"></div>
+		            <div class="line"></div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-2">
+		            <p>Loading 2</p>
+		            <div class="line"></div>
+		            <div class="line"></div>
+		            <div class="line"></div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-3">
+		            <p>Loading 3</p>
+		            <div class="line"></div>
+		            <div class="line"></div>
+		            <div class="line"></div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">                                    
+		        <div class="load-4">
+		            <p>Loading 4</p>
+		            <div class="ring-1"></div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-5">
+		            <p>Loading 5</p>
+		            <div class="ring-2">
+		                <div class="ball-holder">
+		                    <div class="ball"></div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-6">
+		            <p>Loading 6</p>
+		            <div class="letter-holder">
+		                <div class="l-1 letter">L</div>
+		                <div class="l-2 letter">o</div>
+		                <div class="l-3 letter">a</div>
+		                <div class="l-4 letter">d</div>
+		                <div class="l-5 letter">i</div>
+		                <div class="l-6 letter">n</div>
+		                <div class="l-7 letter">g</div>
+		                <div class="l-8 letter">.</div>
+		                <div class="l-9 letter">.</div>
+		                <div class="l-10 letter">.</div>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-7">
+		            <p>Loading 7</p>
+		            <div class="square-holder">
+		                <div class="square"></div>
+		            </div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-8">
+		            <p>Loading 8</p>
+		            <div class="line"></div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-9">
+		            <p>Loading 9</p>
+		            <div class="spinner">
+		                <div class="bubble-1"></div>
+		                <div class="bubble-2"></div>
+		             </div>
+		        </div>
+		    </div>
+		    <div class="load-wrapp">
+		        <div class="load-10">
+		            <p>Loading 10</p>
+		            <div class="bar"></div>
+		        </div>
+		    </div>
+		</div>  
+	</body>
+</html>
