@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- Demo styles -->
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .cont {
+          padding: 20px;
+          box-sizing: border-box;
+          background: burlywood;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="cont">
+        <h1>title</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestias quia officiis architecto ipsam? Nemo neque at quibusdam eveniet enim rerum iste laboriosam consequatur? Ducimus molestias suscipit amet non alias.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid molestias quia officiis architecto ipsam? Nemo neque at quibusdam eveniet enim rerum iste laboriosam consequatur? Ducimus molestias suscipit amet non alias.</p>
+
+        <div>
+            qweqewqesdadsadasdasd<br>
+            qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>
+            qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>qweqewqesdadsadasdasd<br>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        direction: "vertical",
+        mousewheel: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        on: {
+
+        slideChange: function() {
+            setTimeout(function () {
+            swiper.params.touchReleaseOnEdges = false;  
+            swiper.params.mousewheel.releaseOnEdges = false;
+            });
+        },
+        reachEnd: function() {
+            setTimeout(function () {
+                swiper.params.touchReleaseOnEdges = true;
+                swiper.params.mousewheel.releaseOnEdges = true;
+            }, 500);
+            
+            //test();
+            //swiper.slideTo(4, 1000, false)
+        },
+        reachBeginning: function() {
+            setTimeout(function () {
+                swiper.params.touchReleaseOnEdges = true;
+                swiper.params.mousewheel.releaseOnEdges = true;
+            }, 500);
+        }
+        }
+      });
+
+      window.onload = function(){
+
+
+        const contTop = document.querySelector('.cont').offsetTop;
+        let lastScrollY = 0;
+        let moveCheck = false;
+
+        console.log(contTop);
+
+        addEventListener("scroll", e => {
+        const scrollY = window.scrollY;
+        
+        // 이전의 스크롤 위치와 비교하기
+        const direction = scrollY > lastScrollY ? "scrollDown" : "ScrollUp";
+        
+        // 현재의 스크롤 값을 저장
+        lastScrollY = scrollY;
+
+        if(direction == 'scrollDown'){
+            
+            if(scrollY > 20 && moveCheck == false){
+                console.log('스와이퍼 영역 벗어남 :: 아래방향');
+                moveCheck = true;
+                window.scrollTo({ top: contTop, behavior: "smooth" });
+            }
+            //console.log('다운');
+        }else if(direction == 'ScrollUp'){
+            //console.log('업~!!');
+            if(scrollY <= contTop && moveCheck == true){
+                console.log("cont 영역 진입~~ :: 위로");
+                moveCheck = false;
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+        }
+        
+        //console.log(direction);
+        });
+        
+
+        // 휠로 했을떼
+        // addEventListener("mousewheel", e => {
+        //     const direction = e.deltaY > 0 ? "Scroll Down" : "Scroll Up";;
+            
+        //     // 방향과 현 스크롤 위치
+        //     console.log(direction, window.scrollY);
+        // });
+
+      }
+    </script>
+  </body>
+</html>
