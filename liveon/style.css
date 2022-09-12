@@ -1,0 +1,118 @@
+/* Fontawesome 4.7 */
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css");
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+
+/* Default */
+* {
+box-sizing: border-box;
+word-break: keep-all;
+}
+
+html {
+font-size: 10px;
+}
+
+body {
+font-family: 'Noto Sans KR', sans-serif;
+height: 100vh;
+padding: 0;
+margin: 0;
+}
+
+h1, h2, h3, h4, h5, p, dt, dd {
+margin: 0;
+padding: 0;
+font-weight: normal;
+}
+
+ul, li {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+a {
+text-decoration: none;
+color: #757575;
+}
+
+button {
+outline: none;
+margin: 0;
+}
+
+input[type="text"] {
+border-radius: 0;
+-webkit-border-radius: 0;
+-moz-border-radius: 0;
+}
+
+/* content */
+.live_banner {width: 100%; padding: 50px 0 0;}
+.bannerWrap {width: 100%; height: 350px;}
+.bannerWrap .slide_banner {width: 100%; height: 100%; background-color: skyblue;}
+.bannerWrap .slide_banner .swiper-slide {width: 100%;}
+.bannerWrap .slide_banner .swiper-button-next,
+.bannerWrap .slide_banner .swiper-button-prev {width: 30px; height: 46px; box-sizing: border-box;}
+.bannerWrap .slide_banner .swiper-button-next::after,
+.bannerWrap .slide_banner .swiper-button-prev::after,
+.bannerWrap .slide_banner .swiper-button-next::before,
+.bannerWrap .slide_banner .swiper-button-prev::before {position: absolute; display: block; content: ''; width: 31px; height: 2px; background: red;}
+.bannerWrap .slide_banner .swiper-button-next::after {left: 0; top: 0;}
+.bannerWrap .slide_banner .swiper-button-next::before {left: 0; bottom: 0;}
+.bannerWrap .slide_banner .swiper-button-next::after {transform-origin: top left; transform: rotate(45deg);}
+.bannerWrap .slide_banner .swiper-button-next::before {transform-origin: top left; transform: rotate(-45deg);}
+.bannerWrap .slide_banner .swiper-button-prev::after {transform-origin: top left; transform: rotate(45deg);}
+.bannerWrap .slide_banner .swiper-button-prev::before {transform-origin: top left; transform: rotate(-45deg);}
+
+
+.bannerWrap .slide_banner_info {position: relative; max-width: 730px; height: 100%; margin: 0 auto; overflow: hidden; background-color: yellowgreen;}
+.bannerWrap .slide_banner_info > img {position: absolute; left: -80px; top: 0; right: 0; width: 115%;}
+.bannerWrap .bnrInfo_wrap {position: absolute; left: 50px; top: 50%; display: flex; flex-direction: column; transform: translateY(-50%);}
+.bannerWrap .slide_banner_info .bnrInfo_wrap span,
+.bannerWrap .slide_banner_info .bnrInfo_wrap strong {flex: 1 1 auto;}
+.bannerWrap .slide_banner_info .bnrInfo_wrap .bnr_badge {padding: 0 20px;width: min-content; line-height: 1.2; vertical-align: top; font-size: 18px; color: #fff; border-radius: 20px; background-color: rgba(0, 0, 0, .3);}
+.bannerWrap .slide_banner_info .bnrInfo_wrap .bnr_tit {font-size: 30px;}
+.bannerWrap .slide_banner_info .bnrInfo_wrap .bnr_desc {font-size: 18px;}
+
+/* 공통 */
+.blind {position: absolute; overflow: hidden; clip: rect(0 0 0 0); width: 1px; height: 1px; margin: -1px; line-height: normal; font-size: medium; white-space: nowrap;}
+section {padding: 30px 20px; background-color: tan;}
+.live_tit {margin-bottom: 10px; font-size: 22px; color: #000; letter-spacing: -.5px;}
+
+
+.live_now .nowWrap {width: 100%; overflow: hidden;}
+.live_now .live_now_list {display: flex; gap: 5px; margin-bottom: 20px;}
+.live_now .live_now_list button {display: inline-block; padding: 5px 10px; font-size: 12px; color: #000; line-height: 1; border: 1px solid #000; border-radius: 14px; cursor: pointer; background: none;}
+.live_now .live_now_list button > i {margin-right: 6px; font-family : 'xeicon'; font-size: 14px; vertical-align: bottom;}
+.live_now .live_now_list .on button,
+.live_now .live_now_list .on button > i {border-color: tomato; color: tomato;}
+
+.live_now .slide_now .swiper-slide {display: flex; flex-direction: column; gap: 10px; width: 200px; cursor: pointer;}
+.live_now .slide_now .now_play {position: absolute; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; color: #000; overflow: hidden;}
+/* .live_now .slide_now .now_play video {width: 100%; object-fit: cover;} */
+.live_now .slide_now .now_play video {width: 100%; height: 100%; object-fit: cover;}
+.live_now .slide_now .now_img {position: absolute; left: 0; top: 0; width: 120%;}
+
+.live_now .slide_now .now_info {display: flex; flex-direction: column; gap: 5px;}
+.live_now .slide_now .now_info .now_info_tit {padding-right: 20px; text-overflow: ellipsis; white-space: nowrap; word-wrap: normal; overflow: hidden;}
+.live_now .slide_now .now_info .now_info_benefit {display: grid; gap: 10px; grid-template-columns: min-content 1fr; align-items: center; color: #000;}
+.live_now .slide_now .now_info .now_info_benefit .bebefit_ico {display: inline-block; width: 20px; height: 20px; border-radius: 100%; background-color:springgreen;}
+.live_now .slide_now .now_info .now_info_benefit .benefit_tit {display: inline-block; line-height: 1;}
+.live_now .slide_now .now_vsLink,
+.live_now .slide_now .now_prtLink {display: block; position: relative;}
+.live_now .slide_now .now_vsLink {height: 340px; border-radius: 8px; overflow: hidden; background: steelblue;}
+.live_now .slide_now .now_prtLink {}
+.live_now .slide_now .badge {display: inline-block; height: 20px; line-height: 20px; padding: 0 10px 0 45px; position: absolute; left: 5px; top: 10px; z-index: 10; border-radius: 10px; background-color: rgba(0, 0, 0, .5);}
+.live_now .slide_now .badge_ico {display: inline-block; position: absolute; left: 0; top: 0; width: 36px; height: 100%; font-style: normal; text-align: center; border-radius: 10px; color: #fff; background-color: tomato;}
+.live_now .slide_now .badge_count {color: #fff;}
+
+.slide_best {width: 680px; height: 550px; margin: 0 auto; background-color:peachpuff;}
+.slide_best .slide_test {height: 100%; padding: 60px 0; box-sizing: border-box;}
+.slide_test .swiper-slide {position: relative; width: 220px; height: 250px; transition: all .30s; background-color: palevioletred;}
+.slide_test .swiper-slide.swiper-slide-active {}
+.slide_test .swiper-slide.swiper-slide-next {top: -30px; left: -130px; width: 280px; height: 320px; border: 1px solid #000; background-color:paleturquoise; z-index: 5;}
+.slide_test .swiper-slide.swiper-slide-duplicate-prev {left: -250px; background-color: plum;}
