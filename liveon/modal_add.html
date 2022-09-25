@@ -81,6 +81,7 @@ h1 {
   background:rgba(0,0,0,.8);
 }
 .modalCont .modalContBox {
+  position:relative;
   background:white;
   min-width: 500px;
   height: 100vh;
@@ -89,7 +90,6 @@ h1 {
   border-radius:3px;
   font-weight:300;
   box-sizing: border-box;
-  position:relative;
 }
 .modalContBox h2 {
   font-size:25px;
@@ -111,6 +111,15 @@ h1 {
 #modalWrap.modalPopup.out {transform: scale(1); animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
 #modalWrap.modalPopup.out .modalCont .modalContBox {animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
 
+.btn_closePop {
+  position: absolute;
+  right: -50px;
+  top: 50px;
+  border: 1px solid #000;
+  background: cadetblue;
+  font-size: 20px;
+  color: #000;
+}
 
 
 
@@ -192,6 +201,7 @@ background:rgba(0,0,0,.0);
       <div id="modalWrap">
         <div class="modalCont">
           <div class="modalContBox">
+            <button class="btn_closePop">close~~~</button>
             <h2>Modal~~~</h2>
             <p>내용내용~</p>
           </div>
@@ -215,6 +225,7 @@ background:rgba(0,0,0,.0);
             const body = document.querySelector('body');
             const modalWrap = document.querySelector('#modalWrap');
             const btnModal = document.querySelector('.btn_liveModal');
+            const btnClose = document.querySelector('.btn_closePop');
 
             console.log('aa');
 
@@ -225,7 +236,7 @@ background:rgba(0,0,0,.0);
               modalWrap.classList.add('modalPopup');
               body.classList.add('modal_active');
             }
-            modalWrap.onclick = function(){
+            btnClose.onclick = function(){
 
               modalWrap.classList.add('out');
               body.classList.remove('modal_active');
