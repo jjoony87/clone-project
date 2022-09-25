@@ -23,7 +23,7 @@ html,body {
   
 }
 
-#modal-container {
+#modalWrap {
   position:fixed;
   display:flex;
   height:100%;
@@ -33,7 +33,7 @@ html,body {
   transform:scale(0);
   z-index:1;
 }
-.modal-active {
+.modal_active {
 overflow: hidden;
 }
 
@@ -73,14 +73,14 @@ h1 {
   background:#009bd5;
 }
 
-.modal-background {
+.modalCont {
   position: relative;
   width: 100%;
   text-align:center;
   vertical-align:middle;
   background:rgba(0,0,0,.8);
 }
-.modal-background .modal {
+.modalCont .modalContBox {
   background:white;
   min-width: 500px;
   height: 100vh;
@@ -91,25 +91,25 @@ h1 {
   box-sizing: border-box;
   position:relative;
 }
-.modal h2 {
+.modalContBox h2 {
   font-size:25px;
   line-height:25px;
   margin-bottom:15px;
 }
-.modal p {
+.modalContBox p {
   font-size:18px;
   line-height:22px;
 }
 
 .modalPopup {transform: scaleY(.01) scaleX(0); animation: unfoldIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;}
-.modalPopup .modal-background .modal {transform: scale(0); animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;}
+.modalPopup .modalCont .modalContBox {transform: scale(0); animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;}
 .out {transform: scale(1); animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;}
 
 
-#modal-container.modalPopup {transform: scaleY(0.01) scaleX(0); animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
-#modal-container.modalPopup .modal-background .modal {transform: scale(0);}
-#modal-container.modalPopup.out {transform: scale(1); animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
-#modal-container.modalPopup.out .modal-background .modal {animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
+#modalWrap.modalPopup {transform: scaleY(0.01) scaleX(0); animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
+#modalWrap.modalPopup .modalCont .modalContBox {transform: scale(0);}
+#modalWrap.modalPopup.out {transform: scale(1); animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
+#modalWrap.modalPopup.out .modalCont .modalContBox {animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;}
 
 
 
@@ -184,14 +184,14 @@ background:rgba(0,0,0,.0);
       <div class="content">
         <h1>Modal test</h1>
         <div class="buttons">
-          <button id="modalPopup" class="button">open~<button>
+          <button id="modalPopup" class="btn_liveModal">open~<button>
         </div>
       </div>
 
 
-      <div id="modal-container">
-        <div class="modal-background">
-          <div class="modal">
+      <div id="modalWrap">
+        <div class="modalCont">
+          <div class="modalContBox">
             <h2>Modal~~~</h2>
             <p>내용내용~</p>
           </div>
@@ -201,16 +201,35 @@ background:rgba(0,0,0,.0);
       <script>
           window.onload = function(){
 
-            $('.button').click(function(){
-              var buttonId = $(this).attr('id');
-              $('#modal-container').removeAttr('class').addClass(buttonId);
-              $('body').addClass('modal-active');
-            })
+            // $('.button').click(function(){
+            //   var buttonId = $(this).attr('id');
+            //   $('#modalWrap').removeAttr('class').addClass(buttonId);
+            //   $('body').addClass('modal_active');
+            // })
 
-            $('#modal-container').click(function(){
-              $(this).addClass('out');
-              $('body').removeClass('modal-active');
-            });
+            // $('#modalWrap').click(function(){
+            //   $(this).addClass('out');
+            //   $('body').removeClass('modal_active');
+            // });
+
+            const body = document.querySelector('body');
+            const modalWrap = document.querySelector('#modalWrap');
+            const btnModal = document.querySelector('.btn_liveModal');
+
+            console.log('aa');
+
+            btnModal.onclick = function(){
+              
+              console.log('click~~');
+              modalWrap.classList.remove('out');
+              modalWrap.classList.add('modalPopup');
+              body.classList.add('modal_active');
+            }
+            modalWrap.onclick = function(){
+
+              modalWrap.classList.add('out');
+              body.classList.remove('modal_active');
+            }
 
           }
 
