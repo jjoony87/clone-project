@@ -77,6 +77,7 @@ background:#009bd5;
 }
 
 .modal-background {
+position: relative;
 display:table-cell;
 background:rgba(0,0,0,.8);
 text-align:center;
@@ -84,10 +85,13 @@ vertical-align:middle;
 }
 .modal {
 background:white;
+min-width: 500px;
+height: 100vh;
 padding:50px;
 display:inline-block;
 border-radius:3px;
 font-weight:300;
+box-sizing: border-box;
 position:relative;
 }
 h2 {
@@ -120,6 +124,8 @@ rect {
 /* .one .modal-background .modal {animation: zoomOut 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;} */
 .one.out .modal-background .modal {transform: scale(0); animation: zoomOut 0.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;}
 
+
+/* .btn_modalClose {display: inline-block; width: 50px; height: 50px; background: #000;} */
 
 
 @keyframes unfoldIn {
@@ -186,6 +192,7 @@ background:rgba(0,0,0,.0);
 <body>
     <div id="modal_wrap">
         <div class="modal-background">
+        <button class="btn_modalClose"></button>
           <div class="modal">
             <h2>I'm a Modal</h2>
             <p>Hear me roar.</p>
