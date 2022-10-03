@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+
+/* Google Web Font */
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700,900&display=swap");
+* {
+  box-sizing: border-box;
+  word-break: keep-all;
+}
+
+/* Default */
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, p, dt, dd {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #757575;
+}
+
+button {
+  outline: none;
+  margin: 0;
+}
+
+input[type="text"] {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+}
+
+
+.scroll-section {
+
+    width: 100%;
+    border: 3px solid red;
+}
