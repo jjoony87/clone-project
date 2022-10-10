@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+@font-face { 
+    font-family: "YDYGO32"; 
+    src: url("../font/YDYGO32.eot"); 
+    src: 
+        url("../font/YDYGO32.eot?#iefix") format("embedded-opentype"), 
+        url("../font/YDYGO32.woff") format("woff"),
+        url("../font/YDYGO32.otf") format("opentype");
+    font-weight: normal; 
+    font-style: normal; 
+}
+@font-face {
+    font-family: "Hanwha"; 
+    src: url("../font/HanwhaL.eot"); 
+    src: 
+        url("../font/HanwhaL.eot?#iefix") format("embedded-opentype"), 
+        url("../font/HanwhaL.woff") format("woff"),
+        url("../font/HanwhaL.ttf") format("truetype");
+    font-weight: 300; 
+    font-style: normal; 
+}
+@font-face {
+    font-family: "Hanwha"; 
+    src: url("../font/HanwhaR.eot"); 
+    src: 
+        url("../font/HanwhaR.eot?#iefix") format("embedded-opentype"), 
+        url("../font/HanwhaR.woff") format("woff"),
+        url("../font/HanwhaR.ttf") format("truetype");
+    font-weight: 400; 
+    font-style: normal; 
+}
+@font-face {
+    font-family: "Hanwha"; 
+    src: url("../font/HanwhaB.eot"); 
+    src: 
+        url("../font/HanwhaB.eot?#iefix") format("embedded-opentype"), 
+        url("../font/HanwhaB.woff") format("woff"),
+        url("../font/HanwhaB.ttf") format("truetype");
+    font-weight: 800; 
+    font-style: normal; 
+}
+@font-face {
+    font-family: "LIFEPLUS"; 
+    src: url("../font/LIFEPLUS-Light.eot"); 
+    src: 
+        url("../font/LIFEPLUS-Light.eot?#iefix") format("embedded-opentype"), 
+        url("../font/LIFEPLUS-Light.woff") format("woff"),
+        url("../font/LIFEPLUS-Light.woff2") format("woff2"),
+        url("../font/LIFEPLUS-Light.otf") format("opentype"),
+        url("../font/LIFEPLUS-Light.svg#LIFEPLUS") format("svg");
+    font-weight: 300; 
+    font-style: normal; 
+}
+@font-face {
+    font-family: "LIFEPLUS"; 
+    src: url("../font/LIFEPLUS-Medium.eot"); 
+    src: 
+        url("../font/LIFEPLUS-Medium.eot?#iefix") format("embedded-opentype"), 
+        url("../font/LIFEPLUS-Medium.woff") format("woff"),
+        url("../font/LIFEPLUS-Medium.woff2") format("woff2"),
+        url("../font/LIFEPLUS-Medium.otf") format("opentype"),
+        url("../font/LIFEPLUS-Medium.svg#LIFEPLUS") format("svg");
+    font-weight: 500; 
+    font-style: normal; 
+}
+@font-face {
+    font-family: "LIFEPLUS"; 
+    src: url("../font/LIFEPLUS-Bold.eot"); 
+    src: 
+        url("../font/LIFEPLUS-Bold.eot?#iefix") format("embedded-opentype"), 
+        url("../font/LIFEPLUS-Bold.woff") format("woff"),
+        url("../font/LIFEPLUS-Bold.woff2") format("woff2"),
+        url("../font/LIFEPLUS-Bold.otf") format("opentype"),
+        url("../font/LIFEPLUS-Bold.svg#LIFEPLUS") format("svg");
+    font-weight: bold; 
+    font-style: normal; 
+}

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/common.css">
+
+    <style>
+        /*추가*/
+        .table_outer {position:relative; table-layout: fixed; width: 814px;}
+        .table_inner {overflow-x:scroll; overflow-y:visible; width:100%; height: 100%;}
+        .table_inner:after {display: block; content: ''; position: absolute; left: 0; top: 0; width: 1px; height: 100%;}
+        .table_inner table {width: 1350px; border-collapse: collapse; border-bottom: 1px solid #000;}
+        .table_inner table td,
+        .table_inner table th {padding:10px; text-align: center; font-size: 12px; color: #000; font-weight: normal; box-sizing: border-box;}
+        .table_inner table td {border-top: 1px solid #000;}
+        .table_inner table th {border-top: 1px solid #000; border-right: 1px solid #000;}
+        .table_inner table td + td {border-left: 1px solid #000;}
+        .table_inner table .head_line th {font-weight: bold;}
+        .table_inner table .head_line td {font-weight: bold; background: #bbb;}
+        .table_inner table .h_fix {position: sticky; left: 0; width:100px; z-index: 10; font-weight: bold; background: #ddd;}
+    </style>
+</head>
+<body>
+    
+    <div class="table_outer">
+        <div class="table_inner">
+            <table>
+                <colgroup>
+                    <col style="width: auto;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                    <col style="width: 8%;">
+                </colgroup>
+                <tbody>
+                    <tr class="head_line">
+                        <th scope="row" class="h_fix" rowspan="2">구분</th>
+                        <td scope="col" colspan="4">암</td>
+                        <td scope="col" colspan="4">뇌혈관질환</td>
+                        <td scope="col" colspan="4">심장질환</td>
+                    </tr>
+                    <tr class="head_line">
+                        <td>&nbsp;</td>
+                        <td>기가입</td>
+                        <td>신규설계</td>
+                        <td>합계</td>
+                        <td>&nbsp;</td>
+                        <td>기가입</td>
+                        <td>신규설계</td>
+                        <td>합계</td>
+                        <td>&nbsp;</td>
+                        <td>기가입</td>
+                        <td>신규설계</td>
+                        <td>합계</td>
+                    </tr>
+                    <!-- 진단 -->
+                    <tr>
+                        <th scope="row" rowspan="5" class="h_fix">진단</th>
+                        <td>일반암</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>뇌출혈</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>급성심근경색증</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                    <tr>
+                        <td>고액암</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>뇌경색증</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>협심증</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3">유사암</td>
+                        <td rowspan="3">**만원</td>
+                        <td rowspan="3">**만원</td>
+                        <td rowspan="3">**만원</td>
+                        <td>기타뇌졸증</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td rowspan="3">기타허혈성<br />심장질환</td>
+                        <td rowspan="3">**만원</td>
+                        <td rowspan="3">**만원</td>
+                        <td rowspan="3">**만원</td>
+                    </tr>
+                    <tr>
+                        <td>기타 뇌혈관질환</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                    <tr>
+                        <td>뇌혈관장애 및<br />후유증</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                    <!-- 수술/치료 -->
+                    <tr>
+                        <th scope="row" rowspan="3" class="h_fix">수술/치료</th>
+                        <td>암관혈수술</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>뇌혈관질환<br />관혈수술</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>허혈성심장질환<br />관혈수술</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                    <tr>
+                        <td>암비관혈수술</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td rowspan="2">뇌혈관질환<br />비관혈수술</td>
+                        <td rowspan="2">**만원</td>
+                        <td rowspan="2">**만원</td>
+                        <td rowspan="2">**만원</td>
+                        <td rowspan="2">허혈성심장질환<br />비관혈수술</td>
+                        <td rowspan="2">**만원</td>
+                        <td rowspan="2">**만원</td>
+                        <td rowspan="2">**만원</td>
+                    </tr>
+                    <tr>
+                        <td>항암약물방사선</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                    <!-- 입원 -->
+                    <tr>
+                        <th scope="row" class="h_fix">입원</th>
+                        <td>암입원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>뇌혈관질환<br />입원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>허혈성심장<br />입원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                        <td>**만원</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

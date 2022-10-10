@@ -264,7 +264,6 @@ html, body {
 .main_slide {
   overflow-x: hidden;
   position: relative;
-  background: paleturquoise;
 }
 
 .main_slide .ms_item {
