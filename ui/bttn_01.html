@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .toggleSwitch {
+            width: 6rem;
+            height: 3rem;
+            display: block;
+            position: relative;
+            border-radius: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 1rem 3px rgba(0 0 0 / 15%);
+            cursor: pointer;
+        }
+        .toggleBtn {
+            width: 2.6rem;
+            height: 2.6rem;
+            position: absolute;
+            top: 50%;
+            left: .2rem;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            background: #f03d3d;
+        }
+        .toggleSwitch.active {
+            background: #f03d3d;
+        }
+        .toggleSwitch.active .toggleBtn {
+            left: calc(100% - 2.8rem);
+            background: #fff;
+        }
+        .toggleSwitch .toggleBtn {
+            transition: all .2s ease-in;
+        }
+    </style>
+</head>
+<body>
+
+
+    <input type="checkbox" id="toggle" hidden /> 
+    <label for="btnToggle" class="toggleSwitch">
+        <span class="toggleBtn"></span>
+    </label>
+
+
+    <script>
+        (() => {
+
+            const toggleBtn = document.querySelector('.toggleSwitch');
+
+            toggleBtn.onclick = () => {
+                toggleBtn.classList.toggle('active');
+            }
+
+        })();
+    </script>
+    
+</body>
+</html>
