@@ -1,0 +1,480 @@
+/* import Local CSS */
+@import url('/mobile_web/css/reset.css');
+@import url('/mobile_web/css/variables.css');
+
+* {
+    font-family: var(--primary-kr);
+    font-weight: 300;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    color: var(--dark-black);
+    line-height: 1.5em;
+    font-size: 14px;
+}
+
+
+
+/* ### Common CSS ### */
+.btn-primary {
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    width: 100%;
+    padding: 8px;
+}
+[class*=content] {
+    padding: 20px 20px 70px 20px;
+}
+
+/* GNB CSS */
+.gnb {
+    display: flex;
+    width: 375px; /* 작업완료 후 100% */
+    position: fixed;
+    bottom: 0;
+    justify-content: space-between;
+    height: 65px;
+    border-top: 1px solid var(--gloudy-gray);
+    background-color: #fff;
+}
+.gnb a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+.gnb a .bi {
+    font-size: 22px;
+}
+.gnb a:nth-child(1) .bi {
+    font-size: 26px;
+}.gnb a:nth-child(4) .bi {
+    font-size: 26px;
+}
+.gnb a span {
+    display: block;
+    font-size: 13px;
+}
+
+/* Main Header */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    background-color: var(--crimson);
+}
+.btn-back {
+    flex: 1;
+    border: 0;
+    font-size: 22px;
+    color: #fff;
+    background-color: transparent;
+}
+.main-header .logo {
+    margin: 0;
+    flex: 6;
+    text-align: center;
+    font-size: 26px;
+    color: #fff;
+}
+.user-alarm {
+    flex: 1;
+    font-size: 22px;
+    color: #fff;
+}
+.user-alarm span,
+.cart-alarm b {
+    position: relative;
+}
+.user-alarm span .bi {}
+.user-alarm span em,
+.cart-alarm b em {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background-color: var(--royalblue);
+}
+.cart-alarm b em {
+    right: 22px;
+    top: -5px;
+    color: #fff;
+}
+.user-alarm span em:before,
+.cart-alarm b em:before {
+    content: attr(data-count);
+    font-style: normal;
+    font-size: 10px;
+    font-family: var(--primary-en);
+}
+
+
+/* ### Layout CSS ### */
+.container {
+    position: relative;
+    width: 375px; /* 완료후 : 100% 변경 */
+    /* border: 1px solid #000; */
+}
+
+/* Logo CSS */
+.logo {
+    font-family: var(--logo-en);
+}
+
+
+/* ### Preloading html ### */
+.container.preloading {
+    height: 750px; /* 완료후 : 100vh 변경 */
+}
+.preloading-inner {
+    height: inherit;
+    background: url('/mobile_web/images/preloading-back.jpg') no-repeat top left -130px;
+}
+.heading-preloading {
+    position: absolute;
+    top: 75px;
+    left: 30px;
+}
+.heading-preloading .logo {
+    font-size: 32px;
+    color: var(--crimson);
+    white-space: nowrap;
+}
+.slogan {}
+.slogan span {
+    display: block;
+    font-family: var(--secondary-kr);
+    font-size: 28px;
+    margin: 15px 0;
+    white-space: nowrap;
+}
+
+.signup {}
+.signup-inner {}
+.signup-content {
+
+}
+.signup-field {
+    margin-bottom: 10px;
+}
+.signup-field span {
+    display: block;
+}
+.signup-field span em {
+    color: var(--crimson);
+}
+.signup-field.id-pw input {
+    width: 100%;
+    padding: 8px 0;
+    border: 0;
+    border-bottom: 1px solid var(--gainsboro);
+}
+.signup-field.birth {
+
+}
+.signup-field.birth div {
+    display: flex;
+    gap: 5px;
+}
+.signup-field.birth div > * {
+    flex: 1;
+}
+.signup-field.birth div > *,
+.signup-field.phone div > * {
+    border: 1px solid var(--gainsboro);
+    border-radius: 3px;
+    padding: 5px;
+    color: var(--silver-gray);
+}
+.signup-field.birth div input {
+    width: 0;
+    margin: 0;
+}
+.signup-field.birth div select {
+
+}
+.signup-field.phone div {
+    display: flex;
+    gap: 10px;
+}
+.signup-field input::placeholder {
+    color: var(--silver-gray);
+}
+.signup-field.phone div input {
+    flex: 7;
+}
+.btn-getcoode {
+    flex: 3;
+    background-color: #fff;
+}
+.agree-term {
+    margin-bottom: 10px;
+}
+.agree-term label {
+    display: block;
+    font-size: 13px;
+}
+.btn-signup {
+    background-color: var(--crimson);
+}
+.signup-field.id-pw input:focus,
+.signup-field.phone div input:focus,
+.signup-field.birth div > *:focus {
+    border-color: var(--yellowgreen);
+}
+.signup-field.id-pw input:focus::placeholder,
+.signup-field.phone div input:focus::placeholder,
+.signup-field.birth div > *:focus::placeholder {
+    visibility: hidden;
+}
+
+.signup-field.phone span,
+.signup-field.birth span {
+    margin-bottom: 5px;
+}
+
+/* ### Signin html ### */
+.signin {
+    height: 750px;
+}
+.signin-inner {
+    position: relative;
+}
+.signin-photo {
+    height: 250px;
+    background: url('/mobile_web/images/signin-header.jpg') no-repeat top center;
+}
+.signin-content {
+
+}
+.signin-header {
+    text-align: center;
+}
+.signin-header .logo {
+    margin-bottom: 0;
+    font-size: 26px;
+    font-family: var(--logo-en);
+}
+.signin-header p {
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.signin-field input {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--gainsboro);
+}
+.signin-field input:focus {
+    border-color: var(--yellowgreen);
+}
+.signin-field input::placeholder {
+    color: var(--silver-gray);
+}
+.signin-field input:focus::placeholder {
+    visibility: hidden;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+}
+.custom-chk label input[type=checkbox] {
+    display: none;
+}
+.custom-chk label input[type=checkbox] + em {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 3px;
+    transform: translateY(5px);
+}
+.custom-chk label input[type=checkbox] + em:before {
+    display: inline-block;
+    content: '\F26B';
+    font-style: normal;
+    font-family: bootstrap-icons;
+    color: var(--light-gray);
+    transform: translateY(-3px);
+}
+.custom-chk label input[type=checkbox]:checked + em:before {
+    color: var(--crimson);
+}
+.btn-signin {
+    background-color: var(--yellowgreen);
+}
+.join-member {
+    margin: 15px 0;
+    text-align: center;
+}
+.join-member a {
+    text-decoration: underline;
+}
+.easy-signin {
+    text-align: center;
+}
+.easy-signin span {
+    color: var(--light-gray);
+}
+.social-btn {
+    margin: 10px 0;
+}
+.social-btn a {
+    margin: 2px;
+}
+
+.category {}
+.category-inner {}
+.category-content {
+    padding: 0;
+}
+.category-accodion {
+    font-size: 16px;
+}
+.category-accodion .title {
+    position: relative;
+    display: flex;
+    padding: 0 20px;
+    height: 50px;
+    align-items: center;
+    color: var(--crimson);
+    font-weight: 400;
+    border-bottom: 1px solid var(--gloudy-gray);
+}
+.category-accodion .title:after {
+    position: absolute;
+    right: 20px;
+    content: '\F282';
+    font-family: bootstrap-icons;
+    font-size: 13px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: var(--fuschia);
+    transition: .35s;
+}
+.category-accodion .detail {
+    display: none;
+    padding: 7px 20px;
+    line-height: 2em;
+    background-color: var(--snow);
+}
+.category-accodion .detail.on {
+    display: block;
+}
+.category-accodion .title.on:after {
+    transform: rotateX(-180deg);
+    background-color: transparent;
+}
+.category-accodion .detail a {
+    display: block;
+}
+
+.search {}
+.search-inner {}
+.search-content {}
+.search-field {}
+.search-field input {
+    width: 100%;
+    border: 0;
+    padding: 8px;
+    padding-left: 40px;
+    border-radius: 30px;
+    box-shadow: 0 0 5px rgba(0, 0, 9, .15);
+    background: var(--snow) url('/mobile_web/images/search.svg') no-repeat center left 15px;
+}
+.search-field input:focus::placeholder {
+    visibility: hidden;
+}
+
+.search-recent {
+    margin: 25px 0;
+
+}
+.search-recent .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-recent .title h3 {
+    margin: 0;
+    color: var(--crimson);
+}
+.search-recent .items {
+    margin: 15px 0;
+}
+.search-recent .items .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gloudy-gray);
+    transition: .35s;
+}
+.search-recent .items .item span {}
+.btn-all-clear {
+    border: 0;
+    font-size: 11px;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background-color: var(--gainsboro);
+}
+.btn-clear {
+    border: 0;
+    font-size: 18px;
+    color: var(--silver-gray);
+    background-color: transparent;
+}
+
+
+.search-increase {}
+.search-increase .title {}
+.search-increase .title h3 {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.search-increase .title p {
+    padding: 0;
+    margin-bottom: 0;
+}
+.search-increase-lisst {
+    list-style: none;
+    counter-reset: rank;
+    padding-left: 0;
+    /* list-style: decimal; */
+}
+.search-increase-lisst li {
+    margin-bottom: 5px;
+}
+.search-increase-lisst li:before {
+    display: inline-block;
+    counter-increment: rank;
+    content: counter(rank);
+    margin-right: 10px;
+    padding-left: 0;
+    line-height: 1.6;
+    font-weight: 400;
+    text-align: center;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: var(--crimson);
+}

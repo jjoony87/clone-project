@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcom to Today's Meal Ktt</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="/mobile_web/js/custom.js"></script>
+    <link rel="stylesheet" href="/mobile_web/css/style.css">
+</head>
+<body>
+    <div class="container signup">
+        <div class="signup-inner">
+            <!-- Main Header Include [S] -->
+            <div class="main-header-include"></div>
+            <!-- Main Header Include [E] -->
+            <div class="signup-content signup">
+                <div class="signup-field id-pw">
+                    <span>이메일 <em>*</em></span>
+                    <input type="email" placeholder="이메일 입력" />
+                </div>
+                <div class="signup-field id-pw">
+                    <span>비밀번호 <em>*</em></span>
+                    <input type="email" placeholder="비밀번호(영문. 숫자, 특수기호 조합 8~16자리" />
+                </div>
+                <div class="signup-field id-pw">
+                    <span>비밀번호 확인 <em>*</em></span>
+                    <input type="email" placeholder="비밀번호(영문. 숫자, 특수기호 조합 8~16자리" />
+                </div>
+                <div class="signup-field birth">
+                    <span>생년월일 <em>*</em></span>
+                    <div>
+                        <input type="text" placeholder="년도(4자리)" />
+                        <select name="" id="">
+                            <option value="">월</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">일</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="signup-field phone">
+                    <span>휴대전화 <em>*</em></span>
+                    <div>
+                        <input type="text" placeholder="휴대 전화번호 입력" />
+                        <button class="btn-getcoode">인증번호 받기</button>
+                    </div>
+                </div>
+                <div class="agree-term custom-chk">
+                    <label>
+                        <input type="checkbox"><em></em>모든 약관에 동의합니다.
+                    </label>
+                    <label>
+                        <input type="checkbox"><em></em>(필수) 이용약관과 개인정보 수집 및 이용에 동의합니다.
+                    </label>
+                    <label>
+                        <input type="checkbox"><em></em>(선택) 이메일 및 SNS 마케팅 정보 수신에 동의합니다.
+                    </label>
+                </div>
+                <button class="btn-primary btn-signup">가입하기</button>
+            </div>
+            <!-- GNB include [S] -->
+            <div class="gnb-include"></div>
+            <!-- GNB include [E] -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+</head>
+<body>
+    .container.cart
+        .cart-inner
+            .main-header
+                [same html structure]
+
+            .cart-content
+                .cart-items-outer
+                    .cart-items-header
+                        h3, button.btn-all-clear
+                    .cart-items
+                        .cart-item
+                            .cart-item-title
+                                input[type=checkbox]
+                                b
+                                button.btn-clear > font-icon
+                            .cart-item-desc
+                                .cart-item-thum
+                                    img
+                                .cart-item-info
+                                    span.delivery-date
+                                    span.delivery-time > font-icon
+                                    span.total-price
+                                    span.benefit
+                                        (em > font-icon) * 2
+                                    select
+                .cart-items-summary
+                    (div > span * 2) * 4
+                button.btn-oder
+                ul.cart-notice
+                    li * 3
+        
+        .gnb
+            [same html structure]
+</body>
+</html>
