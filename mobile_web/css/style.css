@@ -228,7 +228,7 @@ body {
 .btn-signup {
     background-color: var(--crimson);
 }
-.signup-field.id-pw input:focus,
+.signup-field.id-pw input:focus,¬l
 .signup-field.phone div input:focus,
 .signup-field.birth div > *:focus {
     border-color: var(--yellowgreen);
