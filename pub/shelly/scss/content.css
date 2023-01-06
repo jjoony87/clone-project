@@ -120,6 +120,7 @@ html, body {
   position: relative;
   display: flex;
   width: 10.5rem;
+  height: 100%;
   background: #EDF1FA;
   border-radius: 2rem;
   overflow: hidden;
@@ -129,7 +130,7 @@ html, body {
 
 .grid.typeC .item_prt img {
   position: relative;
-  bottom: -4.5rem;
+  bottom: -1.5rem;
 }
 
 .grid.typeC .item_info {
@@ -150,6 +151,91 @@ html, body {
   color: #1A3B34;
 }
 
+.grid.typeC .item_size {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 1rem;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.grid.typeC .item_size > span {
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  border-radius: 100%;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.grid.typeC .item_size > span.cnt {
+  width: calc(3rem - 1px);
+  height: calc(3rem - 1px);
+  border: 1px solid #3ED598;
+  color: #3ED598;
+}
+
+.grid.typeC .item_size > span.size {
+  background-color: #3ED598;
+  color: #fff;
+}
+
+.grid.typeC .item:nth-child(3) img, .grid.typeC .item:nth-child(4) img {
+  width: 5.6rem;
+}
+
+/* total */
+.cart_total {
+  display: flex;
+  flex: 0 0 10.5rem;
+  margin-top: 4.8rem;
+  gap: 3.6rem;
+  padding: 0 2.5rem;
+}
+
+.cart_total_bg {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  text-align: center;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 1.2rem;
+  margin-left: 1.5rem;
+  background-color: #3ED598;
+}
+
+.cart_total_bg > img {
+  width: 1.8rem;
+  height: 1.2rem;
+}
+
+.cart_total_bg span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cart_total_count {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cart_total_count strong {
+  font-size: 1.8rem;
+  color: #899A96;
+}
+
+.cart_total_count span {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1A3B34;
+}
+
 /* [Menu] :: Layout */
 #wrap {
   width: 100%;
@@ -166,6 +252,13 @@ html, body {
   overflow: auto;
   padding: 8rem 2.5rem 2.5rem;
   box-sizing: border-box;
+}
+
+#wrap .container .content .content_inner_tit {
+  font-size: 4.2rem;
+  padding: 0 2.5rem;
+  margin-bottom: 2rem;
+  color: #1A3B34;
 }
 
 #wrap .container .content.slideVer {
@@ -553,8 +646,12 @@ html, body {
 }
 
 .store .mainSlide li > a {
-  margin-top: 1rem;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100vh;
   font-size: 1.2rem;
   text-decoration: none;
 }
