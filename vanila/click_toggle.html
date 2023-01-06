@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle</title>
+    <style>
+        body {padding: 0; margin: 0; background-color:bisque;}
+        ul {list-style: none; margin: 0; padding: 0; display: flex; gap: 10px;}
+        li, button {margin: 0; padding: 0;}
+        button {border: 0; background: none; cursor: pointer; line-height: 1;}
+        .btnWrap {margin: 30px;}
+        .btnWrap ul > li > button {padding: 10px 15px; border-radius: 13px; transition: all .35s; background-color: sandybrown;}
+        .btnWrap ul > li > button.on {background-color:tomato;}
+    </style>
+    <script type="text/javascript">
+        window.onload = () => {
+            
+            const btns = document.querySelectorAll('.btnWrap > ul > li');
+
+            function setBtn(){
+                btns.forEach((el, i) => {
+                    const target = el;
+                    target.onclick = (e) => {
+                        const all = e.target.parentNode.parentNode.children[0].children[0].classList;
+                        const elmClass = e.target.classList;
+                        let elm = 0;
+                        if(i == 0){
+                            for(let i=1; i<btns.length; i++){
+                                elm = btns[i].children[0].classList;
+                                elm.remove('on');
+                            }
+                        }else{
+                            all.remove('on');
+                        }
+                        elmClass.toggle('on');
+                    }
+                });
+            }
+            function init(){
+                setBtn();
+            }
+            init();
+
+        }
+    </script>
+</head>
+<body>
+    <div class="btnWrap">
+        <ul>
+            <li><button>전체</button></li>
+            <li><button>포장</button></li>
+            <li><button>매장</button></li>
+            <li><button>방문</button></li>
+            <li><button>배달</button></li>
+        </ul>
+
+    </div>
+</body>
+</html>
