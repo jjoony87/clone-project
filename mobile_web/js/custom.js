@@ -11,7 +11,6 @@ window.onload = function(){
 
     
     function category(){
-        
         for(let i=0; i<categoryList.length; i++){
             categoryList[i].onclick = function(){
                 if(categoryList[i].classList.contains('on')){
@@ -42,14 +41,12 @@ window.onload = function(){
         }
         for(let i=0; i<recentItems.length; i++){
             recentItems[i].onclick = function(){
-
                 recentItems[i].style.color = '#fff';
                 recentItems[i].style.height = '0';
                 recentItems[i].children[1].style.fontSize = '0';
                 setTimeout(() => {
                     recentItems[i].remove();
                 }, 100);
-                
             }
         }
     }
