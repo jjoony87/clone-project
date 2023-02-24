@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.min_1.12.4.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="js/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+    <html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <style type="text/css">
+     html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color:#000;
+      margin: 0;
+      padding: 0;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+      width: 60%;
+    }
+    .swiper-slide:nth-child(2n) {
+      width: 40%;
+    }
+    .swiper-slide:nth-child(3n) {
+      width: 20%;
+    }
+  </style>
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+
+            const slides = document.querySelectorAll('.swiper-slide');
+            const pagination = document.querySelectorAll('.swiper-pagination-bullet');
+            console.log(pagination);
+
+            $('.swiper-slide').hover(function() {
+                console.log($(this).index());
+                let idx = $(this).index();
+                console.log(idx);
+                $(pagination[idx]).trigger( "click" );
+                
+            });
+        });
+    </script>
+</body>
+</html>
