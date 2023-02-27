@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toggle</title>
+    <style>
+        body {padding: 0; margin: 0; background-color:bisque;}
+        ul {list-style: none; margin: 0; padding: 0; display: flex; gap: 10px;}
+        li, button {margin: 0; padding: 0;}
+        button {border: 0; background: none; cursor: pointer; line-height: 1;}
+        .btnWrap {margin: 30px;}
+        .btnWrap ul > li > button {padding: 10px 15px; border-radius: 13px; transition: all .35s; background-color: sandybrown;}
+        .btnWrap ul > li > button.on {background-color:tomato;}
+    </style>
+    <script type="text/javascript">
+        window.onload=()=>{
+
+            const lists = document.querySelectorAll('.btnWrap > ul');
+
+            function setList(){
+                let elm;
+                let target;
+                lists.forEach((el,i) => {
+                    elm = el;
+                    elm.onclick=(e)=>{
+                        target = e.target;
+                        
+                        if(i==0){
+                            console.log('aa');
+                        }
+                        
+                    }
+                })
+
+                
+            }
+            function init(){
+                setList();
+            }
+            init();
+        }
+    </script>
+</head>
+<body>
+    <div class="btnWrap">
+        <ul>
+            <li><button>전체</button></li>
+            <li><button>포장</button></li>
+            <li><button>매장</button></li>
+            <li><button>방문</button></li>
+            <li><button>배달</button></li>
+        </ul>
+
+        <ul>
+            <li><button>전체</button></li>
+            <li><button>포장</button></li>
+            <li><button>매장</button></li>
+            <li><button>방문</button></li>
+            <li><button>배달</button></li>
+        </ul>
+
+    </div>
+</body>
+</html>
