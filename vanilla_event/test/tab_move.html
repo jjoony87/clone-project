@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        button {margin: 0; padding: 0; border: 0; background: none;}
+        .tabList {position: relative; display: flex; justify-content: center; border-bottom: 1px solid rgb(210, 210, 210);}
+        .tabList > button {flex: 1; padding: 10px 0; transition: all .35s; background: wheat;}
+        .tabList > button.on {background: skyblue;}
+        .tabList .indicator {position: absolute; display: inline-block; left: 0; bottom: -1px; height: 2px; z-index: 1; transition: all .32s ease-in-out; background: tomato;}
+        .tabBox {width: 100%; height: 100vh; background:wheat;}
+        .tabBox .item-box {display: none; padding: 100px 20px; background:darkseagreen;}
+        .tabBox .item-box.on {display: block;}
+    </style>
+</head>
+<body>
+    <div class="tabList">
+        <button class="on">item_01</button>
+        <button>item_02</button>
+        <button>item_03</button>
+        <button>item_04</button>
+        <button>item_05</button>
+        <span class="indicator"></span>
+    </div>
+    <div class="tabBox">
+        <div class="item-box on">01</div>
+        <div class="item-box">02</div>
+        <div class="item-box">03</div>
+        <div class="item-box">04</div>
+        <div class="item-box">05</div>
+    </div>
+
+    <script type="text/javascript">
+        (() => {
+
+            const btns = document.querySelectorAll('.tabList > button');
+            const ind = document.querySelector('.indicator');
+            const boxs = document.querySelectorAll('.tabBox > .item-box');
+
+            function setProperty(){
+                let elm;
+                let sibilings;
+                let elms;
+                let elmOffset;
+                let items;
+                ind.style.width = btns[0].offsetWidth + 'px';
+
+                btns.forEach((el,i)=>{
+                    elm = el;
+                    elm.onclick=(e)=>{
+                        const target = e.target;
+                        elmOffset = target.offsetLeft;
+                        ind.style.left = elmOffset + 'px';
+                        sibilings = target.parentElement.children;
+                        for(key of sibilings){
+                            elms = key;
+                            elms.classList.remove('on');
+                        }
+                        for(let i=0; i<boxs.length; i++){
+                            items = boxs[i].classList;
+                            items.remove('on');
+                        }
+                        boxs[i].classList.add('on');
+                        target.classList.add('on');
+                    }
+                });
+
+
+
+            }
+            function init(){
+                setProperty();
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>

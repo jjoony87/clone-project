@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        #wrap {height: 100vh; display: flex; justify-content: center; align-items: center; background: wheat;}
+        .cont {position: relative; display: flex; justify-content: center; align-items: center; width: 500px; height: 500px; background-color: burlywood;}
+        .cont:after {display: inline-block; content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 30px solid orangered;}
+        .cont .roullet {width: 90%; height: 90%; background: url('/images/img_roullet.png') no-repeat center center / cover;}
+        .cont .roullet.active {animation: ani .1s both infinite;}
+        .cont .btn {display: inline-block; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 90px; height: 90px; border: 2px solid #000; border-radius: 100%; font-size: 20px; color: #000; font-weight: 500; background:powderblue;}
+
+        @keyframes ani {
+            0% {
+                transform-origin: center;
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = () => {
+
+            const roullet = document.querySelector('.roullet');
+            const btn  = document.querySelector('.btn');
+
+            function setRullet(){
+
+                const roulletAll = {
+
+                    random:() => {
+                        const min = Math.ceil(0);
+                        const max = Math.floor(5);
+                        return Math.floor(Math.random() * (max-min))+min;
+                    },
+                    start:() => {
+                        roullet.classList.add('active');
+                        btn.innerText = 'stop';
+                    },
+                    stop:() => {
+                        const array = [60,120,180,240,360];
+                        roullet.classList.remove('active');
+                        roullet.style.transform = 'rotate(' + array[roulletAll.random()] + 'deg)';
+                        btn.innerText = 'start';
+                    }
+
+                }
+                btn.addEventListener('click', () => {
+
+                    if(btn.innerText == 'start'){
+                        roulletAll.start();
+                    }else if(btn.innerText == 'stop'){
+                        roulletAll.stop();
+                    }
+                    console.log(roulletAll.random());
+                });
+
+            }
+            function init(){
+                setRullet();
+                
+            }
+            init();
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="cont">
+            <div class="roullet"></div>
+            <button class="btn">start</button>
+        </div>
+    </div>
+</body>
+</html>

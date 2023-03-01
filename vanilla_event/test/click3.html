@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color: rgba(0, 0, 0, .3);}
+        .list ul {display: flex; gap: 5px;}
+        .list ul > li > button {display: inline-block; padding: 10px 20px; border-radius: 15px; font-size: 12px; font-weight: 500; color: #000; transition: all .5s; cursor: pointer; background-color: burlywood;}
+        .list ul > li > button.on {color: #fff; background-color: tomato;}
+    </style>    
+</head>
+<body>
+
+    <div class="list">
+        <ul class="list_cont">
+            <li><button>전체</button></li>
+            <li><button>가맹점</button></li>
+            <li><button>포장</button></li>
+            <li><button>테이블</button></li>
+            <li><button>주문</button></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        (() => {
+            
+            const btns = document.querySelectorAll('.list_cont > li');
+            
+            function setProperty(){
+                
+                btns.forEach((el, i) => {
+                    const target = el;
+                    const all = el.parentNode.children[0];
+                    let elms;
+                    
+                    target.onclick =(e) => {
+                        const elm = e.target;
+                        const elmClass = elm.classList;
+                        
+                        if(i == 0){
+                            for(let i=1; i<btns.length; i++){
+                                elms = btns[i].children[0].classList;
+                                elms.remove('on');
+                            }
+                        }else{
+                            console.log('bb');
+                            all.children[0].classList.remove('on');
+                        }
+                        elmClass.toggle('on');
+                    }
+                    
+                });
+
+            }
+            function init(){
+                setProperty();
+            }
+            init();
+
+        })();
+    </script>
+
+</body>
+</html>

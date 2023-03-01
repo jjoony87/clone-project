@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0; height: 100%;}
+        body {background: wheat;}
+        ul, li {list-style: none;}
+        a {text-decoration: none; color: #000; line-height: 1;}
+        .list {background: sandybrown;}
+        .list-cont {display: flex; justify-content: center; align-items: center;}
+        .list-cont > li {flex: 1; border: 1px solid #000; line-height: 1; background: yellowgreen;}
+        .list-cont > li > a {display: block; text-align: center; transition: all .35s linear;}
+        .list-cont > li > a.on {background: chocolate;}
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="list">
+            <ul class="list-cont">
+                <li><a href="#none">01</a></li>
+                <li><a href="#none">02</a></li>
+                <li><a href="#none">03</a></li>
+                <li><a href="#none">04</a></li>
+                <li><a href="#none">05</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        (() => {
+            function tabPropety(){
+                let listNodes;
+                let arrayList;
+                const lists = document.querySelectorAll('.list-cont > li');
+                lists.forEach((el,i) => {
+                    const elm = el;
+                    let elms;
+                    elm.onclick = (e) => {
+                        const target = e.target;
+                        elms = target.parentElement.parentElement.children;
+                        for(key of elms){
+                            arrayList = key;
+                            arrayList.children[0].classList.remove('on');
+                        }
+                        target.classList.add('on');
+                    }
+                });
+            }
+            function init(){
+                tabPropety();
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>

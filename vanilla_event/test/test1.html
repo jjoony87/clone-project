@@ -1,0 +1,69 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        .list_box {background: beige;}
+        .listWrap {display: flex;}
+        .listWrap > li {flex: 1; border: 1px solid #000;}
+        .listWrap > li > a {display: block; width: 100%; height: 100%; font-size: 20px; color: #000;}
+        .listWrap > li > a.active {background: cadetblue;}
+        .boxWrap > .item {display: none; padding: 50px 20px; box-sizing: border-box; background: burlywood;}
+        .boxWrap > .item.on {display: block;}
+    </style>
+    <script type="text/javascript">
+        window.onload = () => {
+            
+            
+            const lists = document.querySelectorAll('.listWrap > li');
+            const boxItems = document.querySelectorAll('.boxWrap > .item');
+
+            function setTabList(){
+                let links;
+                let listLinks;
+                lists.forEach((el,i) => {
+                    const elm = el;
+                    links = elm.children[0];
+                    links.onclick = (e) => {
+                        const target = e.target;
+                        for(let i=0; i<boxItems.length; i++){
+                            const items = boxItems[i].classList;
+                            listLinks = lists[i].children[0].classList;
+                            listLinks.remove('active');
+                            items.remove('on');
+                        }
+                        boxItems[i].classList.add('on');
+                        target.classList.add('active');
+                    }
+                    
+                });
+
+            }
+            function init(){
+                setTabList();
+            }
+            init();
+        }
+    </script>
+</head>
+<body>
+    <div class="list_box">
+        <ul class="listWrap">
+            <li><a href="#" class="active">11</a></li>
+            <li><a href="#">22</a></li>
+            <li><a href="#">33</a></li>
+        </ul>
+    </div>
+    <div class="boxWrap">
+        <div class="item on">1 box</div>
+        <div class="item">2 box</div>
+        <div class="item">3 box</div>
+    </div>
+
+    
+</body>
+</html>

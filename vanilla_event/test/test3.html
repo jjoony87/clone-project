@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style>
+        #wrap {background: darkcyan;}
+        .cont {background: burlywood;}
+        .list > li {display: flex; justify-content: center; align-items: center; height: 600px; font-size: 25px; color: #000; font-weight: 700; border: 3px solid #000; background: cadetblue;}
+        .list .btn {display: inline-block; width: 90%; height: 50px; line-height: 50px; border-radius: 25px; border: 2px solid #000; font-size: 20px; color: #000; font-weight: 700; background: coral;}
+        .list .btn.fix {position: fixed; left: 50%; bottom: 10px; transform: translateX(-50%); z-index: 1;}
+    </style>
+    <script type="text/javascript">
+        window.onload = () => {
+            
+            let yOffset = 0;
+            const btn = document.querySelector('.btn');
+            const btnPos = btn.offsetHeight + btn.offsetTop;
+
+            function setBtn(){
+                let scrollY = yOffset + window.innerHeight;
+                
+                if(scrollY >= btnPos){
+                    btn.classList.add('fix');
+                }else if(scrollY < btnPos){
+                    btn.classList.remove('fix');
+                }
+            }
+            function init(){
+                window.addEventListener('scroll', () => {
+                    yOffset = window.pageYOffset;
+                    setBtn();
+                });
+            }
+            init();
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div class="cont">
+            <ul class="list">
+                <li>11</li>
+                <li>22</li>
+                <li>
+                    <button class="btn">button</button>
+                </li>
+                <li>44</li>
+                <li>55</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

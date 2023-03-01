@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color: rgba(0, 0, 0, .3);}
+        .toggle_wrap {padding: 20px;}
+        .toggle_wrap ul {display: flex; gap: 5px;}
+        .toggle_wrap ul + ul {margin-top: 20px;}
+        .toggle_wrap ul > li > button {display: inline-block; padding: 10px 20px; border-radius: 15px; font-size: 12px; font-weight: 500; color: #000; transition: all .5s; cursor: pointer; background-color: burlywood;}
+        .toggle_wrap ul > li > button.on {color: #fff; background-color: tomato;}
+    </style>
+    <script src="ui.js"></script>
+</head>
+<body>
+    
+    <div class="toggle_wrap">
+        <ul class="toggle_cont">
+            <li><button>전체</button></li>
+            <li><button>가맹점</button></li>
+            <li><button>포장</button></li>
+            <li><button>테이블</button></li>
+            <li><button>주문</button></li>
+        </ul>
+
+        <ul class="toggle_cont">
+            <li><button>list-01</button></li>
+            <li><button>list-02</button></li>
+            <li><button>list-03</button></li>
+            <li><button>list-04</button></li>
+        </ul>
+
+        <ul class="toggle_cont">
+            <li><button>list-01</button></li>
+            <li><button>list-02</button></li>
+            <li><button>list-03</button></li>
+        </ul>
+    </div>
+    
+</body>
+</html>
