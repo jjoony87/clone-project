@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grid.css">
     <title>Document</title>
+
     <style>
-        * {margin: 0; padding: 0;}
+        /* * {margin: 0; padding: 0;}
         html, body {margin: 0; padding: 0; height: 100%;}
         div {margin: 0; padding: 0;}
         #wrap {display: flex; justify-content: center; align-items: center; background: wheat; height: 100%;}
@@ -24,7 +26,7 @@
         @media (max-width:500px) {
             .grid-content .grid-item {color: red;}
             .grid-content {grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;}
-        }
+        } */
     </style>
 </head>
 <body>
@@ -32,13 +34,55 @@
 
         <div class="grid-wrap">
             <div class="grid-content">
-                <div class="grid-item">A <img src="ico_duck.svg" alt=""></div>
-                <div class="grid-item">BBBBBBBBBBBB</div>
-                <div class="grid-item">C</div>
-                <div class="grid-item">D</div>
-                <div class="grid-item">E</div>
-                <div class="grid-item">F</div>
-                <div class="grid-item">G</div>
+                <div class="grid-item">
+                    <strong>A</strong>
+                    <div class="item-cont layout-a">
+                        <div>11</div>
+                        <div>11</div>
+                        <div>11</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <strong>B</strong>
+                    <div class="item-cont layout-b">
+                        <div>22</div>
+                        <div>22</div>
+                        <div>22</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <strong>C</strong>
+                    <div class="item-cont layout-c">
+                        <div>3-1</div>
+                        <div>3-2</div>
+                        <div>3-3</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <strong>D</strong>
+                    <div class="item-cont layout-d">
+                        <div>4-1</div>
+                        <div>4-2</div>
+                        <div>4-3</div>
+                        <div>4-4</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <strong>E</strong>
+                    <div class="item-cont layout-e">
+                        <div>11</div>
+                        <div>11</div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <strong>F</strong>
+                    <div class="item-cont layout-f">
+                        <div>list-1</div>
+                        <div>list-2</div>
+                        <div>list-3</div>
+                        <div>list-4</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
