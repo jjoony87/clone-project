@@ -1,0 +1,216 @@
+body, html {
+  background-color: beige;
+  font-size: 10px;
+}
+
+div, strong.h1, h2.h3, p, ul, li, a, em, i, span, dl, dt, dd {
+  margin: 0;
+  padding: 0;
+}
+
+em, i {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ################ [flex-guide] ################ */
+.flex-type-a {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.flex-type-a > li {
+  flex: 1;
+  border: 1px solid green;
+}
+
+.flex-type-a > li dl a {
+  display: block;
+  padding: 1rem;
+}
+
+.flex-type-a > li dl dt, .flex-type-a > li dl dd {
+  text-align: center;
+}
+
+.flex-type-a > li dl dt span {
+  display: inline-block;
+  width: 3.5rem;
+  height: 3.5rem;
+  line-height: 3.5rem;
+  border: 1px solid #000;
+  border-radius: 100%;
+}
+
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-column.al-end {
+  align-items: flex-end;
+}
+
+.flex-defualt {
+  display: flex;
+}
+
+.h-auto {
+  display: flex;
+  flex-direction: column;
+  height: 5.3rem;
+}
+
+.h-auto > div {
+  flex: 1;
+}
+
+/* ################ [grid-guide] ################ */
+.grid-content {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.grid-content .grid-item {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  color: #000;
+}
+
+.grid-content .grid-item > strong {
+  position: relative;
+  display: block;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.grid-content .grid-item > strong .tit-sub {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: inline-block;
+  font-size: 1.2rem;
+}
+
+.grid-content .grid-item .item-cont {
+  flex: 1;
+  display: grid;
+  grid-template-rows: auto;
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+
+.grid-content .grid-item .item-cont .sub-title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.grid-content .grid-item .item-cont.type-row {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-content .grid-item .item-cont .total-data {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}
+
+.grid-content .grid-item .item-cont .total-data > li:first-child {
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #000;
+}
+
+.grid-content .grid-item .item-cont > div {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+.grid-content .grid-item .item-cont.data-list .data-item {
+  display: flex;
+  gap: 1rem;
+}
+
+.grid-content .grid-item .item-cont.data-list .data-item > li {
+  position: relative;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.grid-content .grid-item .item-cont.data-list .data-item > li + li {
+  padding-left: 1rem;
+}
+
+.grid-content .grid-item .item-cont.data-list .data-item > li + li::before {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1rem;
+  border-left: 1px solid #000;
+}
+
+.grid-content .grid-item .item-cont .graph-bar {
+  width: 100%;
+  min-height: 15rem;
+  background: lightblue;
+}
+
+.grid-content .grid-item .item-cont .graph-bar-data > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.grid-content .grid-item .item-cont .graph-bar-data > li > strong {
+  font-size: 1.2rem;
+}
+
+.grid-content .grid-item .item-cont .graph-bar-data > li .graph-info > span {
+  position: relative;
+  display: inline-block;
+  padding-right: .6rem;
+  font-size: 1.2rem;
+}
+
+.grid-content .grid-item .item-cont .graph-bar-data > li .graph-info > span + span {
+  padding-left: .6rem;
+  line-height: 1;
+}
+
+.grid-content .grid-item .item-cont .graph-bar-data > li .graph-info > span + span::before {
+  display: block;
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 50%;
+  transform: translateY(-51%);
+  height: .8rem;
+  border-left: 1px solid #000;
+}

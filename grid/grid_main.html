@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grid_main.css">
+    <title>Document</title>
+
+    <style>
+        /* * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0; height: 100%;}
+        div {margin: 0; padding: 0;}
+        #wrap {display: flex; justify-content: center; align-items: center; background: wheat; height: 100%;}
+        .grid-wrap {width: 500px; height: 500px; background: #fdcb6e;}
+        .grid-content {display: grid; height: 100%; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(5, 1fr);}
+        .grid-content .grid-item {display: flex; justify-content: center; align-items: center; border: 1px solid #000;}
+        .grid-content .grid-item:nth-child(1) {grid-column: 1/2; grid-row: 1/4;}
+        .grid-content .grid-item:nth-child(2) {grid-column: 2/4; grid-row: 1/2;}
+        .grid-content .grid-item:nth-child(3) {grid-column: 2/3; grid-row: 2/3;}
+        .grid-content .grid-item:nth-child(4) {grid-column: 2/3; grid-row: 3/4;}
+        .grid-content .grid-item:nth-child(5) {grid-column: 3/4; grid-row: 2/5; background-color: darkorange;}
+        .grid-content .grid-item:nth-child(6) {grid-column: 1/3; grid-row: 4/6;}
+        .grid-content .grid-item:nth-child(7) {grid-column: 3; grid-row: 5/6;}
+
+        @media (max-width:500px) {
+            .grid-content .grid-item {color: red;}
+            .grid-content {grid-template-columns: 1fr minmax(max-content, 1fr) 1fr;}
+        } */
+    </style>
+</head>
+<body>
+    <div id="wrap">
+
+        <div class="grid-wrap">
+            <div class="grid-content">
+                <!-- ///////////// GRID-ITEM ///////////// -->
+                <div class="grid-item">
+                    <strong>grid-title</strong>
+                    <div class="item-cont">
+                        <div>
+                            <p class="sub-title">sub-title</p>
+                            <ul class="flex-type-a">
+                                <li>
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <span>img</span>
+                                            </dt>
+                                            <dd>text~</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <span>img</span>
+                                            </dt>
+                                            <dd>text~</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <span>img</span>
+                                            </dt>
+                                            <dd>text~</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="sub-title">sub-title</p>
+                            <ul class="flex-type-a">
+                                <li>
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <span>img</span>
+                                            </dt>
+                                            <dd>text~</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <span>img</span>
+                                            </dt>
+                                            <dd>text~</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <dl>
+                                            <dt>
+                                                <span>img</span>
+                                            </dt>
+                                            <dd>text~</dd>
+                                        </dl>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ///////////// GRID-ITEM ///////////// -->
+                <div class="grid-item">
+                    <strong>grid-title</strong>
+                    <div class="item-cont">
+                        <div>
+                            <p class="sub-title">sub-title</p>
+                            <div class="h-auto">
+                                <div class="flex-sb">
+                                    <a href="#">link_text_area_01</a>
+                                    <a href="#">link_price</a>
+                                </div>
+                                <div class="flex-sb">
+                                    <a href="#">link_text_area_03</a>
+                                    <a href="#">link_price</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="sub-title">sub-title</p>
+                            <div class="h-auto">
+                                <div class="flex-sb">
+                                    <a href="#">link_text_area_01</a>
+                                    <a href="#">link_price</a>
+                                </div>
+                                <div class="flex-sb">
+                                    <a href="#">link_text_area_03</a>
+                                    <a href="#">link_price</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ///////////// GRID-ITEM ///////////// -->
+                <div class="grid-item">
+                    <strong>grid-title</strong>
+                    <div class="item-cont">
+                        <div class="flex-sb">
+                            <div class="flex-column">
+                                <strong><i>img</i>기업은행</strong>
+                                <span>1002-123-234519</span>
+                                <span>2023.03.03</span>
+                            </div>
+                            <div class="flex-column">
+                                <span>입금잔액</span>
+                                <span>잔액</span>
+                            </div>
+                        </div>
+                        <div class="flex-sb">
+                            <div class="flex-column">
+                                <strong><i>img</i>기업은행</strong>
+                                <span>1002-123-234519</span>
+                                <span>2023.03.03</span>
+                            </div>
+                            <div class="flex-column">
+                                <span>입금잔액</span>
+                                <span>잔액</span>
+                            </div>
+                        </div>
+                        <div class="flex-sb">
+                            <div class="flex-column">
+                                <strong><i>img</i>기업은행</strong>
+                                <span>1002-123-234519</span>
+                                <span>2023.03.03</span>
+                            </div>
+                            <div class="flex-column">
+                                <span>입금잔액</span>
+                                <span>잔액</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ///////////// GRID-ITEM ///////////// -->
+                <div class="grid-item">
+                    <strong>grid-title</strong>
+                    <div class="item-cont data-list">
+                        <div class="flex-sb">
+                            <div class="flex-column">
+                                <strong><i>img</i>현대카드</strong>
+                                <span>1002-123-234519</span>
+                            </div>
+                            <div class="flex-column al-end">
+                                <span>350,000원</span>
+                                <ul class="flex-defualt data-item">
+                                    <li>승인</li>
+                                    <li>할부</li>
+                                    <li>하남돼지집</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex-sb">
+                            <div class="flex-column">
+                                <strong><i>img</i>현대카드</strong>
+                                <span>1002-123-234519</span>
+                            </div>
+                            <div class="flex-column al-end">
+                                <span>350,000원</span>
+                                <ul class="flex-defualt data-item">
+                                    <li>승인</li>
+                                    <li>할부</li>
+                                    <li>하남돼지집</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex-sb">
+                            <div class="flex-column">
+                                <strong><i>img</i>현대카드</strong>
+                                <span>1002-123-234519</span>
+                            </div>
+                            <div class="flex-column al-end">
+                                <span>350,000원</span>
+                                <ul class="flex-defualt data-item">
+                                    <li>승인</li>
+                                    <li>할부</li>
+                                    <li>하남돼지집</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ///////////// GRID-ITEM ///////////// -->
+                <div class="grid-item">
+                    <strong>grid-title</strong>
+                    <div class="item-cont type-row">
+                        <div>
+                            <div class="graph-bar">graph-area</div>
+                            <div>text</div>
+                        </div>
+                        <div>
+                            <ul class="graph-bar-data">
+                                <li>
+                                    <strong>매출</strong>
+                                    <div class="graph-info">
+                                        <span>2건</span>
+                                        <span>200,000원</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>입금</strong>
+                                    <div class="graph-info">
+                                        <span>2건</span>
+                                        <span>200,000원</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>매출금액</strong>
+                                    <div class="graph-info">
+                                        <span>200,000원</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ///////////// GRID-ITEM ///////////// -->
+                <div class="grid-item">
+                    <strong>grid-title <span class="tit-sub"><em>조회 기준일시</em>2023.03.03</span></strong>
+                    <div class="item-cont">
+                        <div>
+                            <ul class="total-data">
+                                <li class="flex-sb">
+                                    <strong>3월 총 매출액</strong>
+                                    <span>12,000,000원</span>
+                                </li>
+                                <li class="flex-sb">
+                                    <strong>
+                                        <i>img</i>네이버 스마트스토어
+                                    </strong>
+                                    <span>500,000원</span>
+                                </li>
+                                <li class="flex-sb">
+                                    <strong>
+                                        <i>img</i>쿠팡
+                                    </strong>
+                                    <span>300,000원</span>
+                                </li>
+                                <li class="flex-sb">
+                                    <strong>
+                                        <i>img</i>마켓컬리
+                                    </strong>
+                                    <span>100,000원</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
