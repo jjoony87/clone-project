@@ -20,14 +20,19 @@
 
         .list-wrap {
            margin: 0 auto;
+           padding: 50px 0;
            width: 800px;
         }
         .column {
             display: grid;
             gap: 10px;
             grid-template-columns: 1fr 1fr;
-            border: 1px solid #cecece;
+            grid-template-rows: 100px 100px 100px;
+            border: 1px solid #535353;
             padding: 15px;
+        }
+        .column + .column {
+           margin-top: 30px;
         }
 
         .container-fluid {
@@ -81,7 +86,7 @@
                </div>
               </div>
               <!-- listColumn -->
-              <div class="card text-white" style="background-color: rgb(253, 196, 130);">
+              <div class="card text-white" style="background-color: rgb(214, 138, 53);">
                  <div class="card-header">Header
                     <!-- <label class="deleteBox"> [삭제]</label> -->
                      <div class="card-body">
@@ -90,7 +95,16 @@
                      </div>
                   </div>
               </div>
-              <div class="card text-white" style="background-color: rgb(253, 196, 130);">
+              <div class="card text-white" style="background-color: rgb(140, 171, 90);">
+                  <div class="card-header">Header
+                     <!-- <label class="deleteBox"> [삭제]</label> -->
+                     <div class="card-body">
+                        <h5 class="card-title">card 2</h5>
+                        <p class="card-text">card 2</p>
+                     </div>
+                  </div>
+               </div>
+            <div class="card text-white" style="background-color: rgb(118, 158, 233);">
                <div class="card-header">Header
                   <!-- <label class="deleteBox"> [삭제]</label> -->
                    <div class="card-body">
@@ -99,7 +113,16 @@
                    </div>
                 </div>
             </div>
-            <div class="card text-white" style="background-color: rgb(253, 196, 130);">
+            <div class="card text-white" style="background-color: rgb(212, 144, 248);">
+               <div class="card-header">Header
+                  <!-- <label class="deleteBox"> [삭제]</label> -->
+                   <div class="card-body">
+                      <h5 class="card-title">card 2</h5>
+                      <p class="card-text">card 2</p>
+                   </div>
+                </div>
+            </div>
+            <div class="card text-white" style="background-color: rgb(219, 210, 41);">
                <div class="card-header">Header
                   <!-- <label class="deleteBox"> [삭제]</label> -->
                    <div class="card-body">
@@ -120,37 +143,6 @@
                 </div>
               </div>
            </div>
-           <!--
-            <div class="col-3 column">
-               <div class="card text-white no-move" style="background-color: rgb(98, 179, 98);">
-                  <div class="card-header">Header</div>
-                  <div class="card-body">
-                     <h5 class="card-title">card 4</h5>
-                     <p class="card-text">안움직여야함</p>
-                  </div>
-               </div>
-
-               <div class="card text-white" style="background-color: rgb(76, 94, 153);">
-                  <div class="card-header">Header
-                     <label class="deleteBox"> [삭제]</label>
-                  </div>
-                  <div class="card-body">
-                     <h5 class="card-title">card 5</h5>
-                     <p class="card-text">card 5</p>
-                  </div>
-               </div>
-
-               <div class="card text-white" style="background-color: rgb(98, 58, 104);">
-                  <div class="card-header">Header
-                     <label class="deleteBox"> [삭제]</label>
-                  </div>
-                  <div class="card-body">
-                     <h5 class="card-title">card 6</h5>
-                     <p class="card-text">card 6</p>
-                  </div>
-               </div>
-            </div>
-            -->
         </div>
      </div>
 
