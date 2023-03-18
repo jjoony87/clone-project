@@ -66,12 +66,32 @@
         .card:not(.no-move) .card-header {
             cursor: pointer;
         }
+
+        .hidden-text {
+           padding: 20px;
+           font-size: 20px;
+           color: #000;
+           /* width: 1px;
+           height: 1px;
+           overflow: hidden; */
+        }
+        .hidden-text > span {
+           display: inline-block;
+           /* font-size: 1px;
+           color: transparent;
+           overflow: hidden; */
+        }
+        .hidden-text > span + span {
+         margin-left: 10px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container-fluid">
-        <label class="createBox"> [추가]</label>
+
+       <div class="hidden-text"></div>
+
         <div class="list-wrap">
            <!-- 세로 리스트 박스 -->
            <div class="col-3 column">
@@ -80,7 +100,7 @@
               <div class="card text-white" style="background-color: rgb(255, 143, 143);">
                  <div class="card-header">
                   <div class="card-body">
-                     <h5 class="card-title">card 1</h5>
+                     <h5 class="card-title">스타벅스</h5>
                      <p class="card-text">이동가능</p>
                   </div>
                </div>
@@ -90,7 +110,7 @@
                  <div class="card-header">Header
                     <!-- <label class="deleteBox"> [삭제]</label> -->
                      <div class="card-body">
-                        <h5 class="card-title">card 2</h5>
+                        <h5 class="card-title">투썸플레이스</h5>
                         <p class="card-text">card 2</p>
                      </div>
                   </div>
@@ -99,7 +119,7 @@
                   <div class="card-header">Header
                      <!-- <label class="deleteBox"> [삭제]</label> -->
                      <div class="card-body">
-                        <h5 class="card-title">card 2</h5>
+                        <h5 class="card-title">메가커피</h5>
                         <p class="card-text">card 2</p>
                      </div>
                   </div>
@@ -108,7 +128,7 @@
                <div class="card-header">Header
                   <!-- <label class="deleteBox"> [삭제]</label> -->
                    <div class="card-body">
-                      <h5 class="card-title">card 2</h5>
+                      <h5 class="card-title">이디야</h5>
                       <p class="card-text">card 2</p>
                    </div>
                 </div>
@@ -117,7 +137,7 @@
                <div class="card-header">Header
                   <!-- <label class="deleteBox"> [삭제]</label> -->
                    <div class="card-body">
-                      <h5 class="card-title">card 2</h5>
+                      <h5 class="card-title">공차</h5>
                       <p class="card-text">card 2</p>
                    </div>
                 </div>
@@ -126,7 +146,7 @@
                <div class="card-header">Header
                   <!-- <label class="deleteBox"> [삭제]</label> -->
                    <div class="card-body">
-                      <h5 class="card-title">card 2</h5>
+                      <h5 class="card-title">할리스</h5>
                       <p class="card-text">card 2</p>
                    </div>
                 </div>
@@ -134,10 +154,10 @@
            </div>
            <!-- listColumn -->
            <div class="col-3 column">
-              <div class="card text-black no-move" style="background-color: rgb(255, 254, 168);">
+              <div class="card text-black" style="background-color: rgb(255, 254, 168);">
                  <div class="card-header">Header
                   <div class="card-body">
-                     <h5 class="card-title">card 3</h5>
+                     <h5 class="card-title">블루보틀</h5>
                      <p class="card-text">이동X</p>
                   </div>
                 </div>
@@ -159,8 +179,13 @@
 
             const elm = document.querySelectorAll('.card-header');
             const cardItem = document.querySelectorAll('.card');
+            const column = document.querySelector('.column');
+            const hiddenBox = document.querySelector('.hidden-text');
+            const hiddenElm = document.querySelectorAll('.hidden-text > span');
+            let dragItems;
+            let items;
+            let itemChildrens;
 
-            console.log(elm);
             $(function () {
                 $(".column").sortable({
                     // 드래그 앤 드롭 단위 css 선택자
@@ -171,12 +196,20 @@
                     cancel: ".no-move",
                     // 이동하려는 location에 추가 되는 클래스
                     placeholder: "card-placeholder",
+                    scroll:false,
+
                     // 요소를 잡는 순간 실행
                     start : function(event, ui){
                     $(this).css('background-color', 'rgb(213,222,232)'); // bg가 변경됨
-                    $(this).css('border-color', 'red');
-                     $(elm).css('borderColor', 'red')
+                    $(this).css('border-color', 'gray');
+                     $(elm).css('borderColor', 'gray')
                      $('.card').css('border', 'linear-gradient(310deg, red 0%, blue 100%)');
+
+                     //dragItems = event.target.children;
+                     $(hiddenBox).empty();
+
+                     //console.log("drag : " + (ui.item.index())); // 이동하려는 아이템 위치값
+                     //console.log("drop : " + (ui.item.index())); // 이동 후에 아이쳄 위치값
 
                      //cardItem.style.borderImage = 'linear-gradient(310deg, red 0%, blue 100%)';
                     },
@@ -184,12 +217,47 @@
                     stop : function(event, ui){
                     //$(this).css('background-color', 'transparent');
                     $(this).css('background-color', 'rgb(213,222,232)'); // bg가 이동후 설정 색상으로 변경유지됨
+                    items = event.target.children;
 
-                    }
+
+                    //console.log(items);
+                     for(let i=0; i<items.length; i++){
+                        itemChildrens = items[i];
+                        //hiddenElm.remove();
+                        // if(hiddenElm){
+                        //    console.log(hiddenElm);
+                        // }
+                        hiddenBox.innerHTML += '<span>' + itemChildrens.children[0].children[0].children[0].textContent + '</span>';
+                     }
+
+                     // 해당 클래스 하위의 텍스트 드래그를 막는다.
+                     // $(".column .card").disableSelection();
+                     // let observer = new MutationObserver((mutations) => {
+                     //    // 노드가 변경 됐을 때의 작업
+
+                     // });
+                     // let option = {
+                     //    childList: true,
+                     //    //characterData: true
+                     // };
+                     // // 대상 노드에 감시자 전달
+                     // observer.observe(hiddenBox, option);
+
+                    },
+                    update: function(event, ui) {
+                        //순서가 바뀌면
+                        var listArray = $(".column").sortable('toArray', {attribute: 'value'}).toString();
+                        //배열로 저장한다.
+                        console.log(listArray);
+                     }
+
                 });
-                // 해당 클래스 하위의 텍스트 드래그를 막는다.
-                $(".column .card").disableSelection();
+
+
             });
+
+
+
 
         })();
     </script>
