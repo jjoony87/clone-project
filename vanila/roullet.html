@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="/test/common.css">
     <style type="text/css">
         html, body {height: 100%;}
-        #wrap {height: 100%; background:wheat;}
-        .roullet_img {width: 300px; height: 300px; background: url('/vanila/images/img_roullet.png') no-repeat center center / 100%;}
+        #wrap {display: flex; justify-content: center; align-items: center; height: 100%; background:wheat;}
+        .cont {position: relative; width: 500px; height: 500px; background-color:powderblue;}
+        .cont::before {display: inline-block; content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 30px solid red;}
+        .roullet_img {width: 100%; height: 100%; background: url('/vanila/images/img_roullet.png') no-repeat center center / 90%;}
         .roullet_img.active {animation: ani .1s both infinite;}
-        .btn {display: block; text-align: right;}
+        .btn {display: inline-block; position: absolute; left: 50%; top: 50%; width: 90px; height: 90px; border-radius: 100%; font-size: 20px; border: 2px solid #000; font-weight: bold; transform: translate(-50%, -50%); background-color: yellow;}
         @keyframes ani {
             0% {
+                transform-origin: center;
                 transform: rotate(0deg);
             }
             100% {
@@ -22,56 +25,56 @@
         }
     </style>
     <script type="text/javascript">
-        window.onload = function(){
+        window.onload=()=> {
+
 
             const roullet = document.querySelector('.roullet_img');
             const btn = document.querySelector('.btn');
 
-            let roulletAll = {
+            function init(){
 
-                random: function(){
-                    let min = Math.ceil(0);
-                    let max = Math.floor(5);
-                    return Math.floor(Math.random() * (max - min)) + min;
+                const roulletAll = {
+
+                random:()=> {
+                    const min = Math.ceil(0);
+                    const max = Math.floor(5);
+                    return Math.floor(Math.random() * (max-min))+min;
                 },
-                start: function(){
+                start:()=> {
                     roullet.classList.add('active');
-                    btn.innerText = 'Stop';
+                    btn.innerText = 'stop';
                 },
-                stop: function(){
-                    const array = [60, 120, 180, 240, 360];
+                stop:()=> {
+                    let array = [60,120,180,240,360];
+
                     roullet.style.transform = 'rotate(' + array[roulletAll.random()] + 'deg)';
                     roullet.classList.remove('active');
-                    btn.innerText = 'Start';
+                    btn.innerText = 'start';
+                }
 
-                },
+                }
+
+                let elmTarget;
+                btn.addEventListener('click', () => {
+                    //elmTarget = e.target.innerText;
+                    if(btn.innerText === 'start'){
+                        roulletAll.start();
+                    }else if(btn.innerText === 'stop'){
+                        roulletAll.stop();
+                    }
+                });
 
             }
-            
-            btn.addEventListener('click', ()=> {
-                //const cont = e.target;
-                //console.log(roulletAll.start());
-                //console.log(cont);
-                if(btn.innerText === 'Start'){
-                    roulletAll.start();
-                }else if(btn.innderText === 'Stop'){
-                    roulletAll.stop();
-                }
-            });
-
-
-            //console.log('aa');
-
-            
+            init();
         }
     </script>
 </head>
 <body>
-    
+
     <div id="wrap">
         <div class="cont">
             <div class="roullet_img"></div>
-            <button class="btn">Start</button>
+            <button class="btn">start</button>
         </div>
     </div>
 
