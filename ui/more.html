@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        div, ul, li, a, span, em, button {margin: 0; padding: 0;}
+        .wrap {padding: 20px;}
+        .reply-wrap {display: flex; gap: 20px; padding: 15px; background-color: navajowhite;}
+        .cont-box {flex-basis: 250px; height: 20px; padding-right: 20px; overflow: hidden; word-break: break-all; white-space: nowrap; text-overflow: ellipsis; box-sizing: border-box; border: 1px solid #000; background-color: darkseagreen;}
+        .cont-box.active {height: auto !important; white-space: normal !important;}
+        .btn-more {align-self: flex-start; height: 20px; line-height: 20px; border: 1px solid #000; background-color: darkturquoise;}
+        .btn-more::after {display: inline-block; content: '+'; padding-left: 5px;}
+        .btn-more.on::after {content: '-';}
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="reply-wrap">
+            <div class="cont-box">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sunt temporibus voluptas aut aliquam esse quia minima eos quis quos corrupti modi fuga dolores, nesciunt consequuntur atque deserunt expedita cum.
+                Aliquam cumque eum ab fuga! Blanditiis possimus, minus, assumenda quas molestiae aliquid cum distinctio obcaecati excepturi minima perspiciatis a suscipit soluta maiores corrupti autem ducimus nulla vitae sed, neque dignissimos.
+                Aperiam assumenda suscipit repudiandae unde porro dolorem tempore, cupiditate nulla laudantium dignissimos iure beatae ut recusandae voluptate quam fugit debitis voluptas possimus rerum? Vero similique omnis sint consequuntur rem accusamus.
+                Quod debitis, fuga sit, dignissimos ipsum numquam amet corporis ipsa voluptatem officiis autem quae ab! Quod expedita minima saepe aspernatur soluta aperiam accusantium officia ducimus mollitia. Nulla ipsa blanditiis asperiores.
+                Ea, libero quibusdam. Alias molestias corporis ducimus dolorum cum corrupti itaque quibusdam, quos fugiat accusantium aut in enim repellat tenetur temporibus ullam nam asperiores? Fugit, molestias. Exercitationem perferendis quibusdam dolorem.
+            </div>
+            <button class="btn-more">more</button>
+        </div>
+        <div class="reply-wrap">
+            <div class="cont-box">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sunt temporibus voluptas aut aliquam esse quia minima eos quis quos corrupti modi fuga dolores, nesciunt consequuntur atque deserunt expedita cum.
+                Aliquam cumque eum ab fuga! Blanditiis possimus, minus, assumenda quas molestiae aliquid cum distinctio obcaecati excepturi minima perspiciatis a suscipit soluta maiores corrupti autem ducimus nulla vitae sed, neque dignissimos.
+                Aperiam assumenda suscipit repudiandae unde porro dolorem tempore, cupiditate nulla laudantium dignissimos iure beatae ut recusandae voluptate quam fugit debitis voluptas possimus rerum? Vero similique omnis sint consequuntur rem accusamus.
+            </div>
+            <button class="btn-more">more</button>
+        </div>
+        <div class="reply-wrap">
+            <div class="cont-box">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque sunt temporibus voluptas aut aliquam esse quia minima eos quis quos corrupti modi fuga dolores, nesciunt consequuntur atque deserunt expedita cum.
+                Aliquam cumque eum ab fuga! Blanditiis possimus, minus, assumenda quas molestiae aliquid cum distinctio obcaecati excepturi minima perspiciatis a suscipit soluta maiores corrupti autem ducimus nulla vitae sed, neque dignissimos.
+                Aperiam assumenda suscipit repudiandae unde porro dolorem tempore, cupiditate nulla laudantium dignissimos iure beatae ut recusandae voluptate quam fugit debitis voluptas possimus rerum? Vero similique omnis sint consequuntur rem accusamus.
+            </div>
+            <button class="btn-more">more</button>
+        </div>
+    </div>
+
+    <script>
+        (() => {
+            let contBoxs = document.querySelectorAll('.cont-box');
+            let btnMores = document.querySelectorAll('.btn-more');
+            function setBoxs(){
+                let elmBoxs;
+                let elmBtns;
+                let conts;
+                btnMores.forEach((el,i) => {
+                    let elmBoxsClass;
+                    elmBoxs = el;
+                    elmBoxs.onclick=(e)=>{
+                        elmBtns = e.target;
+                        conts = contBoxs[i].classList;
+                        elmBoxsClass = elmBtns.classList;
+                        elmBoxsClass.toggle('on');
+                        if(elmBoxsClass.contains('on')){
+                            conts.add('active');
+                        }else{
+                            conts.remove('active');
+                        }
+                    }
+                });
+            }
+            function init(){
+                setBoxs();
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>
