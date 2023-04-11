@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color: rgba(0, 0, 0, .3);}
+        .toggle_wrap {padding: 20px;}
+        .toggle_wrap ul {display: flex; gap: 5px;}
+        .toggle_wrap ul + ul {margin-top: 20px;}
+        .toggle_wrap ul > li {position: relative;}
+        .toggle_wrap ul > li > button {display: inline-block; padding: 10px 20px; border-radius: 15px; font-size: 12px; font-weight: 500; color: #000; transition: all .5s; cursor: pointer; background-color: burlywood;}
+        .toggle_wrap ul > li > button.on {color: #fff; background-color: tomato;}
+        .itemBox {
+            display: none;
+            position: absolute;
+            left: 0;
+            bottom: -50px;
+            z-index: 1;
+            padding: 10px;
+            background-color: #fff;
+        }
+        .itemBox > span {
+            display: block;
+        }
+        .itemBox.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="toggle_wrap">
+        <ul class="toggle_cont">
+            <li>
+                <button id='disc'>
+                <i>logo</i>
+                    전체
+                </button>
+                <div class="itemBox">
+                    <span>list-01</span>
+                    <span>list-02</span>
+                    <span>list-03</span>
+                </div>
+            </li>
+            <li>
+                <button>
+                <i>logo</i>
+                가맹점
+                </button>
+            </li>
+            <li>
+                <button>
+                <i>logo</i>
+                포장
+                </button>
+            </li>
+            <li>
+                <button>
+                <i>logo</i>
+                테이블
+                </button>
+            </li>
+            <li>
+                <button>
+                <i>logo</i>
+                주문
+                </button>
+            </li>
+        </ul>
+
+
+    </div>
+
+    <script>
+        (() => {
+
+            let lists = document.querySelectorAll('.toggle_cont > li > button');
+            const itemBox = document.querySelector('.itemBox');
+            const body = document.querySelector("body");
+            let elms;
+
+            // function listSet(){
+            //     let btns;
+            //     let target
+            //     lists.forEach((el) => {
+            //         btns = el;
+
+            //         btns.onclick=(e)=>{
+            //             target = e.target.closest('button');
+
+            //             console.log(target.length);
+
+            //             if(target == e.target.querySelectorAll(".itemBox > span")) return;
+
+            //             if(target.getAttribute('id', 'disc')){
+            //                 console.log('aaa');
+            //                 itemBox.classList.add('active');
+
+            //                 console.log(target);
+            //             }
+            //         }
+
+            //     });
+            // }
+
+            function listEvent(e){
+                let target = e.target;
+                let targetParent = target.closest('button');
+                //console.dir(targetParent.nodeName);
+                //console.dir(target.tagName);
+                //console.log(target.classList);
+                if(target.tagName == 'SPAN' || target.classList == 'itemBox active' || target.tagName == 'BODY') return;
+                console.log('onononon');
+                if(targetParent.getAttribute('id', 'disc')){
+                    //console.log('버튼이다');
+                    itemBox.classList.add('active');
+                }
+                for(let i=0; i<lists.length; i++){
+                    elms = lists[i];
+                }
+            }
+
+            body.addEventListener('click', listEvent);
+
+            function init(){
+
+            }
+            init();
+
+
+
+        })();
+    </script>
+
+</body>
+</html>
