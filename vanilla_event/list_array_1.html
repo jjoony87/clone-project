@@ -25,6 +25,7 @@
         }
         .itemBox > span {
             display: block;
+            cursor: pointer;
         }
         .itemBox.active {
             display: block;
@@ -40,7 +41,7 @@
                 <i>logo</i>
                     전체
                 </button>
-                <div class="itemBox">
+                <div class="itemBox active">
                     <span>list-01</span>
                     <span>list-02</span>
                     <span>list-03</span>
@@ -83,51 +84,53 @@
             const body = document.querySelector("body");
             let elms;
 
-            // function listSet(){
-            //     let btns;
-            //     let target
-            //     lists.forEach((el) => {
-            //         btns = el;
+            function listSet(){
+                let btns;
+                let target
+                lists.forEach((el) => {
+                    btns = el;
 
-            //         btns.onclick=(e)=>{
-            //             target = e.target.closest('button');
+                    btns.onclick=(e)=>{
+                        target = e.target.closest('button');
 
-            //             console.log(target.length);
+                        console.log(target);
 
-            //             if(target == e.target.querySelectorAll(".itemBox > span")) return;
+                        //if(target == e.target.querySelectorAll(".itemBox > span")) return;
+                        console.log('111111');
 
-            //             if(target.getAttribute('id', 'disc')){
-            //                 console.log('aaa');
-            //                 itemBox.classList.add('active');
+                        if(target.getAttribute('id', 'disc')){
+                            console.log('aaa');
+                            itemBox.classList.add('active');
+                            console.log(target);
+                        }else{
+                            itemBox.classList.remove('active');
+                        }
+                    }
 
-            //                 console.log(target);
-            //             }
-            //         }
-
-            //     });
-            // }
-
-            function listEvent(e){
-                let target = e.target;
-                let targetParent = target.closest('button');
-                //console.dir(targetParent.nodeName);
-                //console.dir(target.tagName);
-                //console.log(target.classList);
-                if(target.tagName == 'SPAN' || target.classList == 'itemBox active' || target.tagName == 'BODY') return;
-                console.log('onononon');
-                if(targetParent.getAttribute('id', 'disc')){
-                    //console.log('버튼이다');
-                    itemBox.classList.add('active');
-                }
-                for(let i=0; i<lists.length; i++){
-                    elms = lists[i];
-                }
+                });
             }
 
-            body.addEventListener('click', listEvent);
+            // function listEvent(e){
+            //     let target = e.target;
+            //     let targetParent = target.closest('button');
+            //     //console.dir(targetParent.nodeName);
+            //     //console.dir(target.tagName);
+            //     //console.log(target.classList);
+            //     if(target.tagName == 'SPAN' || target.classList == 'itemBox active' || target.tagName == 'BODY') return;
+            //     console.log('onononon');
+            //     if(targetParent.getAttribute('id', 'disc')){
+            //         //console.log('버튼이다');
+            //         itemBox.classList.add('active');
+            //     }
+            //     for(let i=0; i<lists.length; i++){
+            //         elms = lists[i];
+            //     }
+            // }
+
+            // body.addEventListener('click', listEvent);
 
             function init(){
-
+                listSet();
             }
             init();
 
