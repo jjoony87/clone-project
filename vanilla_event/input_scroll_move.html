@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {height: 100%; background-color: beige;}
+        .wrap {width: 100%;}
+        section {min-height: 200px; padding: 20px; border: 1px solid #000;}
+        .item {display: flex; flex-direction: column;}
+        .item > strong {display: block; font-size: 20px; color: #000;}
+        .item > strong + input {margin-top: 10px;}
+        .item > input + input {margin-top: 10px;}
+        input[type=text] {padding: 10px 15px; border: 1px solid #808080; border-radius: 10px;}
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <section class="sec-1" data-title='title-01'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+        <section class="sec-2" data-title='title-02'>
+            <div class="item">
+                <strong></strong>
+                <input type="text" placeholder="text 입력" />
+                <input type="text" placeholder="password 입력" />
+                <input type="text" placeholder="입력" />
+            </div>
+        </section>
+        <section class="sec-3" data-title='title-03'>
+            <div class="item">
+                <strong></strong>
+                <input type="text" placeholder="text 입력" />
+                <input type="text" placeholder="입력" />
+            </div>
+        </section>
+        <section class="sec-4" data-title='title-04'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+        <section class="sec-5" data-title='title-05'>
+            <div class="item">
+                <strong></strong>
+                <input type="text" placeholder="text 입력" />
+            </div>
+        </section>
+        <section class="sec-6" data-title='title-06'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+        <section class="sec-7" data-title='title-07'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+        <section class="sec-8" data-title='title-08'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+        <section class="sec-9" data-title='title-09'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+        <section class="sec-10" data-title='title-10'>
+            <div class="item">
+                <strong></strong>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        (() => {
+            function setTitleName(){
+                let sections = document.querySelectorAll('section');
+                let itemTitle = document.querySelectorAll('.item > strong');
+                let secId;
+                sections.forEach((ids,i) => {
+                    secId = ids.getAttribute('data-title');
+                    itemTitle[i].innerText = secId;
+                });
+            }
+            function setInputs(e){
+                let offsetItem;
+                let item = '.item';
+                let target = e.target;
+                let targetInp = target.closest(item).lastElementChild;
+                let inps = document.querySelectorAll('.item > input');
+                offsetItem = target.closest('section').nextElementSibling.offsetTop;
+                if(targetInp.value){
+                    console.log(offsetItem);
+                    window.scrollTo({top: offsetItem, behavior: 'smooth'});
+                }
+            }
+            function init(){
+                setTitleName();
+                document.addEventListener('change', (e) => {
+                    setInputs(e);
+                });
+            }
+            init();
+
+        })();
+    </script>
+
+</body>
+</html>
