@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color:beige;}
+        .cont {display: grid; padding: 50px 30px; gap: 30px; grid-template-columns: repeat(3 , 1fr);}
+        section {display: flex; flex-direction: column; justify-content: center;}
+        section > h1 {font-size: 16px; color: #000; text-align: center; margin-bottom: 10px;}
+        button {display: inline-block; padding: 10px 15px; font-size: 18px; color: #000; border-radius: 8px; cursor: pointer; background-color: darkseagreen;}
+        .modal {position: fixed; height: 0vh; visibility: hidden; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000;}
+        .modal::after {opacity: 0; transition: all .5s;}
+        .modal.active {height: 100vh; visibility: visible;}
+        .modal.active::after {display: block; position: absolute; left: 0; top: 0; width: 100%; height: 100%; content: ''; opacity: 1; background-color: rgba(0, 0, 0, .5);}
+        .modal .modal-box {position: absolute; visibility: hidden; left: 50%; bottom: 0; transform: translateX(-50%); transition: all .35s; width: 50vw; min-height: 150px; border-radius: 15px; background-color: #fff; z-index: 10;}
+        .modal.active .modal-box {visibility: visible; bottom: 50%;}
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <!-- Content Button -->
+        <div class="cont">
+            <section data-id="section-list01">
+                <h1></h1>
+                <button>modal-1</button>
+            </section>
+
+            <section data-id="section-list02">
+                <h1></h1>
+                <button>modal-2</button>
+            </section>
+
+            <section data-id="section-list03">
+                <h1></h1>
+                <button>modal-3</button>
+            </section>
+
+            <section data-id="section-list04">
+                <h1></h1>
+                <button>modal-4</button>
+            </section>
+
+            <section data-id="section-list05">
+                <h1></h1>
+                <button>modal-5</button>
+            </section>
+        </div>
+    </div>
+
+    <!-- ModalPopup -->
+    <div id="section-list01" class="modal">
+        <div class="modal-box">
+            <h2>pop-title-01</h2>
+            <div class="modal-cont">
+                modal~~
+            </div>
+        </div>
+    </div>
+
+    <div id="section-list02" class="modal">
+        <div class="modal-box">
+            <h2>pop-title-02</h2>
+            <div class="modal-cont">
+                modal~~
+            </div>
+        </div>
+    </div>
+
+    <div id="section-list03" class="modal">
+        <div class="modal-box">
+            <h2>pop-title-03</h2>
+            <div class="modal-cont">
+                modal~~
+            </div>
+        </div>
+    </div>
+
+    <div id="section-list04" class="modal">
+        <div class="modal-box">
+            <h2>pop-title-04</h2>
+            <div class="modal-cont">
+                modal~~
+            </div>
+        </div>
+    </div>
+
+    <div id="section-list05" class="modal">
+        <div class="modal-box">
+            <h2>pop-title-05</h2>
+            <div class="modal-cont">
+                modal~~
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (() => {
+
+            function setTitle(){
+                let headTags = document.querySelectorAll('h1')
+                let titles = document.querySelectorAll('section');
+                titles.forEach((t,i) => {headTags[i].textContent = t.getAttribute('data-id')});
+            }
+            function setModalLayer(){
+                let modals = document.querySelectorAll('.modal');
+                let btns = document.querySelectorAll('.cont > section > button');
+                let btnEv;
+                let target;
+                let dataId;
+                btns.forEach((el,i) => {
+                    let layer;
+                    btnEv = el;
+                    btnEv.onclick=(e)=>{
+                        layer = modals[i].getAttribute('id')
+                        target = e.target;
+                        dataId = target.closest('section').getAttribute('data-id');
+                        console.log('버튼', dataId);
+                        if(dataId == layer){
+                            modals.forEach((m)=>{m.classList.remove('active')});
+                            modals[i].classList.add('active');
+                        }
+                    }
+                });
+                window.addEventListener('click', (e) => {
+                    let bodyEv = e.target;
+                    if(bodyEv.className == 'modal active'){
+                        bodyEv.classList.remove('active');
+                    }
+                });
+            }
+            function init(){
+                setTitle();
+                setModalLayer();
+            }
+            init();
+
+        })();
+    </script>
+
+</body>
+</html>
