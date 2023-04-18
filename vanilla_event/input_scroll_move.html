@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/html/css/reset.css">
+    <link rel="stylesheet" href="reset.css">
     <style type="text/css">
         * {margin: 0; padding: 0;}
         html, body {height: 100%; background-color: beige;}
@@ -97,8 +97,7 @@
                 let targetInp = target.closest(item).lastElementChild;
                 let inps = document.querySelectorAll('.item > input');
                 offsetItem = target.closest('section').nextElementSibling.offsetTop;
-                if(targetInp.value){
-                    console.log(offsetItem);
+                if(targetInp.value && target == targetInp){
                     window.scrollTo({top: offsetItem, behavior: 'smooth'});
                 }
             }
