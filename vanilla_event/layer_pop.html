@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="/html/css/reset.css">
     <style type="text/css">
         html, body {height: 100%; background-color:beige;}
         .cont {display: grid; padding: 50px 30px; gap: 30px; grid-template-columns: repeat(3 , 1fr);}
@@ -120,9 +120,7 @@
             function setModalLayer(){
                 let modals = document.querySelectorAll('.modal');
                 let btns = document.querySelectorAll('.cont > section > button');
-                let btnEv;
-                let target;
-                let dataId;
+                let btnEv, target, dataId, path;
                 btns.forEach((el,i) => {
                     let layer;
                     btnEv = el;
@@ -137,9 +135,10 @@
                     }
                 });
                 window.addEventListener('click', (e) => {
-                    let bodyEv = e.target;
-                    if(bodyEv.className == 'modal active'){
-                        bodyEv.classList.remove('active');
+                    let tartget = e.target;
+                    path = tartget.offsetParent;
+                    if(path==null){
+                        tartget.classList.remove('active');
                     }
                 });
             }
