@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {position: relative; margin: 0; padding: 0; height: 100%; font-size: 10px; background: wheat;}
+        body.dimd::after {display: block; position: absolute; left: 0; top: 0; content: ''; animation: ani-dim .35s; width: 100vw; height: 100vh; background-color: rgba(0, 0, 0, .5);}
+        body.hidden {overflow: hidden;}
+        div, h1, h2, h3, strong, em, p, span, button, a {font-size: 1.6rem;}
+        .poopup-button {display: flex; gap: 15px;}
+        .poopup-button > button {flex: 1; min-height: 30px; margin: 20px; border-radius: 10px;}
+        .popup-container {position: fixed; left: 0; bottom: -100%; width: 100%; z-index: 100;}
+        .popup-container.active {transition: all .35s; bottom: 0;}
+        .popup-wrap {width: 100%; max-height: 450px; padding: 0 20px 20px; box-sizing: border-box; overflow-y: auto; border-top-left-radius: 1.8rem; border-top-right-radius: 1.8rem; background: #fff; z-index: 100;}
+        .popup-wrap .tit {display: block; padding: 20px 10px;}
+        .dim {display: none; position: fixed; left: 0; top: 0; opacity: 0; transition: all .5s; width: 100%; height: 100%; background: rgba(0, 0, 0, .5); z-index: 50;}
+        .dim.active {display: block; opacity: 1;}
+        @keyframes ani-dim {
+            0% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+    </style>
+</head>
+<body class="">
+
+    <div class="poopup-button">
+        <button data-target='layer01'>open1</button>
+        <button data-target='layer02'>open2</button>
+        <button data-target='layer03'>open3</button>
+    </div>
+
+    <div>123123</div>
+    <div>123123</div>
+    <div>123123</div>
+
+    <div id="layer01" class="popup-container">
+        <div class="popup-wrap">
+            <strong class="tit">title - 01</strong>
+            <div>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+            </div>
+        </div>
+    </div>
+    <div id='layer02' class="popup-container">
+        <div class="popup-wrap">
+            <strong class="tit">title - 02</strong>
+            <div>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+                adipisci similique nesciunt earum ea nostrum illo fugiat quidem,
+                saepe ad rem labore quibusdam repellat assumenda totam eius tenetur, quia nobis?
+            </div>
+        </div>
+    </div>
+    <div id='layer03' class="popup-container">
+        <div class="popup-wrap">
+            <strong class="tit">title - 03</strong>
+            <div>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Porro suscipit ipsa impedit consequatur quod veniam iste quas eum,
+                iusto perferendis illo doloremque quia odio quasi quisquam! Eum quisquam ab,
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (() => {
+            const bodyElm = document.querySelector('body');
+            let popBtns = document.querySelectorAll('.poopup-button > button');
+            let popItems = document.querySelectorAll('.popup-container');
+            let point, path;
+
+            function setToastPop(e){
+                let elms, attr, btns, items;
+                popBtns.forEach((el,i) => {
+                    elms = el;
+                    elms.onclick=(e)=>{
+                        btns = e.target;
+                        console.log(btns);
+                        attr = btns.getAttribute('data-target');
+                        items = popItems[i].attributes[0].nodeValue;
+                        if(attr===items){
+                            bodyElm.classList.add('dimd');
+                            popItems[i].classList.add('active');
+                        }
+                    }
+                })
+            }
+            function setToastControler(){
+                document.addEventListener('click', (e) => {
+                    point = e.target;
+                    if(!!point.classList.value == false) return;
+                    path = point.attributes[0].value;
+                    if(!!path == 1 && path == 'dimd'){
+                        bodyElm.classList.remove('dimd');
+                        popItems.forEach((m) => {m.classList.remove('active')});
+                    }
+                    setToastPop();
+                });
+            }
+            function init(){
+                setToastPop();
+                setToastControler();
+            }
+            init();
+        })();
+    </script>
+</body>
+</html>
