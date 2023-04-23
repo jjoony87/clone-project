@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0; font-family: 'Noto Sans KR', sans-serif;}
+        ul, li {list-style: none; margin: 0; padding: 0; line-height: 1;}
+
+        h1 {margin: 20px 0 10px; font-size: 18px; color: #000;}
+        .swiper-wrapper > li {padding: 20px; border: 1px solid #000; box-sizing: border-box; background: palegoldenrod;}
+        .arrSwiper .swiper-button-next,
+        .arrSwiper .swiper-button-prev {width: 10px; color: #000;}
+
+        .gapSwiper .swiper-wrapper > .swiper-slide {width: 80%;}
+    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/> 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+</head>
+<body>
+
+
+    <div class="wrap">
+
+        <h1>Default</h1>
+        <div class="swiper mySwiper">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">a</li>
+                <li class="swiper-slide">b</li>
+                <li class="swiper-slide">c</li>
+            </ul>
+        </div>
+
+        <h1>nav</h1>
+        <div class="swiper arrSwiper">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">a</li>
+                <li class="swiper-slide">b</li>
+                <li class="swiper-slide">c</li>
+            </ul>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+        <h1>gap</h1>
+        <div class="swiper gapSwiper">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">a</li>
+                <li class="swiper-slide">b</li>
+                <li class="swiper-slide">c</li>
+            </ul>
+        </div>
+
+        <h1>current</h1>
+        <div class="swiper cntSwiper">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">a</li>
+                <li class="swiper-slide">b</li>
+                <li class="swiper-slide">c</li>
+            </ul>
+        </div>
+
+    </div>
+    
+
+    <script type="text/javascript">
+        (() => {
+            console.log('aa');
+
+            const swiper = new Swiper('.mySwiper', {
+                //Default
+            });
+
+            const swiperArr = new Swiper('.arrSwiper', {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                }
+            });
+
+            const swiperGap = new Swiper('.gapSwiper', {
+                slidesPerView: 'auto',
+                spaceBetween: 15,
+            });
+
+            const swiperCnt = new Swiper('.cntSwiper', {
+
+            });
+
+            swiperCnt.on('slideChangeEnd', (e) => {
+                const realIndex = e.slides.eq(e.activeIndex).attr('data-swiper-slide-index');
+
+                console.log(realIndex);
+            })
+
+
+        })();
+    </script>
+</body>
+</html>
