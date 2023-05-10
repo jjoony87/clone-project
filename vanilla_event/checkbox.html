@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color:beige}
+        .list {padding: 20px;}
+
+    </style>
+
+</head>
+<body>
+
+    <div style="padding: 30px;">
+        <div class="elmbox">
+            <label for="chk">전체동의</label>
+            <input type="checkbox" id='chk'>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        (()=>{
+
+            let inps =document.querySelector('.elmbox');
+
+            let _path, target, _inp , chk=inps;
+            _inp =chk.childNodes[3]
+
+
+            _inp.onclick=(e)=>{
+                target=e.target;
+
+
+                console.log(target);
+
+                if(target.checked){
+                    console.log('checked : 이다');
+                    target.checked=true;
+                    target.setAttribute('checked',true);
+                    //console.dir(target);
+                }else{
+                    target.setAttribute('checked',false);
+                    console.log('아니다');
+                }
+
+
+            }
+
+
+
+        })();
+    </script>
+
+</body>
+</html>
