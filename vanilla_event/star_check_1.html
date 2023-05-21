@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+
+        * {margin: 0; padding: 0;}
+        body {
+            padding: 50px 0;
+            background-color: beige;
+        }
+        h1 {
+            margin: 30px 0 0 20px;
+        }
+
+        .check-list, .check-img {
+            margin: 20px;
+            padding: 30px;
+            box-sizing: border-box;
+            border: 3px solid #000;
+            border-radius: 15px;
+        }
+        .check-list {
+            display: flex;
+
+        }
+        .check-list > i {
+            width: 150px;
+            height: 150px;
+            background-repeat: no-repeat;
+        }
+
+        /* on / off / half */
+        .check-list > i.half {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cg opacity='0.69'%3E%3Cmask id='mask0_367_14988' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='3' y='3' width='18' height='17'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.7452 3.45831L15.1031 8.12686L20.2778 8.82999C20.7345 8.89205 21.0544 9.31208 20.9923 9.76815C20.967 9.9538 20.8798 10.1255 20.7447 10.2556L16.992 13.8702L17.8106 19.0362C17.8826 19.4908 17.5719 19.9177 17.1166 19.9896C16.9383 20.0178 16.7556 19.9875 16.596 19.9032L12 17.4765L7.29503 19.9067C6.8856 20.1181 6.38201 19.9581 6.17022 19.5493C6.08593 19.3866 6.05768 19.2007 6.08983 19.0204L7.00789 13.8702L3.25518 10.2556C2.92341 9.93603 2.91391 9.40844 3.23394 9.07717C3.36421 8.94233 3.53618 8.85525 3.7221 8.82999L8.89678 8.12686L11.2547 3.45831C11.4623 3.04734 11.9642 2.88219 12.3758 3.08945C12.5353 3.16977 12.6648 3.29905 12.7452 3.45831Z' fill='%23F7B203'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_367_14988)'%3E%3Crect x='3' y='3' width='9' height='17' fill='%23F6B203'/%3E%3Crect width='9' height='17' transform='matrix(-1 0 0 1 21 3)' fill='%23F8F8F8'/%3E%3C/g%3E%3Cpath d='M8.9642 8.62231L9.22467 8.58692L9.34318 8.35228L11.7011 3.68372C11.7333 3.62008 11.7851 3.56826 11.8491 3.53603L11.6242 3.08945L11.8491 3.53603C12.0146 3.45268 12.216 3.5194 12.299 3.68372L14.6569 8.35228L14.7754 8.58692L15.0359 8.62231L20.2106 9.32543C20.2853 9.33559 20.3543 9.37057 20.4065 9.42457C20.5344 9.55701 20.5306 9.76767 20.398 9.89547L16.6452 13.5101L16.453 13.6953L16.4999 13.958L17.4179 19.1081C17.4308 19.1801 17.4195 19.2543 17.3858 19.3193C17.3011 19.4828 17.0991 19.5475 16.9344 19.4624L12.2295 17.0323L11.9975 16.9125L11.7666 17.0344L7.17051 19.461L7.40396 19.9032L7.17051 19.461C7.10645 19.4949 7.03307 19.5071 6.96141 19.4957C6.7783 19.4668 6.65456 19.2956 6.68326 19.1145L7.50182 13.9485L7.54263 13.691L7.35485 13.5101L3.60214 9.89547C3.54806 9.84338 3.51324 9.77472 3.50314 9.70063C3.47838 9.51892 3.60581 9.3504 3.78952 9.32543L8.9642 8.62231Z' stroke='%23BE8B0A'/%3E%3Cmask id='mask1_367_14988' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='3' y='3' width='18' height='17'%3E%3Cpath d='M8.9642 8.62231L9.22467 8.58692L9.34318 8.35228L11.7011 3.68372C11.7333 3.62008 11.7851 3.56826 11.8491 3.53603L11.6242 3.08945L11.8491 3.53603C12.0146 3.45268 12.216 3.5194 12.299 3.68372L14.6569 8.35228L14.7754 8.58692L15.0359 8.62231L20.2106 9.32543C20.2853 9.33559 20.3543 9.37057 20.4065 9.42457C20.5344 9.55701 20.5306 9.76767 20.398 9.89547L16.6452 13.5101L16.453 13.6953L16.4999 13.958L17.4179 19.1081C17.4308 19.1801 17.4195 19.2543 17.3858 19.3193C17.3011 19.4828 17.0991 19.5475 16.9344 19.4624L12.2295 17.0323L11.9975 16.9125L11.7666 17.0344L7.17051 19.461L7.40396 19.9032L7.17051 19.461C7.10645 19.4949 7.03307 19.5071 6.96141 19.4957C6.7783 19.4668 6.65456 19.2956 6.68326 19.1145L7.50182 13.9485L7.54263 13.691L7.35485 13.5101L3.60214 9.89547C3.54806 9.84338 3.51324 9.77472 3.50314 9.70063C3.47838 9.51892 3.60581 9.3504 3.78952 9.32543L8.9642 8.62231Z' stroke='%23BE8B0A'/%3E%3C/mask%3E%3Cg mask='url(%23mask1_367_14988)'%3E%3Crect x='12' width='15' height='25' fill='%23B0B0B0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .check-list > i.off {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cg opacity='0.69'%3E%3Cpath d='M8.9642 8.62231L9.22467 8.58692L9.34318 8.35228L11.7011 3.68372C11.7333 3.62008 11.7851 3.56826 11.8491 3.53603L11.6242 3.08945L11.8491 3.53603C12.0146 3.45268 12.216 3.5194 12.299 3.68372L14.6569 8.35228L14.7754 8.58692L15.0359 8.62231L20.2106 9.32543C20.2853 9.33559 20.3543 9.37057 20.4065 9.42457C20.5344 9.55701 20.5306 9.76767 20.398 9.89547L16.6452 13.5101L16.453 13.6953L16.4999 13.958L17.4179 19.1081C17.4308 19.1801 17.4195 19.2543 17.3858 19.3193C17.3011 19.4828 17.0991 19.5475 16.9344 19.4624L12.2295 17.0323L11.9975 16.9125L11.7666 17.0344L7.17051 19.461L7.40396 19.9032L7.17051 19.461C7.10645 19.4949 7.03307 19.5071 6.96141 19.4957C6.7783 19.4668 6.65456 19.2956 6.68326 19.1145L7.50182 13.9485L7.54263 13.691L7.35485 13.5101L3.60214 9.89547C3.54806 9.84338 3.51324 9.77472 3.50314 9.70063C3.47838 9.51892 3.60581 9.3504 3.78952 9.32543L8.9642 8.62231Z' fill='%23F8F8F8' stroke='%23B0B0B0'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        .check-list > i.on {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cg opacity='0.69'%3E%3Cpath d='M8.96419 8.62231L9.22467 8.58692L9.34318 8.35228L11.7011 3.68372C11.7333 3.62008 11.7851 3.56826 11.8491 3.53603C12.0146 3.45267 12.216 3.5194 12.299 3.68372L14.6569 8.35228L14.7754 8.58692L15.0359 8.62231L20.2106 9.32543C20.2853 9.33559 20.3543 9.37057 20.4065 9.42457C20.5344 9.55701 20.5306 9.76767 20.398 9.89547L16.6452 13.5101L16.453 13.6953L16.4999 13.958L17.4179 19.1081C17.4308 19.1801 17.4195 19.2543 17.3858 19.3193C17.3011 19.4828 17.0991 19.5475 16.9344 19.4624L12.2295 17.0323L11.9975 16.9125L11.7666 17.0344L7.17051 19.461C7.10645 19.4949 7.03307 19.5071 6.96141 19.4957C6.7783 19.4668 6.65456 19.2956 6.68326 19.1145L7.50182 13.9485L7.54263 13.691L7.35485 13.5101L3.60214 9.89547C3.54806 9.84338 3.51324 9.77472 3.50314 9.70063C3.47838 9.51892 3.60581 9.3504 3.78952 9.32543L8.96419 8.62231Z' fill='%23F7B203' stroke='%23BE8B0A'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Size */
+        .size-100 > i {
+            width: 130px;
+            height: 130px;
+        }
+        .size-150 > i{
+            width: 150px;
+            height: 150px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <h1>[SVG_이미지]</h1>
+    <div class="check-img">
+        <!-- <i><img src="../vanila/images/icon_24_star_on.svg" alt=""></i>
+        <i><img src="../vanila/images/icon_24_star_on.svg" alt=""></i>
+        <i><img src="../vanila/images/icon_24_star_on.svg" alt=""></i>
+        <i><img src="../vanila/images/icon_24_star_on.svg" alt=""></i>
+        <i><img src="../vanila/images/icon_24_star_on.svg" alt=""></i> -->
+    </div>
+
+    <h1>[SVG_dataCode] - 0</h1>
+    <div class="check-list size-100" data-count="3.5">
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="half"></i>
+        <i class="off"></i>
+        <i class="off"></i>
+    </div>
+
+    <h1>[SVG_dataCode] - 1</h1>
+    <div class="check-list size-150" data-count="1">
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+    </div>
+
+    <h1>[SVG_dataCode] - 1.5</h1>
+    <div class="check-list size-150" data-count="1.5">
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+    </div>
+
+    <h1>[SVG_dataCode] - 3</h1>
+    <div class="check-list size-150" data-count="3">
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+    </div>
+
+    <h1>[SVG_dataCode] - 5</h1>
+    <div class="check-list size-150" data-count="5">
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+        <i class="on"></i>
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+
+            let num0, num1, num2, num3, num4, num5, num6, num7, num8, num9;
+
+            num0=['off','off','off','off','off'];
+            num1=['on','off','off','off','off'];
+            num2=['on','half','off','off','off'];
+            num3=['on','on','off','off','off'];
+            num4=['on','on','half','off','off'];
+            num5=['on','on','on','off','off'];
+            num6=['on','on','on','half','off'];
+            num7=['on','on','on','on','off'];
+            num8=['on','on','on','on','half'];
+            num9=['on','on','on','on','on'];
+
+            function setStarEvent(){
+                let star, elemClass, path, data;
+                star=document.querySelectorAll('.check-list');
+                star.forEach((el,i)=>{
+                    elemClass=el.children; path=[...elemClass]; data=el.getAttribute('data-count');
+                    path.map((el,i)=>{
+                        switch(data){
+                            case '0':
+                            el.setAttribute('class', num0[i]); break;
+                            case '1':
+                            el.setAttribute('class', num1[i]); break;
+                            case '1.5':
+                            el.setAttribute('class', num2[i]); break;
+                            case '2':
+                            el.setAttribute('class', num3[i]); break;
+                            case '2.5':
+                            el.setAttribute('class', num4[i]); break;
+                            case '3':
+                            el.setAttribute('class', num5[i]); break;
+                            case '3.5':
+                            el.setAttribute('class', num6[i]); break;
+                            case '4':
+                            el.setAttribute('class', num7[i]); break;
+                            case '4.5':
+                            el.setAttribute('class', num8[i]); break;
+                            case '5':
+                            el.setAttribute('class', num9[i]); break;
+                            default:
+                            el.setAttribute('class', num0[i]);
+                        }
+                    });
+                });
+            }
+            function init(){
+                setStarEvent();
+            }
+            init();
+
+        })();
+    </script>
+
+</body>
+</html>
