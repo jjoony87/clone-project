@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {height: 100%; box-sizing: border-box;}
+        ul, li {list-style: none;}
+
+
+        #wrap {height: 100%;}
+
+        .form-area {
+            height: 100%;
+            padding: 50px 20px;
+            box-sizing: border-box;
+            background-color: beige;
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        .form-area  {
+            border: 0;
+        }
+        .check_wrap {
+            padding: 6px 10px;
+            border-radius: 12px;
+            background-color: rgba(219, 130, 29, 0.3);
+        }
+        
+        .check_wrap > label {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            position: relative;
+            padding-left: 32px;
+            z-index: 3;
+        }
+        .check_wrap > label > span {
+            cursor: pointer;
+            vertical-align: middle;
+        }
+        .check_wrap > label::before {
+            display: inline-block;
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            background-image: url(https://ssl.pstatic.net/static/nid/join/m_sp_06_realname_5badd4fb.png);
+            background-size: 340px 326px;
+            background-position: -310px 0;
+            background-repeat: no-repeat;
+        }
+        .check_wrap input[type='checkbox']:checked + label::before {
+            background-position: -192px -264px;
+        }
+        .form-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .form-list > li {
+
+        }
+        .fix-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            width: 100%;
+            padding: 20px;
+            gap: 10px;
+            box-sizing: border-box;
+            background-color: khaki;
+        }
+        .fix-bottom > button {
+            flex: 1;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+            background-color: lightsalmon;
+        }
+        .none {display: none !important;}
+
+    </style>
+</head>
+<body>
+    
+    <div id="wrap">
+        <div class="form-area">
+
+            <form action="">
+                <div class="check_wrap">
+                    <input type="checkbox" id="check_all" class="blind">
+                    <label for="check_all">
+                        <span>전체 동의</span>
+                    </label>
+                </div>
+                <ul class="form-list">
+                    <li>
+                        <div class="check_wrap">
+                            <input type="checkbox" id="terms_01" name="agree" class="blind">
+                            <label for="terms_01">
+                                <span>01_이용약관 동의</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check_wrap">
+                            <input type="checkbox" id="terms_02" name="agree" class="blind">
+                            <label for="terms_02">
+                                <span>02_이용약관 동의</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check_wrap">
+                            <input type="checkbox" id="terms_03" name="agree" class="blind">
+                            <label for="terms_03">
+                                <span>03_이용약관 동의</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check_wrap">
+                            <input type="checkbox" id="terms_04" name="agree" class="blind">
+                            <label for="terms_04">
+                                <span>04_이용약관 동의</span>
+                            </label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="check_wrap">
+                            <input type="checkbox" id="terms_05" name="agree" class="blind">
+                            <label for="terms_05">
+                                <span>05_이용약관 동의</span>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </form>
+
+            <div class="fix-bottom">
+                <button>Bottom-button-1</button>
+                <button>Bottom-button-2</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        (()=>{
+
+            let checkAll, checkList, elems, checked, checkElem, i, parents, checks, current, childCount, btmLayer;
+
+            function setCheckBox(){
+                checkElem = checkList.filter((e, i) => {return e;})
+                checkList.forEach((e,i)=>{
+                    elems=e.children[0];
+                    e.addEventListener('change', (e)=>{
+                        parents=e.target; childCount=parents.parentNode.closest('.form-list').childElementCount;
+                        if(e.target.checked){
+                            current++;
+                            btmLayer.remove('none');
+                        }else{
+                            current--;
+                        }
+                        if(childCount==current){
+                            checkAll.checked=true;
+                        }else if(current==0){
+                            btmLayer.add('none');
+                        }else{
+                            checkAll.checked=false;
+                        }
+                    });
+                });
+            }
+            function init(){
+                current=0;
+                window.addEventListener('DOMContentLoaded', ()=>{
+                    btmLayer=document.querySelector('.fix-bottom').classList;
+                    checkList=document.querySelectorAll('.form-list>li>.check_wrap');
+                    checks=document.querySelectorAll('.check_wrap');
+                    checkAll=document.getElementById('check_all');
+                    checkList=[...checkList];
+                    btmLayer.add('none');
+                    setCheckBox();
+                    checkAll.addEventListener('change', (e)=>{
+                        checked=e.target.checked;
+                        for(i of checkElem){
+                            let chk = i.children[0]; 
+                            if(checked){
+                                chk.checked=true;
+                                current=checkList.length;
+                                btmLayer.remove('none');
+                            }else{
+                                chk.checked=false;
+                                current=0;
+                                btmLayer.add('none');
+                            }
+                        }
+                    });
+                });
+            }
+            init();
+
+        })();
+    </script>
+
+</body>
+</html>
