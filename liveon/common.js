@@ -43,18 +43,30 @@ function swiper_banner(){
         pagination: {
             el: ".swiper-pagination",
         },
+        autoplay:{
+            delay: 1000,
+            disableOnInteraction: true,
+        },
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
             },
     });
-
 }
+
+
+$('.slide_banner').on('mouseover', function(){
+    swiper_bnr.autoplay.stop();
+});
 function swiper_now(){
 
     var swiper_now = new Swiper('.slide_now', {
         slidesPerView: 'auto',
         spaceBetween: 10,
+        autoplay:{
+            delay: 1000,
+            disableOnInteraction: true,
+        },
         on: {
             slideChange: function() {
                 

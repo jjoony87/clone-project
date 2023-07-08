@@ -1,0 +1,50 @@
+#wrapper {
+  min-width: 1200px;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: beige;
+}
+
+.pg-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+header {
+  position: sticky;
+  display: flex;
+  top: 0;
+  border: 1px solid #000;
+  z-index: 1000;
+}
+
+header > .nav-logo {
+  flex-basis: 100px;
+}
+
+header > .nav-gnb, header > .nav-side {
+  flex: 1;
+}
+
+.nav-logo {
+  background-color: lightpink;
+}
+
+.nav-gnb {
+  background-color: wheat;
+}
+
+.nav-gnb > ul {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.nav-gnb > ul li > a {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  font-size: 1.4rem;
+  color: #000;
+}
+
+.nav-side {
+  background-color: yellow;
+}

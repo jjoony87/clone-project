@@ -87,6 +87,10 @@
             const swiperGap = new Swiper('.gapSwiper', {
                 slidesPerView: 'auto',
                 spaceBetween: 15,
+                autoplay:{
+                    delay: 1000,
+                    disableOnInteraction: true,
+                },
             });
 
             const swiperCnt = new Swiper('.cntSwiper', {
@@ -99,6 +103,23 @@
                 console.log(realIndex);
             })
 
+            // $('.swiper-slide').hover(function(){
+            //     swiper.autoplay.stop();
+            // }, function(){
+            //     swiper.autoplay.start();
+            // });
+            let swiperOp=[...swiperGap.el.children[0].children];
+            swiperOp.forEach((e)=>{
+                e.addEventListener('mouseover',(e)=>{
+                    swiperGap.autoplay.stop();
+                });
+                e.addEventListener('mouseout',()=>{
+                    swiperGap.autoplay.start();
+                });
+            })
+            console.log(swiperGap.el.children[0].children);
+
+            
 
         })();
     </script>

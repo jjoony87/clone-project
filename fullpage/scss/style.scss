@@ -1,0 +1,53 @@
+
+
+#wrapper {
+    min-width: 1200px;
+    height: 100%;
+    overflow-y: hidden;
+    background-color: beige;
+}
+
+// Parent-Elem
+.pg-wrapper::-webkit-scrollbar {
+    display:  none;
+}
+
+header {
+    position: sticky;
+    display: flex;
+    top: 0;
+    border: 1px solid #000;
+    z-index: 1000;
+    > .nav {
+        &-logo {
+            flex-basis: 100px;
+        }
+        &-gnb, &-side {
+            flex: 1;
+        }
+    }
+}
+
+// Child-Elem
+.nav-logo {
+    background-color:lightpink;
+}
+.nav-gnb {
+    background-color:wheat;
+    > ul {
+        display: flex;
+        gap: 1.2rem;
+        li {
+            
+            > a {
+                display: inline-block;
+                padding: 1rem 1.5rem;
+                font-size: 1.4rem;
+                color: #000;
+            }
+        }
+    }
+}
+.nav-side {
+    background-color: yellow;
+}

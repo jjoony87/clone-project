@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    
+    <div id='wrapper'>
+        <header>
+            <div class="nav-logo">
+                Logo
+            </div>
+            <div class="nav-gnb">
+                <ul>
+                    <li><a href="#page-1" class="active">Page 1</a></li>
+                    <li><a href="#page-2">Page 2</a></li>
+                    <li><a href="#page-3">Page 3</a></li>
+                    <li><a href="#page-4">Page 4</a></li>
+                    <li><a href="#page-5">Page 5</a></li>
+                    <li><a href="#page-6">Page 6</a></li>
+                </ul>
+            </div>
+            <div class="nav-side">
+                Side
+            </div>
+        </header>
+        <main>
+            <section class="fp-auto-height" data-anchor="page-1">1</section>
+            <section class="fp-auto-height" data-anchor="page-2">2</section>
+            <section class="fp-auto-height" data-anchor="page-3">3</section>
+            <section class="fp-auto-height" data-anchor="page-4">4</section>
+            <section class="fp-auto-height" data-anchor="page-5">5</section>
+            <section class="fp-auto-height" data-anchor="page-6">6</section>
+        </main>
+
+    </div>
+
+    <script src="https://unpkg.com/pageable@latest/dist/pageable.min.js"></script>
+    <script src="js/infinite.js"></script>
+
+</body>
+</html>
