@@ -1,0 +1,32 @@
+
+/* 공통 */
+:root{font-size:62.5%}
+html,body{height:100%;}
+body{padding:0;margin:0;-webkit-text-size-adjust : none}
+img{vertical-align: top;}
+a{text-decoration: none;cursor: pointer}
+a:hover,a:focus{text-decoration: underline}
+
+ul,li,p,div,h1,h2,h3,h4,h5,h6,dl,dt,dd{margin:0;padding:0;}
+ul,ol,li{list-style: none}
+em {font-style: normal;}
+button{border:0;cursor:pointer;outline:none;background:none;}
+.offscreen{position: absolute !important;height: 1px;width: 1px;overflow: hidden;clip: rect(1px,1px,1px,1px); word-break: initial;word-wrap: initial;}
+table,th,td{border-collapse: collapse;border-spacing: 0;}
+select{ -webkit-appearance: none;-moz-appearance: none; appearance: none;-webkit-user-select: none;  /* Chrome all / Safari all */-moz-user-select: none;     /* Firefox all */-ms-user-select: none;      /* IE 10+ */user-select: none;}
+select::-ms-expand {display: none;}
+.posR{position:relative;clear: both;}
+input[type="radio"]{-webkit-border-radius: 12px;-webkit-appearance: none;outline: 0}
+input[type="button"]{-webkit-border-radius: 0;-webkit-appearance: none;}
+a:active, a:hover, a:focus {text-decoration:none;}
+legend {visibility:hidden; position:absolute; left:-5000px; font-size:0; line-height:0;}
+caption {visibility:hidden; text-indent:-5000px; font-size:0; line-height:0;}
+input[type="text"]:disabled,select:disabled{border: solid 1px rgba(197, 197, 197, 0.3);background-color: rgba(248, 248, 248, 0.3);cursor:not-allowed}
+
+
+
+.offscreen{position: absolute !important;height: 1px;width: 1px;overflow: hidden;clip: rect(1px,1px,1px,1px); word-break: initial;word-wrap: initial;}
+.no-pad {padding-right:0!important;}
+
+select{ -webkit-appearance: none;-moz-appearance: none; appearance: none;-webkit-user-select: none;  /* Chrome all / Safari all */-moz-user-select: none;     /* Firefox all */-ms-user-select: none;      /* IE 10+ */user-select: none;}
+select::-ms-expand {display: none;}

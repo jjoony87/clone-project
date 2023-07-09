@@ -1,0 +1,121 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@900&display=swap');
+
+
+
+// Body Layout
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/*section*/
+.scroll-container {
+    section {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        min-width: 1000px;
+        overflow-x: auto;
+    }
+    
+    > .section {
+        @at-root {
+            section {
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        &-1 {background-color: #eea;}
+        &-2 {background-color: #dda;}
+        &-3 {background-color: #eec;}
+        &-4 {background-color: #eee;}
+        &-5 {background-color: #aae;}
+        &-6 {background-color: #aee;}
+        &-7 {background-color: #dda;}
+        &-8 {background-color: #aae;}
+        &-9 {background-color: #cee;}
+    }
+
+    .page-cont {
+        display: grid;
+        width: 90%;
+        height: 90vh;
+        border: 2px solid #000;
+        > div {
+            border: 2px solid blue;
+            
+        }
+        &.grid {
+            
+            &-ty3 {
+                grid-template-columns: repeat(2, 1fr);
+                
+                > :last-child {
+                    grid-column: 1/3;
+                    background-color: #aae;
+                }
+            }
+        }
+
+    }
+}
+
+.swiper-type1 {
+    ul {
+        > li {
+            width: 80%;
+            height: 10rem;
+            background-color:lightblue;
+        }
+    }
+}
+
+.section1 {
+    background-color: #7dbcd4;
+  }
+
+.section2 {
+background-color: #98c19f;
+}
+
+.section3 {
+background-color: #a199e2;
+}
+
+.section4 {
+background-color: #cc938e;
+}
+
+.section5 {
+background-color: #d2c598;
+}
+
+  section div {
+    font-family: "Open Sans";
+    font-style: normal;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  span {
+    font-size: 4em;
+    font-style: normal;
+    color: #fff;
+  }
+
+  .button {
+    background-color: #f2cf66;
+    border-bottom: 5px solid #d1b358;
+    text-shadow: 0px -2px #d1b358;
+    padding: 10px 40px;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+  }
