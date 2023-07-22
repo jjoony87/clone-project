@@ -68,6 +68,14 @@ section {
   border: 2px solid blue;
 }
 
+.scroll-container .page-cont.grid-none {
+  display: block;
+}
+
+.scroll-container .page-cont.grid-ty1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
 .scroll-container .page-cont.grid-ty3 {
   grid-template-columns: repeat(2, 1fr);
 }
@@ -127,4 +135,28 @@ span {
   font-size: 25px;
   color: #fff;
   text-decoration: none;
+}
+
+.mySwiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.mySwiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.mySwiper .swiper-slide .swiper-3d .swiper-slide-shadow-right,
+.mySwiper .swiper-slide .swiper-3d .swiper-slide-shadow-left {
+  color: red;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+.mySwiper .swiper-slide img {
+  display: block;
+  width: 100%;
 }
