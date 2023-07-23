@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        body {background-color: beige;}
+
+        .flex-list {
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: burlywood;
+        }
+        .flex-list > li {
+            min-height: 100px;
+            display: flex;
+
+            background-color: moccasin;
+        }
+        .flex-list > li + li {
+            margin-top: 10px;
+        }
+        .flex-list > li > span {
+
+            background-color: orange;
+        }
+        .flex-list > li > span {
+            color: red;
+        }
+        .flex-list > li > span:last-of-type {
+            justify-self: stretch;
+            align-self: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="flex-wrap">
+        <ul class="flex-list">
+            <li>
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+            </li>
+            <li>
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+            </li>
+            <li>
+                <span>01</span>
+                <span>02</span>
+                <span>03</span>
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+</html>

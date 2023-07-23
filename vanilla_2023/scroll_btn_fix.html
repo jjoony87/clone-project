@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style>
+        html, body {height: 100%;}
+        #wrap {background: darkcyan;}
+        .cont {background: burlywood;}
+        .list > li {display: flex; justify-content: center; align-items: center; height: 600px; font-size: 25px; color: #000; font-weight: 700; border: 3px solid #000; background: cadetblue;}
+        .list .btn {display: inline-block; cursor: pointer; width: 90%; height: 50px; line-height: 50px; border-radius: 25px; border: 2px solid #000; font-size: 20px; color: #000; font-weight: 700; background: coral;}
+        .list .btn.fix {position: fixed; animation: ani .38s both ease-in; left: 50%; bottom: 10px; z-index: 1;}
+        @keyframes ani {
+            0% {
+                transform: translate(-50%,-35%);
+            }
+            50% {
+                transform: translate(-50%,-65%);
+            }
+            100% {
+                transform: translate(-50%,-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="cont sc-btn-fix">
+            <ul class="list">
+                <li>11</li>
+                <li>22</li>
+                <li>
+                    <button class="btn">button</button>
+                </li>
+                <li>44</li>
+                <li>55</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (()=>{
+
+            let yOffset, btnTop, btn;
+            const scBtnFix = document.querySelectorAll('.sc-btn-fix');
+            function defualt(){
+                if(scBtnFix.length){
+                    btn=document.querySelector('.btn');
+                    btnTop=btn.offsetTop+btn.offsetHeight;
+                    console.log(btnTop);
+                }
+            }
+            function setMoveFix(){
+                let yOffsetBtm;
+                if(scBtnFix.length){
+                    yOffsetBtm=yOffset+window.innerHeight;
+                    if(yOffsetBtm>=btnTop){
+                        btn.classList.add('fix');
+                    }else{
+                        btn.classList.remove('fix');
+                    }
+                }
+            }
+            function init(){
+                defualt();
+                setMoveFix();
+                window.addEventListener('scroll', ()=>{
+                    yOffset=window.pageYOffset;
+                    setMoveFix();
+                });
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>

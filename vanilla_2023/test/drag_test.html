@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><!-- 제이쿼리 기업뱅킹 버전동일 -->
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script> -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script><!-- 이게 최신버전 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+
+    <style>
+        * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0;}
+        #sortable {display: flex; justify-content: center; align-items: center;}
+        #sortable .item {flex: 1; padding: 50px 20px; box-sizing: border-box; border: 1px solid #000; text-align: center;}
+
+        .list-wrap {
+           margin: 0 auto;
+           padding: 50px 0;
+           width: 800px;
+        }
+        .column {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 100px 100px 100px;
+            border: 1px solid #535353;
+            padding: 15px;
+        }
+        .column + .column {
+           margin-top: 30px;
+        }
+
+        .container-fluid {
+            margin-top: 20px;
+        }
+
+        .container-fluid .card {
+            /* margin-left: auto;
+            margin-right: auto; */
+        }
+
+        .card {
+            /* border: 2px solid #000; */
+            border-width: 2px;
+            border-style: solid;
+            border-image:linear-gradient(310deg, transparent 0%, transparent 100%);
+            border-image-slice: 1;
+         }
+
+        /* 이동 타켓 */
+        .card-placeholder {
+            /* border: 1px dotted rgb(255, 0, 0); */
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: rgb(217, 57, 8);
+        }
+
+        /* 마우스 포인터를 손가락으로 변경 */
+        .card:not(.no-move) .card-header {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <label class="createBox"> [추가]</label>
+        <div class="list-wrap">
+           <!-- 세로 리스트 박스 -->
+           <div class="col-3 column">
+              <!-- class = no-move : 이동방지 -->
+              <!-- listColumn -->
+              <div class="card text-white" style="background-color: rgb(255, 143, 143);">
+                 <div class="card-header">
+                  <div class="card-body">
+                     <h5 class="card-title">card 1</h5>
+                     <p class="card-text">이동가능</p>
+                  </div>
+               </div>
+              </div>
+              <!-- listColumn -->
+              <div class="card text-white" style="background-color: rgb(214, 138, 53);">
+                 <div class="card-header">Header
+                    <!-- <label class="deleteBox"> [삭제]</label> -->
+                     <div class="card-body">
+                        <h5 class="card-title">card 2</h5>
+                        <p class="card-text">card 2</p>
+                     </div>
+                  </div>
+              </div>
+              <div class="card text-white" style="background-color: rgb(140, 171, 90);">
+                  <div class="card-header">Header
+                     <!-- <label class="deleteBox"> [삭제]</label> -->
+                     <div class="card-body">
+                        <h5 class="card-title">card 2</h5>
+                        <p class="card-text">card 2</p>
+                     </div>
+                  </div>
+               </div>
+            <div class="card text-white" style="background-color: rgb(118, 158, 233);">
+               <div class="card-header">Header
+                  <!-- <label class="deleteBox"> [삭제]</label> -->
+                   <div class="card-body">
+                      <h5 class="card-title">card 2</h5>
+                      <p class="card-text">card 2</p>
+                   </div>
+                </div>
+            </div>
+            <div class="card text-white" style="background-color: rgb(212, 144, 248);">
+               <div class="card-header">Header
+                  <!-- <label class="deleteBox"> [삭제]</label> -->
+                   <div class="card-body">
+                      <h5 class="card-title">card 2</h5>
+                      <p class="card-text">card 2</p>
+                   </div>
+                </div>
+            </div>
+            <div class="card text-white" style="background-color: rgb(219, 210, 41);">
+               <div class="card-header">Header
+                  <!-- <label class="deleteBox"> [삭제]</label> -->
+                   <div class="card-body">
+                      <h5 class="card-title">card 2</h5>
+                      <p class="card-text">card 2</p>
+                   </div>
+                </div>
+            </div>
+           </div>
+           <!-- listColumn -->
+           <div class="col-3 column">
+              <div class="card text-black no-move" style="background-color: rgb(255, 254, 168);">
+                 <div class="card-header">Header
+                  <div class="card-body">
+                     <h5 class="card-title">card 3</h5>
+                     <p class="card-text">이동X</p>
+                  </div>
+                </div>
+              </div>
+           </div>
+        </div>
+     </div>
+
+    <script type="text/javascript">
+        (() => {
+
+         // line-gradient style
+         // function changeBackground(){
+         //    const color1 = document.getElementById("color").value;
+         //    const color2 = document.getElementById("color2").value;
+         //    // css border-image:linear-gradient(310deg, red 0%, blue 100%);
+         //    document.body.style.background = `linear-gradient(${color1}, ${color2})`;
+         // }
+
+            const elm = document.querySelectorAll('.card-header');
+            const cardItem = document.querySelectorAll('.card');
+
+            console.log(elm);
+            $(function () {
+                $(".column").sortable({
+                    // 드래그 앤 드롭 단위 css 선택자
+                    connectWith: ".column",
+                    // 움직이는 css 선택자
+                    handle: ".card-header",
+                    // 움직이지 못하는 css 선택자
+                    cancel: ".no-move",
+                    // 이동하려는 location에 추가 되는 클래스
+                    placeholder: "card-placeholder",
+                    // 요소를 잡는 순간 실행
+                    start : function(event, ui){
+                    $(this).css('background-color', 'rgb(213,222,232)'); // bg가 변경됨
+                    $(this).css('border-color', 'red');
+                     $(elm).css('borderColor', 'red')
+                     $('.card').css('border', 'linear-gradient(310deg, red 0%, blue 100%)');
+
+                     //cardItem.style.borderImage = 'linear-gradient(310deg, red 0%, blue 100%)';
+                    },
+                    // 모든 이동이 끝난 후에 마지막으로 실행
+                    stop : function(event, ui){
+                    //$(this).css('background-color', 'transparent');
+                    $(this).css('background-color', 'rgb(213,222,232)'); // bg가 이동후 설정 색상으로 변경유지됨
+
+                    }
+                });
+                // 해당 클래스 하위의 텍스트 드래그를 막는다.
+                $(".column .card").disableSelection();
+            });
+
+        })();
+    </script>
+</body>
+</html>

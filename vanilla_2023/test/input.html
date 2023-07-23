@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        body {background-color: wheat;}
+        .inp {appearance: none; -webkit-appearance: none; width: 100%; height: 20x; border-radius: 10px; background-color: cadetblue;}
+        .inp::-webkit-slider-thumb {appearance: none; -webkit-appearance: none; width: 20px; height: 20px; border-radius: 100%; background-color: crimson;}
+        p {font-size: 20px; color: #000;}
+    </style>
+</head>
+
+<body>
+    <input type="range" class="inp" min="0" max="100" step="10" value="0" />
+    <p>
+        val : <span class="txt">0</span>
+    </p>
+
+    <script type="text/javascript">
+        (() => {
+            const inp = document.querySelector('.inp');
+            const text = document.querySelector('.txt');
+            let target;
+            function setIinput(){
+                text.textContent = target;
+            }
+            function init(){
+                inp.addEventListener('input', (e) => {
+                    target = e.target.value;
+                    setIinput();
+                })
+            }
+            init();
+        })();
+    </script>
+</body>
+</html>

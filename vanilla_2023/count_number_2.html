@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="/vanilla_event/reset.css">
+    <style>
+        * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0;}
+         .tbl-box {width: 100%; padding: 20px; box-sizing: border-box;}
+         table {width: 100%;}
+         table > thead th {background-color: gainsboro;}
+         table > thead th,
+         table > tbody td {padding: 10px; border: 1px solid #000;}
+         table > tbody td:first-child {text-align: center; font-size: 12px; font-weight: bold;}
+    </style>
+</head>
+<body>
+
+
+   <div class="tbl-box">
+      <table>
+         <colgrou>
+            <col style="width: 10%;">
+            <col style="width: 22%;">
+            <col style="width: 22%;">
+            <col style="width: 25%;">
+            <col style="width: auto">
+         </colgrou>
+            <thead>
+               <tr>
+                  <th><span class="total"></span></th>
+                  <th>tit_02</th>
+                  <th>tit_03</th>
+                  <th>tit_04</th>
+                  <th>tit_05</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+            </tbody>
+      </table>
+   </div>
+
+
+   <div class="tbl-box">
+      <table>
+         <colgrou>
+            <col style="width: 10%;">
+            <col style="width: 22%;">
+            <col style="width: 22%;">
+            <col style="width: 25%;">
+            <col style="width: auto">
+         </colgrou>
+            <thead>
+               <tr>
+                  <th><span class="total"></span></th>
+                  <th>tit_02</th>
+                  <th>tit_03</th>
+                  <th>tit_04</th>
+                  <th>tit_05</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+            </tbody>
+      </table>
+   </div>
+
+
+   <div class="tbl-box">
+      <table>
+         <colgrou>
+            <col style="width: 10%;">
+            <col style="width: 22%;">
+            <col style="width: 22%;">
+            <col style="width: 25%;">
+            <col style="width: auto">
+         </colgrou>
+            <thead>
+               <tr>
+                  <th><span class="total"></span></th>
+                  <th>tit_02</th>
+                  <th>tit_03</th>
+                  <th>tit_04</th>
+                  <th>tit_05</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+                  <td>text</td>
+               </tr>
+            </tbody>
+      </table>
+   </div>
+
+
+   <script type="text/javascript">
+      (() => {
+
+         const tblsBox = document.querySelectorAll('.tbl-box');
+         const numTxt = document.querySelectorAll('.total');
+         let tblsElms = document.querySelectorAll('.tbl-box > table > tbody > tr');
+
+         function setTableNum(){
+            let tbls, elms, nondes, total;
+            tblsElms.forEach((el,i)=> {
+               tbls = el;
+               elms = tbls.firstElementChild;
+               nondes = tbls.rowIndex;
+               elms.textContent=nondes;
+            });
+            for(let i=0; i<tblsBox.length; i++){
+               total = tblsBox[i].childNodes[2];
+               numTxt[i].textContent=total.lastElementChild.childElementCount;
+            }
+         }
+         function init(){
+            setTableNum();
+         }
+         init();
+
+      })();
+   </script>
+</body>
+</html>

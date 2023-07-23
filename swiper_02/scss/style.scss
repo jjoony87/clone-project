@@ -1,0 +1,105 @@
+
+* {
+ box-sizing: border-box;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+
+.mySwiper {
+    height: 100%;
+}
+
+.swiper-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+// .swiper-wrapper::-webkit-scrollbar {
+//     width: 0px;  //remove scrollbar width 
+//     background: transparent;  //optional: it will make scrollbar invisible
+// }
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: beige;
+}
+
+/* .swiper-slide img {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+} */
+
+.box {
+    min-height: 900px;
+    border: 2px solid #000;
+}
+
+.pageCont {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: transparent;
+    //background-color: rgba(0, 0, 0, .5);
+}
+.pageCont.none {
+    display: none;
+}
+
+.swiper {
+    &-pageNum{
+        padding: 15px;
+        position: absolute;
+        left: 0;
+        top: 35%;
+        background-color: #eea;
+        z-index: 10;
+        font-size: 16px;
+    }
+}
+
+// Swiper Nav
+
+
+// .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal
+
+
+.swiper-horizontal {
+
+    background-color: #eea;
+    .swiper-pagination-progressbar {
+        //border: 3px solid #000;
+        width: 50%;
+        top: 50%;
+        .swiper-pagination-horizontal {
+            border: 10px solid red;
+            
+        
+        }
+    }
+
+}

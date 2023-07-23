@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color:beige}
+        .list {padding: 20px;}
+        .elmbox {border: 1px solid #000;}
+        .list-check > li {margin-top: 10px}
+        .list-check > li > strong {padding: 8px 0;}
+        .list-check > li > strong,
+        .list-check > li > label {display: inline-block; border: 1px solid #000;}
+    </style>
+
+</head>
+<body>
+
+    <div style="padding: 30px;">
+        <div class="elmbox">
+            <label for="chk">전체동의</label>
+            <input type="checkbox" id='chk'>
+        </div>
+        <div>
+            <ul class="list-check">
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-01">check-icon</label>
+                    <input type="checkbox" name="list" id="list-01" />
+                </li>
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-02">check-icon</label>
+                    <input type="checkbox" name="list" id="list-02" />
+                </li>
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-03">check-icon</label>
+                    <input type="checkbox" name="list" id="list-03" />
+                </li>
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-04">check-icon</label>
+                    <input type="checkbox" name="list" id="list-04" />
+                </li>
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-05">check-icon</label>
+                    <input type="checkbox" name="list" id="list-05" />
+                </li>
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-06">check-icon</label>
+                    <input type="checkbox" name="list" id="list-06" />
+                </li>
+                <li>
+                    <strong>list-title</strong>
+                    <label for="list-07">check-icon</label>
+                    <input type="checkbox" name="list" id="list-07" />
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        (()=>{
+
+            let items, _target, _arr, _items, _chkCnt;
+            let inps =document.querySelector('.elmbox');
+            let target, _inp , chk=inps, lists, check, elCnt;
+            lists=document.querySelectorAll('.list-check > li');
+            const checkList=document.querySelector('.list-check');
+            _inp =chk.childNodes[3]
+
+            _chkCnt=0;
+            function setCheckList(){
+                const check='input[name="list"]';
+                const itemsCnt=document.querySelectorAll(check);
+                const itemL=itemsCnt.length;
+                _arr=[...itemsCnt]; _arr.map((i)=>{i.maxLength==0});
+                _inp.onclick=(e)=>{
+                    target=e.target;
+                    for(let i of _arr){
+                        _items=i;
+                        if(target.checked){
+                            target.checked=true; _items.checked=true; _chkCnt=itemL;
+                        }else{
+                            _items.checked=false; _chkCnt=0;
+                        }
+                    }
+                }
+            }
+
+            function setInput(e){
+                _target=e.target;
+                check=inps.lastElementChild;
+                elCnt=_target.parentNode.parentNode.childElementCount;
+                if(e.target.checked){_chkCnt++;} else {_chkCnt--;}
+                console.log(_chkCnt);
+                if(elCnt==_chkCnt){
+                    console.log('ok');
+                    check.checked=true;
+                }else{
+                    check.checked=false;
+                }
+            }
+            checkList.addEventListener('input', (e)=>{
+                setInput(e);
+            });
+
+            setCheckList();
+
+        })();
+    </script>
+
+</body>
+</html>

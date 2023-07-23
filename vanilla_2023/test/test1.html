@@ -1,0 +1,74 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        .body {height: 100vh; background: beige;}
+        .list_box {background-color:darkseagreen;}
+        .listWrap {display: flex;}
+        .listWrap > li {flex: 1; border: 1px solid #000;}
+        .listWrap > li > a {display: block; width: 100%; height: 100%; font-size: 20px; color: #000;}
+        .listWrap > li > a.active {background: cadetblue;}
+        .boxWrap > .item {display: none; padding: 50px 20px; box-sizing: border-box; background: burlywood;}
+        .boxWrap > .item.on {display: block;}
+    </style>
+    <script type="text/javascript">
+        window.onload=()=>{
+
+            console.log('aa');
+
+            let tabs, items;
+            function setTabList(){
+                tabs=document.querySelectorAll('.listWrap>li'); items=document.querySelectorAll('.boxWrap>.item');
+                if(tabs.length){
+                    let _elem, _target, _ElemClass, _parents, _ElemArr, _Nodes;
+                    console.log('ok');
+                    tabs.forEach((el,i)=>{
+                        _elem=el.children[0];
+                        _ElemArr=[];
+                        _elem.onclick=(e)=>{
+                            _target=e.target; _ElemClass_target.classList; _parents=_target.parentElement.parentNode;
+                            _ElemArr=[..._parents.childr=en];
+                            for(el of _ElemArr){
+                                _ElemArr=[...items];
+                                _Nodes=el.children[0].classList; _Nodes.remove("active");
+                            }
+                            items[i].classList.add('on')
+                            _ElemClass.add('active');
+                        }
+                    });
+
+                }
+
+            }
+            function init(){
+                setTabList();
+            }
+            init();
+        }
+    </script>
+</head>
+<body>
+
+
+    <div class="list_box">
+        <ul class="listWrap">
+            <li><a href="#" class="active">11</a></li>
+            <li><a href="#">22</a></li>
+            <li><a href="#">33</a></li>
+        </ul>
+    </div>
+    <div class="boxWrap">
+        <div class="item on">1 box</div>
+        <div class="item">2 box</div>
+        <div class="item">3 box</div>
+    </div>
+
+
+</body>
+</html>

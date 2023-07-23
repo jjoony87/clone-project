@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="/vanilla_event/reset.css">
+    <style>
+        * {margin: 0; padding: 0;}
+        html, body {margin: 0; padding: 0; background-color: beige;}
+         .list-wrap {width: 100%; padding: 20px; border: 1px solid #000; box-sizing: border-box;}
+         .list-wrap + .list-wrap {margin-top: 20px;}
+         .list-wrap ul > li {display: flex; gap: 15px; padding: 10px 0; background:gold;}
+         .list-wrap ul > li + li {margin-top: 15px;}
+         .list-wrap ul > li > strong {font-size: 14px; color: tomato;}
+         .list-wrap ul > li > div {font-size: 12px; color: #000;}
+    </style>
+</head>
+<body>
+
+
+   <div class="list-wrap">
+      <ul>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+      </ul>
+   </div>
+
+
+   <div class="list-wrap">
+      <ul>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+      </ul>
+   </div>
+
+
+   <div class="list-wrap">
+      <ul>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+         <li>
+            <strong></strong>
+            <div>title</div>
+            <div>cont : 내용~~~</div>
+         </li>
+      </ul>
+   </div>
+
+
+   <script type="text/javascript">
+      (()=>{
+
+
+         function setListNum(){
+            const listElem = document.querySelectorAll('.list-wrap');
+
+            if(listElem.length>0){
+               let items, elms, node, listItems, arrNodes;
+
+               listElem.forEach((el,i)=>{
+                  items=el; elms=items.lastElementChild; node=items.children[0].children;
+                  //각 리스트의 토탈 개수값 :: console.dir(node.length);
+                  let arrIdx=elms.children, arrays=[...arrIdx];
+                  arrays.map((el,i) => {
+                     arrNodes=el.firstElementChild;arrNodes.textContent=i+1
+                  });
+               });
+            }
+
+         }
+         function init(){
+            setListNum();
+         }
+         init();
+
+      })();
+   </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        button {margin: 0; padding: 0; border: 0; background: none;}
+        .tabList {position: relative; width: 100%; display: flex; justify-content: center;}
+        .tabList > button {flex: 1; padding: 10px 0; transition: all .35s; background: lightskyblue;}
+        .tabList > button.on {background: lightsalmon;}
+        .indicator {display: inline-block; position: absolute; left: 0; bottom: 0; height: 2px; transition: all .35s ease-in-out; background: tomato;}
+        .tabBox {width: 100%; height: 100vh; background: peachpuff;}
+        .tabBox .item-box {display: none; padding: 100px 20px; background: palegreen;}
+        .tabBox .item-box.on {display: block;}
+    </style>
+</head>
+<body>
+
+    <div class="tab-wrap">
+        <div class="tabList">
+            <button class="on">tab-01</button>
+            <button>tab-02</button>
+            <button>tab-03</button>
+            <button>tab-04</button>
+            <button>tab-05</button>
+            <span class="indicator"></span>
+        </div>
+        <div class="tabBox">
+            <div class="item-box on">01</div>
+            <div class="item-box">02</div>
+            <div class="item-box">03</div>
+            <div class="item-box">04</div>
+            <div class="item-box">05</div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+
+            //배열요소 마지막삭제하기
+            let arr = ['1', '2', '3','4','5'];
+            arr.splice(-1,1);
+            //console.log(arr);
+
+            let tabWrap, items, ind, btns;
+
+            function setTabListEvent(){
+                let elem, target, elemClass, path, keys, elemW, elemL;
+                tabWrap=document.getElementsByClassName('tab-wrap');
+                items=document.querySelectorAll('.tabBox>.item-box');
+                ind=document.querySelector('.indicator');
+                if(tabWrap.length){
+                    btns=[...tabWrap[0].firstElementChild.children];
+                    btns.splice(-1,1);
+                    window.addEventListener('load', ()=>{
+                        ind.style.width=btns[0].offsetWidth+'px';
+                    });
+
+                    btns.forEach((el,i)=>{
+                        elem=el;
+
+                        elem.onclick=(e)=>{
+                            target=e.target; elemClass=target.classList; path=target.offsetParent.children;
+                            elemL=target.offsetLeft; elemW=target.offsetWidth;
+                            ind.style.left=elemL+'px';
+                            for(let i=0; i<items.length; i++){
+                                items[i].classList.remove('on');
+                            }
+                            for(keys of path){
+                                keys.classList.remove('on');
+                            }
+                            items[i].classList.add('on');
+                            elemClass.add('on');
+
+                        }
+                    });
+
+                    //console.log;
+
+                }
+
+            }
+            function init(){
+                setTabListEvent();
+                window.addEventListener('resize', setTabListEvent);
+
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>

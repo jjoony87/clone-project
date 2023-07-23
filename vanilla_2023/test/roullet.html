@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%;}
+        .wrap {display: flex; width: 100%; height: 100%; justify-content: center; align-items: center; background: beige;}
+        .cont {position: relative; display: flex; justify-content: center; align-items: center; width: 500px; height: 500px; background: burlywood;}
+        .cont::after {display: inline-block; content: ''; position: absolute; left: 50%; top: 0; transform: translateX(-50%); border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 30px solid red;}
+        .cont .roullet {width: 90%; height: 90%; background: url('/images/img_roullet.png') no-repeat 0 0 / cover;}
+        .cont .roullet.active {animation: ani .1s both infinite;}
+        .cont .btn {display: inline-block; position: absolute; left: 50%; top: 50%; font-size: 20px; color: #000; font-weight: bold; transform: translate(-50%,-50%); width: 80px; height: 80px; border-radius: 100%; border: 2px solid #000; background: yellow;}
+
+        @keyframes ani {
+            0% {
+                transform-origin: center;
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="cont">
+            <div class="roullet"></div>
+            <button class="btn">start</button>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        (()=>{
+
+
+            let roullet, btn, array, _target;
+            const roulletAll={
+                random:()=>{
+                    const max=Math.floor(5);
+                    const min=Math.ceil(0);
+                    return Math.floor(Math.random()*(max-min)+min);
+                },
+                start:()=>{
+                    roullet.classList.add('active');
+                    btn.textContent='stop';
+                },
+                stop:()=>{
+                    array=[60,80,120,180,240,360];
+                    roullet.classList.remove('active');
+                    roullet.style.transform='rotate('+ array[roulletAll.random()]+'deg)';
+                    btn.textContent='start';
+                }
+            }
+
+            function init(){
+                roullet=document.querySelector('.roullet');
+                btn=document.querySelector('.btn');
+                window.addEventListener('load', ()=>{
+
+                });
+                btn.addEventListener('click', (e) =>{
+                    _target=e.target;
+                    if(_target.textContent=='start'){
+                        roulletAll.start();
+                    }else if(_target.textContent=='stop'){
+                        roulletAll.stop();
+                    }
+                });
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>

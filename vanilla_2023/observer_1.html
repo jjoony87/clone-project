@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        html, body {height: 100%; background-color: rgba(0, 0, 0, .3);}
+        .list {padding: 20px;}
+        .list ul {display: flex; gap: 5px;}
+        .list ul + ul {margin-top: 20px;}
+        .list ul > li > button {display: inline-block; padding: 10px 20px; border-radius: 15px; font-size: 12px; font-weight: 500; color: #000; transition: all .5s; cursor: pointer; background-color: burlywood;}
+        .list ul > li > button.on {padding: 30px; color: #fff; background-color: tomato;}
+    </style>
+</head>
+<body>
+
+    <div class="list">
+        <ul class="list_cont">
+            <li><button class="all">전체</button></li>
+            <li><button>가맹점</button></li>
+            <li><button>포장</button></li>
+            <li><button>테이블</button></li>
+            <li><button>주문</button></li>
+        </ul>
+
+        <ul class="list_cont">
+            <li><button>list-01</button></li>
+            <li><button>list-02</button></li>
+            <li><button>list-03</button></li>
+            <li><button>list-04</button></li>
+        </ul>
+    </div>
+
+
+
+    <script type="text/javascript">
+
+        (() => {
+
+            console.log('aa');
+
+            let lists = document.querySelectorAll('.list_cont > li');
+            const bodyElem = document.querySelector('body');
+            const btn = document.getElementsByClassName('all')[0];
+            let _target, buttons = document.querySelector('.all');
+
+            const observer = new ResizeObserver((entries)=>{
+                entries.forEach((entry)=>{
+                    console.log(entry.target.offsetHeight);
+                });
+            });
+
+            observer.observe(lists);
+
+
+            btn.onclick=(e)=>{
+                _target=e.target;
+                _target.classList.toggle('on');
+            }
+
+            //console.log(btn);
+
+            // window.addEventListener('resize', (e)=>{
+            //     console.log(e.target.screen.height);
+            // });
+
+
+
+        })();
+
+    </script>
+
+</body>
+</html>

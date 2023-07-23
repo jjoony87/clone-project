@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        button {margin: 0; padding: 0; border: 0; background: none;}
+        .tabList {position: relative; display: flex; justify-content: center; border-bottom: 1px solid rgb(210, 210, 210);}
+        .tabList > button {flex: 1; padding: 10px 0; transition: all .35s; background: wheat;}
+        .tabList > button.on {background: skyblue;}
+        .tabList .indicator {position: absolute; display: inline-block; left: 0; bottom: -1px; height: 2px; z-index: 1; transition: all .32s ease-in-out; background: tomato;}
+        .tabBox {width: 100%; height: 350px; background:wheat;}
+        .tabBox .item-box {display: none; padding: 100px 20px; background:darkseagreen;}
+        .tabBox .item-box.on {display: block;}
+    </style>
+</head>
+<body>
+
+    <div class="tabWrap">
+
+
+            <div class="tabCont">
+                <div class="tabList">
+                    <button class="on">item_1-1</button>
+                    <button>item_1-2</button>
+                    <button>item_1-3</button>
+                    <button>item_1-4</button>
+                    <button>item_1-5</button>
+                    <span class="indicator"></span>
+                </div>
+                <div class="tabBox">
+                    <div class="item-box on">01</div>
+                    <div class="item-box">02</div>
+                    <div class="item-box">03</div>
+                    <div class="item-box">04</div>
+                    <div class="item-box">05</div>
+                </div>
+            </div>
+
+            <div class="tabCont">
+                <div class="tabList">
+                    <button class="on">item_2-1</button>
+                    <button>item_2-2</button>
+                    <button>item_2-3</button>
+                    <span class="indicator"></span>
+                </div>
+                <div class="tabBox">
+                    <div class="item-box on">01</div>
+                    <div class="item-box">02</div>
+                    <div class="item-box">03</div>
+                </div>
+            </div>
+
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+
+            const tabWrap=document.getElementsByClassName('tabWrap');
+
+            function setTabLineList(){
+                let tabs, lists, items, pathArr, bar, parent, path;
+                if(tabWrap.length){
+                    let elm, target, elmLength, nav;
+                    bar=document.querySelectorAll('.indicator');
+                    tabs=document.querySelectorAll('.tabCont>.tabList>button');
+                    items=document.querySelectorAll('.tabBox>.item-box');
+                    lists=tabs; parent=bar.offsetParent;
+                    for(let i=0; i<bar.length; i++){
+                        parent=bar[i].offsetParent.firstElementChild.offsetWidth; nav=bar[i].style.width=parent+'px';
+                    }
+                    lists.forEach((el,i)=>{
+                        let parents, elms, itemsPath, nodes, elm=el, nodesArr;
+                        elm.onclick=(e)=>{
+                            target=e.target; bar=el.offsetParent.lastElementChild; path=target.classList; itemsPath=items[i].classList;
+                            parents=el.offsetParent.getElementsByTagName('button');
+                            pathArr=[...parents]; elmLength=target.offsetLeft;
+                            nodes=items[i].parentNode.children; bar.style.left=elmLength+'px';
+                            for(let node of nodes){nodesArr=node; nodesArr=nodesArr.classList; nodesArr.remove('on')}
+                            pathArr.map((e,i)=>{elms=e.classList; elms.remove('on');}); path.add('on'); itemsPath.add('on')
+                        }
+                    });
+                }
+            }
+            function init(){
+                setTabLineList();
+            }
+            init();
+
+
+        })();
+    </script>
+</body>
+</html>

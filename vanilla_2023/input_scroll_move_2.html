@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/html/css/reset.css">
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {height: 100%; background-color: beige;}
+        .wrap {width: 100%;}
+        section {min-height: 200px; padding: 20px; border: 1px solid #000;}
+        .item {display: flex; flex-direction: column;}
+        .item > strong {display: block; font-size: 20px; color: #000;}
+        .item > strong + input {margin-top: 10px;}
+        .item > input + input {margin-top: 10px;}
+        input[type=text] {padding: 10px 15px; border: 1px solid #808080; border-radius: 10px;}
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="form-area">
+            <section class="sec-1" data-title='title-01'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+            <section class="sec-2" data-title='title-02'>
+                <div class="item">
+                    <strong></strong>
+                    <input type="text" placeholder="text 입력" />
+                    <input type="text" placeholder="password 입력" />
+                    <input type="text" placeholder="입력" />
+                </div>
+            </section>
+            <section class="sec-3" data-title='title-03'>
+                <div class="item">
+                    <strong></strong>
+                    <input type="text" placeholder="text 입력" />
+                    <input type="text" placeholder="입력" />
+                </div>
+            </section>
+            <section class="sec-4" data-title='title-04'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+            <section class="sec-5" data-title='title-05'>
+                <div class="item">
+                    <strong></strong>
+                    <input type="text" placeholder="text 입력" />
+                </div>
+            </section>
+            <section class="sec-6" data-title='title-06'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+            <section class="sec-7" data-title='title-07'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+            <section class="sec-8" data-title='title-08'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+            <section class="sec-9" data-title='title-09'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+            <section class="sec-10" data-title='title-10'>
+                <div class="item">
+                    <strong></strong>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script>
+        (()=> {
+            function setFormMove(e){
+                let formBox = document.querySelector('.form-area').attributes.length;
+                let sections = document.querySelectorAll('.form-area > section');
+                let item, data, elms, inps, offsets, inpTop;
+                if(formBox>0){
+                    sections.forEach((el,i)=>{
+                        items=el.children[0]; data=el.dataset.title;
+                        items.childNodes[1].textContent=data; elms=el.childNodes[1].lastElementChild;
+                        if(items.children[0].localName==elms.localName) return;
+                        offsets=elms.parentNode.parentElement.nextElementSibling;
+                        elms.addEventListener('change', (e)=>{
+                            inps=e.target; inpTop=inps.parentNode.parentElement.nextElementSibling;
+                            window.scrollTo({top:inpTop.offsetTop, behavior:'smooth'});
+                        });
+                    });
+                }
+            }
+            function init(){
+                setFormMove();
+            }
+            init();
+        })();
+    </script>
+
+</body>
+</html>

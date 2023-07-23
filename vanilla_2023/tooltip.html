@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+       html, body {margin: 0; padding: 0; height: 100%; font-size: 10px; background: wheat;}
+       body.hidden {overflow: hidden;}
+       ul {list-style: none;}
+       li {margin: 0; padding: 0;}
+       div, h1, h2, h3, strong, em, p, span, button, a {font-size: 1.6rem;}
+       button {background: none; border: 0;}
+       .flex {display: flex;}
+
+       .wrap {padding: 20px;}
+       .roundBox {position: relative; padding: 20px 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, .3); background: powderblue;}
+       .roundBox + .roundBox {margin-top: 30px;}
+       .roundBox .box-cont {margin: 10px 0 15px;}
+       .roundBox .tooltipBox {display: none; position: absolute; left: 50%; padding: 15px; width: calc(100% - 40px); width: -webkit-calc(100% - 40px); box-sizing: border-box; transform: translateX(-50%); border: 1px solid #000; animation: ani .35s both; border-radius: 10px; background: white;}
+       .roundBox .tooltipBox.on {display: block; transform: translateX(-50%);}
+       .roundBox .btn-tooltip {position: relative; top: -1px; border: 1px solid #000; width: 15px; height: 15px; border-radius: 100%; background: #fff;}
+       .roundBox .btn-tooltip::after {display: block; content: '!'; font-size: 12px; font-weight: 500;}
+       .btn-area {display: flex; gap: 10px;}
+       .btn-area > button {flex: 1; line-height: 48px; border-radius: 8px; background: darkturquoise;}
+       .btn-area > button > span {line-height: 1;}
+
+       @keyframes ani {
+           0% {
+               opacity: 0;
+               top: 40px;
+           }
+           100% {
+               opacity: 1;
+               top: 52px;
+           }
+       }
+   </style>
+   <script src="ui.js"></script>
+</head>
+<body>
+
+    <div class="wrap">
+
+        <section class="roundBox">
+            <div class="box-tit">
+                <strong>Title-01</strong>
+                <button class="btn-tooltip ico-tooltip"></button>
+            </div>
+            <div class="tooltipBox">
+                [1] Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Adipisci ad reiciendis error eos officiis cumque iusto, ea impedit vel at.
+            </div>
+            <div class="box-cont">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe dolor soluta officia quibusdam debitis perferendis maxime delectus iure magni enim, 
+                quae temporibus animi doloribus sunt rerum repellendus nisi veniam ab?
+            </div>
+            <div class="btn-area">
+                <button class="btn-col-gray">
+                    <span>추가</span>
+                </button>
+                <button class="btn-col-darkgray">
+                    <span>삭제</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="roundBox">
+            <div class="box-tit">
+                <strong>Title-02</strong>
+                <button class="btn-tooltip ico-tooltip"></button>
+            </div>
+            <div class="tooltipBox">
+                [2] Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Adipisci ad reiciendis error eos officiis cumque iusto, ea impedit vel at.
+            </div>
+            <div class="box-cont">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe dolor soluta officia quibusdam debitis perferendis maxime delectus iure magni enim, 
+                quae temporibus animi doloribus sunt rerum repellendus nisi veniam ab?
+            </div>
+            <div class="btn-area">
+                <button class="btn-col-gray">
+                    <span>추가</span>
+                </button>
+                <button class="btn-col-darkgray">
+                    <span>삭제</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="roundBox">
+            <div class="box-tit">
+                <strong>Title-03</strong>
+                <button class="btn-tooltip ico-tooltip"></button>
+            </div>
+            <div class="tooltipBox">
+                [3] Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Adipisci ad reiciendis error eos officiis cumque iusto, ea impedit vel at.
+            </div>
+            <div class="box-cont">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Saepe dolor soluta officia quibusdam debitis perferendis maxime delectus iure magni enim, 
+                quae temporibus animi doloribus sunt rerum repellendus nisi veniam ab?
+            </div>
+            <div class="btn-area">
+                <button class="btn-col-gray">
+                    <span>추가</span>
+                </button>
+                <button class="btn-col-darkgray">
+                    <span>삭제</span>
+                </button>
+            </div>
+        </section>
+
+
+    </div>
+    
+</body>
+</html>
