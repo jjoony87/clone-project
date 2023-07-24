@@ -83,11 +83,6 @@ object-fit: cover;
 }
 
 // Swiper Nav
-
-
-// .swiper-horizontal>.swiper-pagination-progressbar, .swiper-pagination-progressbar.swiper-pagination-horizontal
-
-
 .swiper-horizontal {
 
     background-color: #eea;
@@ -102,4 +97,48 @@ object-fit: cover;
         }
     }
 
+}
+
+// TabList
+.tab {
+    &-wrap {
+        display: grid;
+        grid-template-columns: 20rem 1fr;
+        margin-top: 15rem;
+        gap: 2rem;
+        background-color: #eea;
+        .btns {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 20rem;
+            background-color:darkorange;
+            > li {
+                display: flex;
+                width: 100%;
+                > button {
+                    width: 100%;
+                    border: 0;
+                }
+            }
+        }
+        .tabs {
+            background-color: burlywood;
+            &-item {
+                display: none;
+            }
+        }
+    }
+}
+.links-wrap {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    > button {
+        padding: 1rem 2rem;
+        font-size: 1.4rem;
+        color: #000;
+        border: 1px solid #000;
+    }
+    
 }

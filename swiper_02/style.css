@@ -75,12 +75,51 @@ object-fit: cover;
 .swiper-horizontal {
   background-color: #eea;
 }
-
 .swiper-horizontal .swiper-pagination-progressbar {
   width: 50%;
   top: 50%;
 }
-
 .swiper-horizontal .swiper-pagination-progressbar .swiper-pagination-horizontal {
   border: 10px solid red;
+}
+
+.tab-wrap {
+  display: grid;
+  grid-template-columns: 20rem 1fr;
+  margin-top: 15rem;
+  gap: 2rem;
+  background-color: #eea;
+}
+.tab-wrap .btns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 20rem;
+  background-color: darkorange;
+}
+.tab-wrap .btns > li {
+  display: flex;
+  width: 100%;
+}
+.tab-wrap .btns > li > button {
+  width: 100%;
+  border: 0;
+}
+.tab-wrap .tabs {
+  background-color: burlywood;
+}
+.tab-wrap .tabs-item {
+  display: none;
+}
+
+.links-wrap {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+}
+.links-wrap > button {
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+  color: #000;
+  border: 1px solid #000;
 }

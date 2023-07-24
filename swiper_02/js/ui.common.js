@@ -42,51 +42,56 @@
                 }
             });
 
-            let btns, elem, pageNum;
-            let yOffset, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('button');
+            let btns, elem, pageNum, tabs, links;
+            let yOffset, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
             bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum');
+            tabs=document.querySelectorAll('.tabs>div'); links=document.querySelectorAll('.links-wrap>button');
             reSize=0;
-            function setBtnEvent(){
-                let _target;
-                btns.forEach((el,i)=>{
-                    //elem=e.getAttribute('data-target');
-                    elem=el;
-                    elem.onclick=(e)=>{
-                        _target=e.target;
-                        bodyElem.scrollTo({top: 1700, behavior:'smooth'});
+            function setLinksEvent(){
+                let _targetL;
+                links.forEach((e,i)=>{
+                    e.onclick=(e)=>{_targetL=e.target;
+                        for(let el=0; el<tabs.length; el++){
+                            btns[el].removeAttribute('class'); tabs[el].classList.remove('on');
+                        }
+                        tabs[i].classList.add('on');btns[i].setAttribute('class','active');
                     }
-                    console.log(elem);
+                });
+            }
+            function setBtnEvent(){
+                let _target, parents, items, none; none='none';
+                btns.forEach((el,i)=>{elem=el;
+                    elem.onclick=(e)=>{
+                        _target=e.target; parents=_target.parentNode.parentElement;
+                        for(let el of [...tabs[i].parentNode.children]){
+                            items=el; items.style.display=none;
+                        }
+                        tabs[i].style.display='block';
+                    }
                 });
             }
             function setScrollLoop(){
                 if(yOffset>3){
                     page.classList.remove('none');
                 }else if(yOffset<=0){
-                    console.log(' 0 으로');
+                    //console.log(' 0 으로');
                     bodyElem.style.overflowY='hidden';
                     page.classList.add('none');
                 }
                 // if(yOffset>=reSize/2){
                 //     page.classList.add('none');
                 // }
-                console.log(yOffset);
+                //console.log(yOffset);
             }
             pageNum.textContent=1;
             bodyElem.addEventListener('scroll', (e)=>{
-                //yOffset=window.pageYOffset; reSize=window.innerHeight;
                 yOffset=e.target.scrollTop;
                 setScrollLoop();
             });
-
             setBtnEvent();
-
+            setLinksEvent();
         });
-
-
-
     }
     init();
-
-    
     
 })();
