@@ -42,31 +42,31 @@
                 }
             });
 
-            let btns, elem, pageNum, tabs, links;
+            let btns, elem, pageNum, tabs, links, getOffsetTop;
             let yOffset, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
             bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum');
             tabs=document.querySelectorAll('.tabs>div'); links=document.querySelectorAll('.links-wrap>button');
+            getOffsetTop=document.getElementById('link1'); getOffsetTop=getOffsetTop.offsetTop;
             reSize=0;
             function setLinksEvent(){
                 let _targetL;
                 links.forEach((e,i)=>{
                     e.onclick=(e)=>{_targetL=e.target;
                         for(let el=0; el<tabs.length; el++){
-                            btns[el].removeAttribute('class'); tabs[el].classList.remove('on');
-                        }
+                        btns[el].removeAttribute('class'); tabs[el].classList.remove('on')}
                         tabs[i].classList.add('on');btns[i].setAttribute('class','active');
+                        bodyElem.scrollTo({top: getOffsetTop, behavior:'smooth'});
                     }
                 });
             }
             function setBtnEvent(){
-                let _target, parents, items, none; none='none';
+                let _target, parents, items, none, elClass; none='none';
                 btns.forEach((el,i)=>{elem=el;
                     elem.onclick=(e)=>{
-                        _target=e.target; parents=_target.parentNode.parentElement;
-                        for(let el of [...tabs[i].parentNode.children]){
-                            items=el; items.style.display=none;
-                        }
-                        tabs[i].style.display='block';
+                        _target=e.target; parents=_target.parentNode.parentElement; elClass=_target.classList;
+                        for(let el of [...tabs[i].parentNode.children]){ items=el; items.classList.remove('on');}
+                        [...btns].map((e)=>{e.removeAttribute('class')});
+                        tabs[i].classList.add('on'); elClass.add('active');
                     }
                 });
             }

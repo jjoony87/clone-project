@@ -85,6 +85,7 @@ object-fit: cover;
 
 .tab-wrap {
   display: grid;
+  height: 60rem;
   grid-template-columns: 20rem 1fr;
   margin-top: 15rem;
   gap: 2rem;
@@ -99,17 +100,32 @@ object-fit: cover;
 }
 .tab-wrap .btns > li {
   display: flex;
+  flex-direction: column;
   width: 100%;
 }
 .tab-wrap .btns > li > button {
   width: 100%;
   border: 0;
 }
+.tab-wrap .btns > li > button + div {
+  display: grid;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.35s;
+  background-color: darkseagreen;
+}
+.tab-wrap .btns > li > button.active + div {
+  height: 11rem;
+  overflow: visible;
+}
 .tab-wrap .tabs {
   background-color: burlywood;
 }
 .tab-wrap .tabs-item {
   display: none;
+}
+.tab-wrap .tabs-item.on {
+  display: block;
 }
 
 .links-wrap {
