@@ -18,10 +18,6 @@ body {
   padding: 0;
 }
 
-.mySwiper {
-  height: 100%;
-}
-
 .swiper-wrapper {
   width: 100%;
   height: 100%;
@@ -43,8 +39,8 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 } */
-.box {
-  min-height: 900px;
+.section {
+  height: 100vh;
   border: 2px solid #000;
 }
 
@@ -71,7 +67,9 @@ object-fit: cover;
   z-index: 10;
   font-size: 16px;
 }
-
+.swiper.mainSwiper {
+  height: 100%;
+}
 .swiper-horizontal {
   background-color: #eea;
 }
@@ -79,10 +77,6 @@ object-fit: cover;
   width: 50%;
   top: 50%;
 }
-.swiper-horizontal .swiper-pagination-progressbar .swiper-pagination-horizontal {
-  border: 10px solid red;
-}
-
 .tab-wrap {
   display: grid;
   height: 60rem;
@@ -104,8 +98,9 @@ object-fit: cover;
   width: 100%;
 }
 .tab-wrap .btns > li > button {
-  width: 100%;
+  display: block;
   border: 0;
+  cursor: pointer;
 }
 .tab-wrap .btns > li > button + div {
   display: grid;
@@ -115,17 +110,29 @@ object-fit: cover;
   background-color: darkseagreen;
 }
 .tab-wrap .btns > li > button.active + div {
-  height: 11rem;
+  height: auto;
   overflow: visible;
+  padding: 2rem 0;
 }
 .tab-wrap .tabs {
   background-color: burlywood;
 }
 .tab-wrap .tabs-item {
   display: none;
+  height: 100%;
+}
+.tab-wrap .tabs-item > .swiper {
+  width: 100%;
+  height: 50%;
+  background-color: #aae;
+}
+.tab-wrap .tabs-item > .swiper .swiper-slide {
+  width: 38%;
+  background-color: gold;
 }
 .tab-wrap .tabs-item.on {
-  display: block;
+  display: flex;
+  align-items: center;
 }
 
 .links-wrap {

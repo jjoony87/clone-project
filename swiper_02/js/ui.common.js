@@ -4,7 +4,7 @@
     function init(){
         window.addEventListener('load',()=>{
 
-            var swiper = new Swiper('.mySwiper', {
+            var swiper = new Swiper('.mainSwiper', {
                 speed: 500,
                 //direction: 'vertical',
                 mousewheel: true,
@@ -19,7 +19,11 @@
                 },
                 on: {
                     activeIndexChange: function (){
-                      if(this.realIndex==0){ console.log('첫번째'); }
+                      if(this.realIndex==0){ 
+                        
+                        console.log('첫번째');
+                    
+                    }
                       pageNum.textContent=`${swiper.realIndex+1}`;
                     },
                     reachEnd: function () {
@@ -34,25 +38,33 @@
                     draggable: false
                 }
             });
+
+            var swiper1 = new Swiper('.tabSwiper1,.tabSwiper2,.tabSwiper3,.tabSwiper4,.tabSwiper5', {
+                speed: 500,
+                slidesPerView: "auto",
+                loop: true,
+                spaceBetween: 30,
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "progressbar",
+                },
+            
+            });
     
             window.addEventListener('wheel', function (event) {
-                if (event.deltaY < 0) {
-                swiper.mousewheel.enable();
-                } else if (event.deltaY > 0) {
-                }
+                if (event.deltaY < 0) {swiper.mousewheel.enable();} else if (event.deltaY > 0) {}
             });
-
             let btns, elem, pageNum, tabs, links, getOffsetTop;
-            let yOffset, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
+            let yOffset, el, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
             bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum');
             tabs=document.querySelectorAll('.tabs>div'); links=document.querySelectorAll('.links-wrap>button');
-            getOffsetTop=document.getElementById('link1'); getOffsetTop=getOffsetTop.offsetTop;
             reSize=0;
-            function setLinksEvent(){
-                let _targetL;
+            function setLinksEvent(){ let _targetL;
+                getOffsetTop=document.getElementById('link1');
+                getOffsetTop=getOffsetTop.offsetTop;
                 links.forEach((e,i)=>{
                     e.onclick=(e)=>{_targetL=e.target;
-                        for(let el=0; el<tabs.length; el++){
+                        for(el=0; el<tabs.length; el++){
                         btns[el].removeAttribute('class'); tabs[el].classList.remove('on')}
                         tabs[i].classList.add('on');btns[i].setAttribute('class','active');
                         bodyElem.scrollTo({top: getOffsetTop, behavior:'smooth'});
@@ -64,7 +76,7 @@
                 btns.forEach((el,i)=>{elem=el;
                     elem.onclick=(e)=>{
                         _target=e.target; parents=_target.parentNode.parentElement; elClass=_target.classList;
-                        for(let el of [...tabs[i].parentNode.children]){ items=el; items.classList.remove('on');}
+                        for(let el of [...tabs[i].parentNode.children]){items=el; items.classList.remove('on');}
                         [...btns].map((e)=>{e.removeAttribute('class')});
                         tabs[i].classList.add('on'); elClass.add('active');
                     }
@@ -84,6 +96,7 @@
                 //console.log(yOffset);
             }
             pageNum.textContent=1;
+            window.addEventListener('resize',()=>{setLinksEvent()});
             bodyElem.addEventListener('scroll', (e)=>{
                 yOffset=e.target.scrollTop;
                 setScrollLoop();
