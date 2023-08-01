@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <title>Document</title>
+    <style type="text/css">
+        * {box-sizing: border-box;}
+        html, body {height: 100%;}
+        #wrap {
+            height: 100vh;
+            background-color: #eea;
+        }
+        .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: all .5s;
+            border: 2px solid #000;
+            background-color: beige;
+        }
+        .item.active {
+            background-color: burlywood;
+        }
+        .item > span {
+            font-size: 14px;
+            font-weight: bold;
+            color: #000;
+        }
+        .item.active > span {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <section class="item">
+            <span>scroll - cont</span>
+        </section>
+        <section class="item">
+            <span>scroll - cont</span>
+        </section>
+        <section class="item">
+            <span>scroll - cont</span>
+        </section>
+        <section class="item">
+            <span>scroll - cont</span>
+        </section>
+        <section class="item">
+            <span>scroll - cont</span>
+        </section>
+    </div>
+
+
+    <script type="text/javascript">
+        (()=>{
+            console.log('aa');
+
+            let item, move;
+
+            function setObserveEvent(){
+                let EntyClass
+                const options = {
+                    root: null,
+                    //rootMargin: '0px 0px 10px 0px',
+                    //threshold: 0.2 // 스크롤 화면에 진입하는 범위 영역 단일로 할때
+                    threshold: [0.1, 0.5, 1] // 스크롤 화면에 진입하는 범위 영역 [디폴트, 범위, 전체]
+                }
+                move = new IntersectionObserver((entries, observer)=>{
+                    entries.forEach((entry)=>{
+                        EntyClass=entry.target.classList;
+                        if(entry.isIntersecting){
+                            EntyClass.add('active');
+                        }else{
+                            EntyClass.remove('active');
+                        }
+                    });
+                }, options);
+            }
+            function init(){
+                setObserveEvent();
+                document.querySelectorAll('.item').forEach((el)=>{
+                    move.observe(el);
+                });
+            }
+            init();
+
+        })();
+    </script>
+    
+</body>
+</html>

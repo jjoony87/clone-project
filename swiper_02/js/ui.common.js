@@ -19,16 +19,17 @@
                 },
                 on: {
                     activeIndexChange: function (){
-                      if(this.realIndex==0){ 
-                        
+                        if(this.realIndex==0){
                         console.log('첫번째');
-                    
-                    }
-                      pageNum.textContent=`${swiper.realIndex+1}`;
+                        }else if(this.realIndex===5){
+                            swiper.mousewheel.disable();
+                            bodyElem.style.overflowY='auto';
+                        }
+                        pageNum.textContent=`${swiper.realIndex+1}`;
+                        
                     },
                     reachEnd: function () {
                         swiper.mousewheel.disable();
-                        console.log('마지막');
                         bodyElem.style.overflowY='auto';
                     }
                 },
@@ -50,6 +51,15 @@
                 },
             
             });
+
+            
+            // window.onwheel=(e)=>{
+            //     if(e.deltaY > 0 && this.realIndex==5){
+            //         console.log('scroll~~');
+            //         swiper.mousewheel.disable();
+            //         bodyElem.style.overflowY='auto';
+            //     }
+            // }
     
             window.addEventListener('wheel', function (event) {
                 if (event.deltaY < 0) {swiper.mousewheel.enable();} else if (event.deltaY > 0) {}
@@ -101,6 +111,12 @@
                 yOffset=e.target.scrollTop;
                 setScrollLoop();
             });
+
+            const observer=new IntersectionObserver((entries)=>{
+                console.log(swiper.mousewheel);
+            });
+
+            observer.observe(document.querySelector('.mainSwiper'));
             setBtnEvent();
             setLinksEvent();
         });
