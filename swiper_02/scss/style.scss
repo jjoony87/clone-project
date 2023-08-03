@@ -17,7 +17,19 @@ body {
     color: #000;
     margin: 0;
     padding: 0;
+    &::-webkit-scrollbar {
+        width: 1.2rem;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: #929292;
+        border-radius: 1.8rem;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #e0e0e0;
+        border-radius: 1.8rem;
+    }
 }
+
 
 
 .swiper-wrapper {
@@ -78,8 +90,7 @@ object-fit: cover;
         font-size: 16px;
     }
     &.mainSwiper {height: 100%;}
-    &.tabSwiper1 {
-    }
+
 }
 
 // Swiper Nav
@@ -89,8 +100,8 @@ object-fit: cover;
         //border: 3px solid #000;
         width: 50%;
         top: 50%;
-        .swiper-pagination-horizontal {
-        }
+        // .swiper-pagination-horizontal {
+        // }
     }
 }
 

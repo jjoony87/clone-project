@@ -17,6 +17,17 @@ body {
   margin: 0;
   padding: 0;
 }
+body::-webkit-scrollbar {
+  width: 1.2rem;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #929292;
+  border-radius: 1.8rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: #e0e0e0;
+  border-radius: 1.8rem;
+}
 
 .swiper-wrapper {
   width: 100%;
@@ -70,6 +81,7 @@ object-fit: cover;
 .swiper.mainSwiper {
   height: 100%;
 }
+
 .swiper-horizontal {
   background-color: #eea;
 }
@@ -77,6 +89,7 @@ object-fit: cover;
   width: 50%;
   top: 50%;
 }
+
 .tab-wrap {
   display: grid;
   height: 60rem;
