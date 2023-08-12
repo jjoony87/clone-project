@@ -5,9 +5,9 @@
         
         var swiper = new Swiper('.mainSwiper', {
             speed: 500,
-            //direction: 'vertical',
             mousewheel: true,
             effect: "fade",
+            
             pagination: {
                 el: ".swiper-pagination",
                 type: "progressbar",
@@ -19,7 +19,9 @@
             on: {
                 activeIndexChange: function (){
                     if(this.realIndex==0){
+
                     console.log('첫번째');
+                    
                     }else if(this.realIndex===5){
                         swiper.mousewheel.disable();
                         bodyElem.style.overflowY='auto';
@@ -39,7 +41,7 @@
             }
         });
 
-        var swiper1 = new Swiper('.tabSwiper1,.tabSwiper2,.tabSwiper3,.tabSwiper4,.tabSwiper5', {
+        const swiper1 = new Swiper('.tabSwiper1,.tabSwiper2,.tabSwiper3,.tabSwiper4,.tabSwiper5', {
             speed: 500,
             slidesPerView: "auto",
             loop: true,
@@ -48,8 +50,29 @@
                 el: ".swiper-pagination",
                 type: "progressbar",
             },
-        
         });
+
+        const swiper2 = new Swiper('.rollingSwiper1', {
+            slidesPerView: "auto",
+            loop: true,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+            },
+        });
+        const swiper3 = new Swiper('.rollingSwiper2', {
+            slidesPerView: "auto",
+            loop: true,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                type: "progressbar",
+            },
+        });
+
+       
+
 
         
         // window.onwheel=(e)=>{
@@ -104,6 +127,8 @@
             // }
             //console.log(yOffset);
         }
+        
+        document.querySelector('.swiper-pagination').children[0].style.transform='scaleX(0.166667) scaleY(1)';
         pageNum.textContent=1;
         window.addEventListener('resize',()=>{setLinksEvent()});
         bodyElem.addEventListener('scroll', (e)=>{
@@ -118,6 +143,8 @@
         observer.observe(document.querySelector('.mainSwiper'));
         setBtnEvent();
         setLinksEvent();
+
+        
     }
     init();
     
