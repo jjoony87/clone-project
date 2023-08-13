@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style type="text/css">
+        .grid-wrap {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr minmax(50px, auto);
+        }
+        .grid-wrap > .item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #000;
+        }
+        .grid-wrap > .item:last-child {
+            flex-direction: column;
+            grid-column: 2/4;
+            background-color: beige;
+        }
+        .grid-wrap > .item > span {
+            font-size: 16px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="grid-wrap">
+        <div class="item">
+            <span>01</span>
+        </div>
+        <div class="item">
+            <span>02</span>
+        </div>
+        <div class="item">
+            <span>03</span>
+        </div>
+        <div class="item">
+            <span>04</span>
+        </div>
+        <div class="item">
+            <span>05</span>
+            <span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias autem, assumenda eveniet minima maiores laudantium consectetur pariatur possimus ex veniam ut similique tenetur eum perspiciatis recusandae necessitatibus aliquam. Nam, mollitia?
+                Nobis natus nisi quis odio cum ipsa repudiandae vero labore. Eius ipsum consectetur id temporibus enim odit nostrum eligendi atque tempore facere voluptas esse maxime ut, quos fugiat non animi.
+                Explicabo molestiae temporibus delectus officia labore optio repellat totam assumenda beatae molestias! Deserunt, animi similique aut assumenda molestias nobis enim dolorum aperiam. Ducimus quae incidunt saepe in quasi tenetur sunt!
+            </span>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+            console.log('aaa');
+
+
+
+        })();
+    </script>
+
+</body>
+</html>
