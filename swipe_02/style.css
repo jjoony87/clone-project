@@ -178,3 +178,113 @@ object-fit: cover;
   width: 22%;
   height: 18rem;
 }
+
+.grid {
+  display: grid;
+}
+.grid.col2 {
+  gap: 5rem;
+  padding: 0 11rem;
+  grid-template-columns: 30rem 1fr;
+}
+.grid.col2 .item.lists {
+  display: flex;
+  grid-column: 1/-1;
+}
+.grid.col2 .item:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.grid.col2 .item .addrs dl dt {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: grey;
+}
+.grid.col2 .item .addrs dl dd {
+  font-size: 1.4rem;
+  color: #000;
+}
+.grid.col2 .item .addrs dl + dl {
+  margin-top: 2rem;
+}
+.grid.col2 .item .maps {
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 0.6rem;
+}
+.grid.col2 .item .maps > a {
+  flex: 1;
+  padding: 0.8rem 0;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #000;
+}
+.grid.col2 .item .maps > a + a {
+  border-left: 1px solid #000;
+}
+.grid.col2 .item .img-map {
+  width: 100%;
+}
+.grid.col2 .item-depth {
+  flex: 1;
+  border: 1px solid #000;
+  background-color: skyblue;
+}
+.grid.col2 .item-depth > strong {
+  display: block;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid #000;
+  font-size: 1.8rem;
+  color: #000;
+}
+.grid.col2 .item-depth ul > li {
+  display: flex;
+}
+.grid.col2 .item-depth ul > li > span:first-child {
+  width: 6.5rem;
+}
+.grid.col2 .item-depth ul > li > span:last-child {
+  flex-grow: 1;
+}
+.grid.col3 {
+  grid-template-columns: 1fr 15rem 7rem;
+}
+.grid.col3 .item {
+  border: 1px solid #000;
+}
+.grid.col3 .item:first-child {
+  display: flex;
+  flex-direction: column;
+}
+.grid.col3 .item:first-child > strong {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+}
+.grid.col3 .item:first-child ul {
+  display: flex;
+}
+.grid.col3 .item:first-child ul > li {
+  position: relative;
+  padding: 0 1rem;
+}
+.grid.col3 .item:first-child ul > li:first-child {
+  padding-left: 0;
+}
+.grid.col3 .item:first-child ul > li + li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  display: inline-block;
+  width: 1px;
+  height: 1.2rem;
+  background-color: #000;
+}
+
+.footer {
+  padding: 6rem 11rem;
+  background-color: #516148;
+}

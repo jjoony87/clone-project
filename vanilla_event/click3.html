@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/html/css/reset.css">
+    <link rel="stylesheet" href="reset.css">
     <style type="text/css">
         html, body {height: 100%; background-color: rgba(0, 0, 0, .3);}
         .list {padding: 20px;}
@@ -14,41 +14,6 @@
         .list ul > li > button {display: inline-block; padding: 10px 20px; border-radius: 15px; font-size: 12px; font-weight: 500; color: #000; transition: all .5s; cursor: pointer; background-color: burlywood;}
         .list ul > li > button.on {color: #fff; background-color: tomato;}
     </style>
-    <script type="text/javascript">
-        window.onload=()=>{
-            console.log('aa');
-
-            const lists = document.querySelectorAll('.list_cont > li');
-            function setList(){
-                let elm;
-                let target;
-                let all;
-                let sibilngs;
-                lists.forEach((el,i)=>{
-                    let elms;
-                    elm = el;
-                    elm.children[0].onclick=(e)=>{
-                        target = e.target;
-                        sibilngs = target.parentElement.parentElement.children;
-                        all = target.parentElement.parentElement.children[0].children[0];
-                        if(target.textContent == all.textContent){
-                            for(key of sibilngs){
-                                elms = key.children[0].classList;
-                                elms.remove('on');
-                            }
-                        }else{
-                            all.classList.remove('on');
-                        }
-                        target.classList.toggle('on');
-                    }
-                });
-            }
-            function init(){
-                setList();
-            }
-            init();
-        }
-    </script>
 </head>
 <body>
 
@@ -68,6 +33,37 @@
             <li><button>list-04</button></li>
         </ul>
     </div>
+    
+    <script type="text/javascript">
+        (()=>{
+            let lists, items;
+            function setToggleEvent(){
+                let _target, btns, parents, elemClass;
+                lists.forEach((e,i)=>{
+                    btns=e.children;
+                    btns[0].onclick=(e)=>{
+                        _target=e.target; parents=_target.parentNode.parentElement;
+                        elemClass=_target.classList;
+                        if(parents.firstElementChild.children[0]==_target){
+                            parents=[...parents.children].map((e)=>
+                            {e.children[0].removeAttribute('class')})
+                        }else{
+                            parents.children[0].firstElementChild.removeAttribute('class');
+                        }
+                        elemClass.toggle('on');
+                    }
+                })
+            }
+            function init(){
+                window.addEventListener('DOMContentLoaded',()=>{
+                    lists=document.querySelectorAll('.list_cont>li');
+                    setToggleEvent();
+                })
+            }
+            init();
+
+        })();
+    </script>
 
 </body>
 </html>
