@@ -6,33 +6,27 @@
  box-sizing: border-box;
 }
 
+html {
+    font-size: 62.5%;
+}
 html,
 body {
     position: relative;
     height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
 }
-
 body {
     position: relative;
     //font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    min-width: 128rem;
     color: #000;
     margin: 0;
     padding: 0;
-    &::-webkit-scrollbar {
-        width: 1.2rem;
-    }
-    &::-webkit-scrollbar-thumb {
-        background-color: #929292;
-        border-radius: 1.8rem;
-    }
-    &::-webkit-scrollbar-track {
-        background-color: #e0e0e0;
-        border-radius: 1.8rem;
-    }
+    
 }
 
+
+// Swiper Set
 .swiper-wrapper {
     width: 100%;
     height: 100%;
@@ -50,20 +44,83 @@ body {
     }
 }
 
-// .swiper-wrapper::-webkit-scrollbar {
-//     width: 0px;  //remove scrollbar width 
-//     background: transparent;  //optional: it will make scrollbar invisible
-// }
+.swiper {
+    &-pageNum{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        width: 26rem;
+        position: absolute;
+        left: 14rem;
+        bottom: 17rem;
+        z-index: 10;
+        > span {
+            &::before {
+                content: '0';
+            } 
+        }
+        > span, 
+        &::before {
+            font-family: 'Urbanist';
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #fff;
+        }
+        &::before {
+            display: inline-block;
+            content: '05';
+            
+        }
+    }
+    &.mainSwiper {
+        height: 100%;
+        // .swiper-wrapper {
+            
+        // }        
+    }
 
+}
+
+// Swiper Nav
+.swiper-horizontal {
+    //background-color: #eea;
+    .swiper-pagination-progressbar {
+        //border: 3px solid #000;
+        width: 20rem;
+        top: initial;
+        left: 16.6rem;
+        bottom: 17rem !important;
+        background-color: rgba(187, 187, 187, .5) !important;
+    }
+}
+
+// Swiper rolling
+.swiper {
+    &.rollingSwiper1,
+    &.rollingSwiper2 {
+        margin-top: 12rem;
+        .swiper-slide {
+            width: 22%;
+            height: 18rem;
+            background-color: burlywood;
+        }
+    }
+}
+
+// Swiper common
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     //background: beige;
 }
+
+// .swiper-wrapper::-webkit-scrollbar {
+//     width: 0px;  //remove scrollbar width 
+//     background: transparent;  //optional: it will make scrollbar invisible
+// }
 
 /* .swiper-slide img {
 display: block;
@@ -72,17 +129,21 @@ height: 100%;
 object-fit: cover;
 } */
 
-.test {
-    position: absolute;
-    left: 0;
-    top: 100px;
-    width: 500px;
-    height: 500px;
-    border: 1px solid #000;
-    z-index: 1000;
-    background-repeat: no-repeat;
-    background-image: $logo-normal;
-}
+// .test {
+//     position: absolute;
+//     left: 0;
+//     top: 100px;
+//     width: 500px;
+//     height: 500px;
+//     border: 1px solid #000;
+//     z-index: 1000;
+//     background-repeat: no-repeat;
+//     background-image: $logo-normal;
+// }
+
+
+
+
 
 .logo {
     position: absolute;
@@ -95,35 +156,47 @@ object-fit: cover;
 }
 .header-wrap {
     position: absolute;
-    left: 10rem;
-    top: 50%;
+    left: 14rem;
+    bottom: 26.1rem;
+    //background-color: #eea;
     z-index: 100;
-    opacity: .3;
-    background-color: #eea;
-    
-    .desc {
-        font-size: 2.2rem;
-        letter-spacing: -.5rem;
+    .tit {
+        width: 100%;
+        font-family: 'Pretendard';
+        font-size: 5.4rem;
         color: $color-01;
-        line-height: 1.6;
-        > .font1 {
-            display: block;
-            color: orangered;
-            letter-spacing: normal;
-            font-family: 'PawrestEng';
-        }
-        > .font2 {
-            display: block;
-            color: orangered;
-            letter-spacing: normal;
-            font-family: 'Pretendard';
-        }
-        > .font3 {
-            display: block;
-            color: orangered;
-            letter-spacing: normal;
-            font-family: 'Urbanist';
-        }
+        line-height: 1.4;
+        font-weight: 700;
+    }
+    // .desc {
+    //     > .font1 {
+    //         display: block;
+    //         color: orangered;
+    //         letter-spacing: normal;
+    //         font-family: 'PawrestEng';
+    //     }
+    //     > .font2 {
+    //         display: block;
+    //         color: orangered;
+    //         letter-spacing: normal;
+    //         font-family: 'Pretendard';
+    //     }
+    //     > .font3 {
+    //         display: block;
+    //         color: orangered;
+    //         letter-spacing: normal;
+    //         font-family: 'Urbanist';
+    //     }
+    // }
+}
+.tit-sub {
+    font-family: 'UrbanistBold';
+    text-transform: uppercase;
+    font-size: 8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    > span {
+        color: $primary-01;
     }
 }
 
@@ -141,17 +214,22 @@ object-fit: cover;
 .section {
     //min-height: 900px;
     position: relative;
-    border: 2px solid #000;
     
     &:not(:first-child) {
+        min-height: 108.0rem;
         background-color: beige;
+        border: 2px solid orangered;
     }
     &:nth-of-type(1) {
-        background-image: url('../img/common/bnr_pettaxi.png');
         height: 100vh;
+        min-height: 100vh;
+        background-image: $bg-main;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        object-fit: cover;
     }
 }
-
 .pageCont {
     position: absolute;
     left: 0;
@@ -166,31 +244,89 @@ object-fit: cover;
     display: none;
 }
 
-.swiper {
-    &-pageNum{
-        padding: 15px;
-        position: absolute;
-        left: 0;
-        top: 35%;
-        background-color: #eea;
-        z-index: 10;
-        font-size: 16px;
+.thumb-wrap {
+    display: flex;
+    height: 108.0rem;
+    .item {
+        flex: 1;
+        &:first-child {
+            background-image: $img1;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            object-fit: cover;
+        }
+        .sub-cont {
+            margin-top: 26rem;
+            padding-left: 14rem;
+        }
+        .tit-desc {
+            margin: 4rem 0 25rem;
+            font-family: 'Pretendard';
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: $color-05;
+        }
+        .location {
+            width: 100%;
+            display: flex;
+            gap: 2.4rem;
+            > strong {
+                font-family: 'Urbanist';
+                font-size: 2.4rem;
+                font-weight: 500;
+                line-height: 1.1;
+                color: #000;
+            }
+            ul {
+                display: flex;
+                flex-grow: 1;
+                > li {
+                    position: relative;
+                    &:first-child {
+                        padding-left: 0;
+                    }
+                    & + li {
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: .6rem;
+                            display: inline-block;
+                            width: 1px;
+                            height: 1.6rem;
+                            background-color: #C2CFBA;
+                        }
+                    }
+                    &.coming {
+                        display: flex;
+                        gap: .8rem;
+                        &::after {
+                            display: inline-block;
+                            content: 'Coming Soon';
+                            width: 9.7rem;
+                            height: 100%;
+                            font-family: 'PawrestEng';
+                            font-size: 1.2rem;
+                            line-height: 2;
+                            text-align: center;
+                            vertical-align: middle;
+                            background-color: #E6E6E6;
+                            border-radius: 15px 15px 15px 0px;
+                        }
+                    }
+                    padding: 0 2rem;
+                    font-family: 'Pretendard';
+                    font-size: 2.2rem;
+                    font-weight: 300;
+                    color: $color-05;
+                }
+            }
+        }
     }
-    &.mainSwiper {height: 100%;}
-
 }
 
-// Swiper Nav
-.swiper-horizontal {
-    background-color: #eea;
-    .swiper-pagination-progressbar {
-        //border: 3px solid #000;
-        width: 50%;
-        top: 50%;
-        // .swiper-pagination-horizontal {
-        // }
-    }
-}
+
 
 // TabList
 .tab {
@@ -198,7 +334,7 @@ object-fit: cover;
         display: grid;
         height: 60rem;
         grid-template-columns: 20rem 1fr;
-        margin-top: 15rem;
+        //margin-top: 15rem;
         gap: 2rem;
         background-color: #eea;
         .btns {
@@ -231,17 +367,17 @@ object-fit: cover;
             }
         }
         .tabs {
-            background-color: burlywood;
+            background-color:darkseagreen;
             &-item {
                 display: none;
                 height: 100%;
                 > .swiper {
                     width: 100%;
                     height: 50%;
-                    background-color: #aae;
+                    
                     .swiper-slide {
                         width: 38%;
-                        //background-color:gold;
+                        background-color: bisque;
                     }
                 }
                 &.on {
@@ -264,18 +400,9 @@ object-fit: cover;
     }
 }
 
-// swiper rolling
-.swiper {
-    &.rollingSwiper1,&.rollingSwiper2 {
-        margin-top: 12rem;
-        .swiper-slide {
-            width: 22%;
-            height: 18rem;
-        }
-    }
-}
 
-// grid
+
+// Grid
 .grid {
     display: grid;
     &.col2 {

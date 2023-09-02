@@ -44,7 +44,7 @@
         const swiper1 = new Swiper('.tabSwiper1,.tabSwiper2,.tabSwiper3,.tabSwiper4,.tabSwiper5', {
             speed: 500,
             slidesPerView: "auto",
-            loop: true,
+            loop: false,
             spaceBetween: 30,
             pagination: {
                 el: ".swiper-pagination",
@@ -83,22 +83,23 @@
         });
         let btns, elem, pageNum, tabs, links, getOffsetTop;
         let yOffset, el, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
-        bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum');
-        tabs=document.querySelectorAll('.tabs>div'); links=document.querySelectorAll('.links-wrap>button');
+        bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum>span');
+        tabs=document.querySelectorAll('.tabs>div'); 
+        //links=document.querySelectorAll('.links-wrap>button');
         reSize=0;
-        function setLinksEvent(){ 
-            let _targetL;
-            getOffsetTop=document.getElementById('link1');
-            getOffsetTop=getOffsetTop.offsetTop;
-            links.forEach((e,i)=>{
-                e.onclick=(e)=>{_targetL=e.target;
-                    for(el=0; el<tabs.length; el++){
-                    btns[el].removeAttribute('class'); tabs[el].classList.remove('on')}
-                    tabs[i].classList.add('on');btns[i].setAttribute('class','active');
-                    bodyElem.scrollTo({top: getOffsetTop, behavior:'smooth'});
-                }
-            });
-        }
+        // function setLinksEvent(){ 
+        //     let _targetL;
+        //     getOffsetTop=document.getElementById('link1');
+        //     getOffsetTop=getOffsetTop.offsetTop;
+        //     links.forEach((e,i)=>{
+        //         e.onclick=(e)=>{_targetL=e.target;
+        //             for(el=0; el<tabs.length; el++){
+        //             btns[el].removeAttribute('class'); tabs[el].classList.remove('on')}
+        //             tabs[i].classList.add('on');btns[i].setAttribute('class','active');
+        //             bodyElem.scrollTo({top: getOffsetTop, behavior:'smooth'});
+        //         }
+        //     });
+        // }
         function setBtnEvent(){
             let _target, parents, items, none, elClass; none='none';
             btns.forEach((el,i)=>{elem=el;
@@ -114,7 +115,7 @@
             if(yOffset>3){
                 page.classList.remove('none');
             }else if(yOffset<=0){
-                //console.log(' 0 으로');
+                console.log(' 0 으로');
                 bodyElem.style.overflowY='hidden';
                 page.classList.add('none');
             }
@@ -122,7 +123,7 @@
         }
         document.querySelector('.swiper-pagination').children[0].style.transform='scaleX(0.166667) scaleY(1)';
         pageNum.textContent=1;
-        window.addEventListener('resize',()=>{setLinksEvent()});
+        //window.addEventListener('resize',()=>{setLinksEvent()});
         bodyElem.addEventListener('scroll', (e)=>{
             yOffset=e.target.scrollTop;
             setScrollLoop();
@@ -131,7 +132,8 @@
             console.log(swiper.mousewheel);
         });
         observer.observe(document.querySelector('.mainSwiper'));
-        setBtnEvent(); setLinksEvent();
+        setBtnEvent(); 
+        //setLinksEvent();
     }
     init();
     
