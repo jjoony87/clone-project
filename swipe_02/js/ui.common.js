@@ -86,7 +86,8 @@
         bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum');
         tabs=document.querySelectorAll('.tabs>div'); links=document.querySelectorAll('.links-wrap>button');
         reSize=0;
-        function setLinksEvent(){ let _targetL;
+        function setLinksEvent(){ 
+            let _targetL;
             getOffsetTop=document.getElementById('link1');
             getOffsetTop=getOffsetTop.offsetTop;
             links.forEach((e,i)=>{

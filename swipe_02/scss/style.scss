@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 @import 'common';
 
 * {
@@ -12,8 +14,8 @@ body {
 }
 
 body {
-    background: #eee;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    position: relative;
+    //font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
@@ -60,7 +62,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: beige;
+    //background: beige;
 }
 
 /* .swiper-slide img {
@@ -69,6 +71,18 @@ width: 100%;
 height: 100%;
 object-fit: cover;
 } */
+
+.test {
+    position: absolute;
+    left: 0;
+    top: 100px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #000;
+    z-index: 1000;
+    background-repeat: no-repeat;
+    background-image: $logo-normal;
+}
 
 .logo {
     position: absolute;
@@ -84,23 +98,58 @@ object-fit: cover;
     left: 10rem;
     top: 50%;
     z-index: 100;
+    opacity: .3;
     background-color: #eea;
-    .tit {
-        
-    }
+    
     .desc {
         font-size: 2.2rem;
         letter-spacing: -.5rem;
         color: $color-01;
         line-height: 1.6;
+        > .font1 {
+            display: block;
+            color: orangered;
+            letter-spacing: normal;
+            font-family: 'PawrestEng';
+        }
+        > .font2 {
+            display: block;
+            color: orangered;
+            letter-spacing: normal;
+            font-family: 'Pretendard';
+        }
+        > .font3 {
+            display: block;
+            color: orangered;
+            letter-spacing: normal;
+            font-family: 'Urbanist';
+        }
     }
 }
 
+.hidden {
+    position: absolute;
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    word-break: initial;
+    word-wrap: initial;
+}
 .section {
     //min-height: 900px;
     position: relative;
-    height: 100vh;
     border: 2px solid #000;
+    
+    &:not(:first-child) {
+        background-color: beige;
+    }
+    &:nth-of-type(1) {
+        background-image: url('../img/common/bnr_pettaxi.png');
+        height: 100vh;
+    }
 }
 
 .pageCont {
@@ -192,7 +241,7 @@ object-fit: cover;
                     background-color: #aae;
                     .swiper-slide {
                         width: 38%;
-                        background-color:gold;
+                        //background-color:gold;
                     }
                 }
                 &.on {
