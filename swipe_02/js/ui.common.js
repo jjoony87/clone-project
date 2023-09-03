@@ -41,16 +41,32 @@
             }
         });
 
-        const swiper1 = new Swiper('.tabSwiper1,.tabSwiper2,.tabSwiper3,.tabSwiper4,.tabSwiper5', {
+        // const swiper1 = new Swiper('.tabSwiper1,.tabSwiper2,.tabSwiper3,.tabSwiper4,.tabSwiper5', {
+        //     speed: 500,
+        //     slidesPerView: "auto",
+        //     loop: false,
+        //     spaceBetween: 30,
+        //     pagination: {
+        //         el: ".swiper-pagination",
+        //         type: "progressbar",
+        //     },
+        // });
+
+        const swiper1 = new Swiper('.tabSwiper1', {
             speed: 500,
             slidesPerView: "auto",
             loop: false,
             spaceBetween: 30,
             pagination: {
                 el: ".swiper-pagination",
-                type: "progressbar",
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
         });
+
+
         const swiper2 = new Swiper('.rollingSwiper1', {
             slidesPerView: "auto",
             loop: true,
@@ -81,10 +97,10 @@
         window.addEventListener('wheel', function (event) {
             if (event.deltaY < 0) {swiper.mousewheel.enable();} else if (event.deltaY > 0) {}
         });
-        let btns, elem, pageNum, tabs, links, getOffsetTop;
+        let btns, pageNum, tabs, boxs, inds;
         let yOffset, el, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
         bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum>span');
-        tabs=document.querySelectorAll('.tabs>div'); 
+        tabs=document.querySelectorAll('.tabs-nav>ul>li'); boxs=document.querySelectorAll('.tabs-box>.item'); inds=document.querySelectorAll('.indicator');
         //links=document.querySelectorAll('.links-wrap>button');
         reSize=0;
         // function setLinksEvent(){ 
@@ -100,15 +116,31 @@
         //         }
         //     });
         // }
-        function setBtnEvent(){
-            let _target, parents, items, none, elClass; none='none';
-            btns.forEach((el,i)=>{elem=el;
-                elem.onclick=(e)=>{
-                    _target=e.target; parents=_target.parentNode.parentElement; elClass=_target.classList;
-                    for(let el of [...tabs[i].parentNode.children]){items=el; items.classList.remove('on');}
-                    [...btns].map((e)=>{e.removeAttribute('class')});
-                    tabs[i].classList.add('on'); elClass.add('active');
-                }
+        // function setBtnEvent(){
+        //     let _target, parents, items, none, elClass; none='none';
+        //     btns.forEach((el,i)=>{elem=el;
+        //         elem.onclick=(e)=>{
+        //             _target=e.target; parents=_target.parentNode.parentElement; elClass=_target.classList;
+        //             for(let el of [...tabs[i].parentNode.children]){items=el; items.classList.remove('on');}
+        //             [...btns].map((e)=>{e.removeAttribute('class')});
+        //             tabs[i].classList.add('on'); elClass.add('active');
+        //         }
+        //     });
+        // }
+        let _targets, parents, elemNodes, Offset, px, elems, nodeLine;
+        function setTabsEvent(){
+            Offset=tabs[0]; px='px'
+            inds.forEach((e,i)=>{
+                elems=e.parentNode.firstElementChild.children[0]; e.style.left=elems.offsetLeft+px; e.style.width=elems.offsetWidth+px;
+            });
+            tabs.forEach((e,i)=>{
+                e.children[0].onclick=(e)=>{
+                    _targets=e.target; elemNodes=_targets.classList; parents=_targets.parentNode.parentElement;
+                    nodeLine=_targets.parentNode.parentElement.nextElementSibling;
+                    parents=[...parents.children].filter((e)=>{e.children[0].removeAttribute('class')});
+                    [...boxs[i].parentNode.children].map((e)=>{e.classList.remove('active')})
+                    boxs[i].setAttribute('class','item active'); elemNodes.add('on');
+                    nodeLine.style.left=_targets.offsetLeft+px; nodeLine.style.width=_targets.offsetWidth+px;}
             });
         }
         function setScrollLoop(){
@@ -132,8 +164,9 @@
             console.log(swiper.mousewheel);
         });
         observer.observe(document.querySelector('.mainSwiper'));
-        setBtnEvent(); 
+        //setBtnEvent();
         //setLinksEvent();
+        setTabsEvent();
     }
     init();
     
