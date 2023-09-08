@@ -97,10 +97,11 @@
         window.addEventListener('wheel', function (event) {
             if (event.deltaY < 0) {swiper.mousewheel.enable();} else if (event.deltaY > 0) {}
         });
-        let btns, pageNum, tabs, boxs, inds;
+        let btns, pageNum, tabs, boxs, inds, navs, groups;
         let yOffset, el, reSize, bodyElem, page=document.querySelector('.pageCont'); btns=document.querySelectorAll('.btns>li>button');
         bodyElem=document.getElementsByTagName('body')[0]; pageNum=document.querySelector('.swiper-pageNum>span');
         tabs=document.querySelectorAll('.tabs-nav>ul>li'); boxs=document.querySelectorAll('.tabs-box>.item'); inds=document.querySelectorAll('.indicator');
+        navs=document.querySelectorAll('.slide-nav>ul>li'); groups=document.querySelectorAll('.slide-group>.item');
         //links=document.querySelectorAll('.links-wrap>button');
         reSize=0;
         // function setLinksEvent(){ 
@@ -127,6 +128,18 @@
         //         }
         //     });
         // }
+
+        function setSlideEvent(){
+            let _el, _targets, _elemNode;
+            navs.forEach((e,i)=>{ _el=e.children[0];
+                _el.onclick=(e)=>{ _targets=e.target; _elemNode=_targets.parentNode;
+                    [..._elemNode.parentElement.children].filter
+                    ((e)=>{e.children[0].removeAttribute('class')})
+                    _targets.setAttribute('class','on'); for(let i=0; i<groups.length; i++){groups[i].setAttribute('class','item')}
+                    groups[i].classList.add('active');
+                }
+            })
+        }
         let _targets, parents, elemNodes, Offset, px, elems, nodeLine;
         function setTabsEvent(){
             Offset=tabs[0]; px='px'
@@ -166,7 +179,7 @@
         observer.observe(document.querySelector('.mainSwiper'));
         //setBtnEvent();
         //setLinksEvent();
-        setTabsEvent();
+        setTabsEvent();setSlideEvent();
     }
     init();
     
