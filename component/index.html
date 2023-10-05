@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide-Component</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/include.js"></script>
+</head>
+<body>
+
+    <div id="wrap">
+        <header class="header">
+            <h1>guide</h1>
+        </header>
+        <div class="container">
+            <div class="side">
+                <div class="side-list">
+                    <ul class="depth-one">
+                        <li>
+                            <a href="#none">click</a>
+                            <div class="acc-cont">
+                                <ul>
+                                    <li><a href="#none" data-get="file_01/list_01_01.html">list-sub-01</a></li>
+                                    <li><a href="#none" data-get="file_01/list_01_02.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_01/list_01_03.html">list-sub-03</a></li>
+                                    <li><a href="#none" data-get="file_01/list_01_04.html">list-sub-04</a></li>
+                                    <li><a href="#none" data-get="file_01/list_01_05.html">list-sub-05</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#none">input</a>
+                            <div class="acc-cont">
+                                <ul>
+                                    <li><a href="#none" data-get="file_02/list_02_01.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_02/list_02_02.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_02/list_02_03.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_02/list_02_04.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_02/list_02_05.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_02/list_02_06.html">list-sub-02</a></li>
+                                    <li><a href="#none" data-get="file_02/list_02_07.html">list-sub-02</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#none">grid</a>
+                        </li>
+                        <li>
+                            <a href="#none">toast</a>
+                        </li>
+                        <li>
+                            <a href="#none">scroll</a>
+                        </li>
+                        <li>
+                            <a href="#none">observer</a>
+                        </li>
+                        <li>
+                            <a href="#none">tab</a>
+                        </li>
+                        <li>
+                            <a href="#none">tooltip</a>
+                        </li>
+                        <li>
+                            <a href="#none">리스트</a>
+                        </li>
+                        <li>
+                            <a href="#none">리스트</a>
+                        </li>
+                        <li>
+                            <a href="#none">리스트</a>
+                        </li>
+                        <li>
+                            <a href="#none">리스트</a>
+                        </li>
+                        <li>
+                            <a href="#none">리스트</a>
+                        </li>
+                        <li>
+                            <a href="#none">리스트</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="content">
+                <div class="include_cont">
+                    <div include-html="file_01/list_01_01.html"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+            let lnbList, inc, accItem;
+            function setListEvent(){
+                let _targetList, listLink, listItem;
+                lnbList.forEach((e)=>{
+                    e.children[0].
+                    onclick=(e)=>{
+                        _targetList=e.target; listLink=_targetList.getAttribute('data-get');
+                        inc[0].children[0].setAttribute('include-html',`${listLink}`); includeHTML();
+                    }
+                });
+                accItem.forEach((e)=>{
+                    e.children[0].onclick=(e)=>{
+                        listItem=e.target;
+                        listItem.classList.toggle('active');
+                    }
+                });
+            }
+            function init(){
+                window.addEventListener('DOMContentLoaded',()=>{
+                    lnbList=document.querySelectorAll('.acc-cont>ul>li');
+                    inc=document.getElementsByClassName('include_cont');
+                    accItem=document.querySelectorAll('.side-list>ul>li');
+                    setListEvent();
+                });
+                includeHTML();
+            }
+            init();
+        })();
+    </script>
+
+</body>
+</html>
