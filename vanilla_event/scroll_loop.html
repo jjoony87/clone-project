@@ -43,48 +43,47 @@
     </div>
 
     <script type="text/javascript">
-        (()=>{
+    (()=>{
+        console.log('aa');
 
-            console.log('1');
-
-            let yOffset, current, prevScrollH, totalScrollH, sections, bodyElem;
-
-            function setScrllLoad(){
-                totalScrollH=0;
-                for(let i=0; i<sections.length; i++){
-                    totalScrollH+=sections[i].offsetHeight;
-                    if(totalScrollH>=yOffset){
-                        current=i; break;
-                    }
-                }
-                bodyElem.setAttribute('class', `active-${current}`);
+        let yOffset, current, sections, bodyElem, prevScrollH, totalScrollH;
+        function setScrollLoop(){
+            prevScrollH=0;
+            for(let i=0; i<current; i++){
+                prevScrollH+=sections[i].offsetHeight;
             }
-            function setScrollLoop(){
-                prevScrollH=0;
-                for(let i=0; i<current; i++){
-                    prevScrollH+=sections[i].offsetHeight;
-                }
-                if(yOffset>=prevScrollH+sections[current].offsetHeight){
-                    current++; bodyElem.setAttribute('class', `active-${current}`);
-                }else if(yOffset<prevScrollH){
-                    current--; bodyElem.setAttribute('class', `active-${current}`);
+            if(yOffset>=prevScrollH+sections[current].offsetHeight){
+                current++; bodyElem[0].setAttribute('class',`active-${current}`);
+            }else if(yOffset<prevScrollH){
+                current--; bodyElem[0].setAttribute('class',`active-${current}`);
+            }
+            setScrollLoad();
+        }
+        function setScrollLoad(){
+            totalScrollH=0;
+            for(let i=0; i<sections.length; i++){
+                totalScrollH+=sections[i].offsetHeight;
+                if(totalScrollH>=yOffset){
+                    current=i; break;
                 }
             }
-            function init(){
-                current=0; yOffset=0;
-                window.addEventListener('DOMContentLoaded', ()=>{
-                    sections=document.querySelectorAll('section');
-                    bodyElem=document.querySelector('body');
-                });
-                window.addEventListener('load', setScrllLoad);
-                window.addEventListener('scroll', ()=>{
-                    yOffset=window.pageYOffset;
-                    setScrollLoop();
-                });
-            }
-            init();
+            bodyElem[0].setAttribute('class',`active-${current}`);
+        }
+        function init(){
+            yOffset=0; current=0;
+            window.addEventListener('DOMContentLoaded',()=>{
+                sections=document.querySelectorAll('section');
+                bodyElem=document.getElementsByTagName('body');
+                setScrollLoad();
+            });
+            window.addEventListener('scroll',()=>{
+                yOffset=window.pageYOffset;
+                setScrollLoop();
+            });
+        }
+        init();
 
-        })();
+    })();
     </script>
 </body>
 </html>
