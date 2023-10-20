@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/html/css/reset.css">
+    <link rel="stylesheet" href="reset.css">
     <style type="text/css">
         html, body {height: 100%; background-color: rgba(0, 0, 0, .3);}
         .list {padding: 20px;}
@@ -42,34 +42,37 @@
 
     <script type="text/javascript">
         (()=>{
+
             console.log('aa');
-            let lists, listElem, elem, target, elemClass, elemCont, elemAll, arrs, elemKey, elems;
-            function setListEvent(){
-                lists=document.getElementsByClassName('list');
-                listElem=document.querySelectorAll('.list_cont>li');
-                if(lists.length){
-                    listElem.forEach((el,i)=>{
-                        elem=el;
-                        elem.onclick=(e)=>{
-                            target=e.target; elemClass=target.classList; elemCont=target.parentNode.parentElement;
-                            elemAll=elemCont.firstElementChild.children;
-                            if(elemAll[0]==target){
-                                arrs=[...elemCont.children];
-                                for(elemKey of arrs) {elems=elemKey.children[0].classList; elems.remove('on');}
-                            }else{
-                                elemAll[0].classList.remove('on');
-                            }
-                            elemClass.toggle('on');
+            
+            let lists, btns;
+            function setToggleEvent(){
+                let _target, parents, _elemClass;
+                lists.forEach((e)=>{
+                    e.children[0].onclick=(e)=>{
+                        _target=e.target; _elemClass=_target.classList; parents=_target.parentNode.parentElement;
+
+                        if(parents.firstElementChild.children[0]==_target){
+                            parents=[...parents.children].map((e)=>{e.children[0].removeAttribute('class')})
+                        }else{
+                            parents.firstElementChild.children[0].removeAttribute('class');
                         }
-                    });
-                }
+                        _elemClass.toggle('on');
+                    }
+                })
             }
             function init(){
-                setListEvent();
+                
+                window.addEventListener('DOMContentLoaded',()=>{
+                    lists=document.querySelectorAll('.list_cont>li');
+                    setToggleEvent();
+                });
             }
             init();
-        })();
 
+
+
+        })();
     </script>
 
 </body>
