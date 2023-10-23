@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {height: 100%; background-color: beige;}
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="item">List - 01</div>
+        <div class="item">List - 02</div>
+        <div class="item">List - 03</div>
+        <div class="item">List - 04</div>
+        <div class="item">List - 05</div>
+
+
+        <div class="plus">
+            <div class="add-item">plus - 01</div>
+            <div class="add-item">plus - 02</div>
+            <div class="add-item">plus - 03</div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+        (()=>{
+            // 배열로 만들고 변수에 담기
+            let items, addList, array=[], addArray;
+            function init(){
+                items=document.querySelectorAll('.item');
+                addList=document.querySelectorAll('.add-item');
+
+                console.log([...addList]);
+
+                for(let key of items){
+                    array.push(key);
+                }
+
+                // 기존 배열에 + add-item 배열 추가
+                addArray=array.concat([...addList]);
+                console.log(addArray);
+                //새로만든배열을 onclick이벤트로 추가된 배열과 함께 event 설정할수있다.
+                addArray.forEach((e)=>{
+                    e.onclick=(e)=>{
+                        console.log(e.target);
+                    }
+                })
+                //console.log(addArray.at(-1));
+        
+                
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+$swich_red-theme: rgb(244, 67, 54);
+$swich-blue-theme: rgb(3, 155, 229);
+$swich-green-theme: rgb(4, 196, 52);
+
+body {
+    background-color: beige;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.text-content {
+    text-align: center;
+}
+
+input[type=checkbox].switch + label {
+    display: inline-block;
+    width: 34px;
+    height: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+    background-color: lightgray;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    &:before, &:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+        top: -3px;
+        left: 0;
+        transition: all .2s;
+        -webkit-transition: all .2s;
+        -moz-transition: all .2s;
+        -ms-transition: all .2s;
+        -o-transition: all .2s;
+    }
+    &:after {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    }
+    &:before {
+        background: lightgray;
+        transform:scale(0,0,1);
+        -webkit-transform:scale(0,0,1);
+        -moz-transform:scale(0,0,1);
+        -ms-transform:scale(0,0,1);
+        -o-transform:scale(0,0,1);
+    }
+    &:active:before {
+        transform: scale(3,3,1);
+        -webkit-transform: scale(3,3,1);
+        -moz-transform: scale(3,3,1);
+        -ms-transform: scale(3,3,1);
+        -o-transform: scale(3,3,1);
+    }
+    input[type=checkbox].switch {
+        display: none;
+        &:checked + label {
+            background: rgba($swich-blue-theme, 0.5);
+            &:before, &:after {
+                left: 14px;
+                background: $swich-blue-theme;
+            }
+        }
+        &:disabled + label {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
+}

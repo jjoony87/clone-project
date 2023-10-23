@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {height: 100%; background-color: beige;}
+        .item {
+            margin-top: 6px;
+            border: 1px solid #000;
+            cursor: pointer;
+        }
+        .result-box {
+            width: 35vw;
+            padding: 20px;
+            margin-top: 20px;
+            border: 2px solid orange;
+        }
+        .txt-result {
+            padding: 6px;
+            line-height: 1;
+            background-color: powderblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="item">List - 01</div>
+        <div class="item">List - 02</div>
+        <div class="item active">List - 03</div>
+        <div class="item">List - 04</div>
+        <div class="item">List - 05</div>
+    </div>
+
+    <div class="result-box">
+        <h1>Result 값</h1>
+        <p class="txt-result">0</p>
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+            // 배열로 만들고 변수에 담기
+            let items, idx, array=[], txtResult;
+            idx=2;
+            function init(){
+                items=document.querySelectorAll('.item');
+                txtResult=document.querySelector('.txt-result');
+                for(let key of items){
+                    array.push(key);
+                }
+                // 배열로 만들어진 array
+                //console.log('배열로 만든 변수담기', array);
+
+                array.forEach((e,i)=>{
+                    let _target, nodeClass, parents, _text;
+                    e.onclick=(e)=>{
+                        _target=e.target; nodeClass=_target.classList; parents=_target.parentNode;
+                        [...parents.children].map((e)=>{e.setAttribute('class','item')}); nodeClass.add('active');
+                        _text=array[i].textContent;
+                        console.log(_text);
+
+                        txtResult.textContent=_text;
+                    }
+                })
+
+                //console.log(array);
+                const test = array.find((el)=>{
+                    //console.log(el.classList.contains('item'));
+                    //console.log(el.getAttribute('class','active'));
+                    //console.log(el.classList.contains('active'));
+                    if(el.classList.contains('active')){
+                        console.log('11');
+                        return el;
+                    }
+                });
+                // active 클래스만 있는 엘리먼트를 > test 변수로 추출하기
+
+                console.log(test);
+
+                
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>
