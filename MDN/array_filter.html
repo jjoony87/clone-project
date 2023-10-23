@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {margin: 0; padding: 0;}
+        html, body {height: 100%; background-color: beige;}
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+        <div class="item">List - 01</div>
+        <div class="item">List - 02</div>
+        <div class="item">List - 03</div>
+        <div class="item">List - 04</div>
+        <div class="item">List - 05</div>
+    </div>
+
+    <script type="text/javascript">
+        (()=>{
+            // 배열로 만들고 변수에 담기
+            let items, idx, array=[];
+            idx=2;
+            function init(){
+                items=document.querySelectorAll('.item');
+                
+                for(let key of items){
+                    array.push(key);
+                }
+                // 배열로 만들어진 array
+                //console.log('배열로 만든 변수담기', array);
+                console.log('test', array.length);
+
+                function isBigEnough(value){
+                    return value >= 3;
+                }
+                const filtered = array.filter(isBigEnough);
+
+                console.log(filtered);
+
+                
+            }
+            init();
+
+        })();
+    </script>
+</body>
+</html>
