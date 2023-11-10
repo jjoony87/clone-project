@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style type="text/css">
+        * {padding: 0; margin: 0; box-sizing: border-box;}
+        html, body {
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #wrap {
+            padding: 100px;
+            height: 100vh;
+            background-color: rgb(221, 221, 221);
+        }
+
+        .contol-area {
+            display: flex;
+            align-items: left;
+            gap: 30px;
+            flex-direction: column;
+        }
+        .box {
+            margin-left: 100px;
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+        }
+
+        .box:nth-child(1) {
+            background-color:coral;
+        }
+        .box:nth-child(2) {
+            background-color: purple;
+        }
+        .box:nth-child(3) {
+            background-color:deepskyblue;
+        }
+        .contol-top {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-return {
+            display: inline-block;
+            width: 200px;
+            padding: 15px 0;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="wrap">
+
+        <div class="contol-top">
+            <button class="btn-return">Return</button>
+        </div>
+
+        <div class="contol-area">
+            <div class="box type1"></div>
+            <div class="box type2"></div>
+            <div class="box type3"></div>
+        </div>
+
+
+        
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script type="text/javascript">
+        (()=>{
+            console.log('aa');
+            
+            // tl 변수에 타임라인 세팅
+            let btn, tl = gsap.timeline();
+
+            function setTimeLien(){
+                // x 축으로 이동 1.6 초동안
+                tl.to('.type1', {duration: 1.2, x: 100})
+
+                // 그 다음 y 축으로 이동 1초동안
+                .to('.type2', {duration: 1, y: 200})
+
+                // 그 다음 제자리에서 돌기 2.5초 동안
+                .to('.type3', {duration: 1.5, rotation: 360})
+            }
+            btn = document.querySelector('.btn-return');
+
+            btn.onclick=()=>{
+                setTimeLien();
+            }
+            
+
+        })();
+    </script>
+
+</body>
+</html>
