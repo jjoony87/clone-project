@@ -7,7 +7,6 @@
             speed: 500,
             mousewheel: true,
             effect: "fade",
-            
             pagination: {
                 el: ".swiper-pagination",
                 type: "progressbar",
@@ -173,10 +172,10 @@
             yOffset=e.target.scrollTop;
             setScrollLoop();
         });
-        const observer=new IntersectionObserver((entries)=>{
-            console.log(swiper.mousewheel);
-        });
-        observer.observe(document.querySelector('.mainSwiper'));
+        // const observer=new IntersectionObserver((entries)=>{
+        //     console.log(swiper.mousewheel);
+        // });
+        //observer.observe(document.querySelector('.mainSwiper'));
         //setBtnEvent();
         //setLinksEvent();
         setTabsEvent();setSlideEvent();
